@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - BandarMology</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-white font-sans text-gray-800">
+
+    <div class="min-h-screen flex">
+
+        <div class="hidden lg:flex w-1/2 bg-brand-dark relative items-center justify-center overflow-hidden">
+            
+            <img src="assets/img/hero2.png" class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
+
+            <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-green-500 rounded-full mix-blend-overlay filter blur-[100px] opacity-30 animate-blob"></div>
+
+            <div class="relative z-10 p-12 max-w-lg text-center">
+                <div class="mb-6 inline-block p-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl">
+                    <img src="assets/img/logo.png" class="h-12 w-auto brightness-0 invert">
+                </div>
+                <h2 class="text-3xl font-extrabold text-white mb-6 leading-tight">
+                    "Tools BandarMology membantu saya melihat apa yang tidak terlihat di chart biasa."
+                </h2>
+                <div class="flex items-center justify-center gap-4">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green">
+                    <div class="text-left">
+                        <p class="text-white font-bold">Andi Pratama</p>
+                        <p class="text-green-400 text-xs uppercase tracking-widest">Professional Trader</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 bg-white relative">
+            
+            <a href="index.html" class="absolute top-8 left-8 text-gray-400 hover:text-brand-green transition lg:hidden">
+                <i class="fas fa-arrow-left mr-2"></i> Kembali
+            </a>
+
+            <div class="w-full max-w-md">
+                
+                <div class="mb-10 text-center lg:text-left">
+                    <img src="assets/img/logo.png" class="h-10 w-auto mx-auto mb-6 lg:hidden">
+                    
+                    <h1 class="text-3xl font-extrabold text-gray-900 mb-2">Selamat Datang Kembali</h1>
+                    <p class="text-gray-500">Masuk untuk mengakses dashboard premium Anda.</p>
+                </div>
+
+                <form action="otp.html" method="POST"> <div class="mb-5">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email atau No. WhatsApp</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="text" class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition placeholder-gray-400" placeholder="nama@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Kata Sandi</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="passwordInput" class="w-full pl-11 pr-12 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition placeholder-gray-400" placeholder="••••••••" required>
+                            <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 focus:outline-none">
+                                <i class="fas fa-eye" id="eyeIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-8">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 text-brand-green border-gray-300 rounded focus:ring-brand-green">
+                            <span class="ml-2 text-sm text-gray-600">Ingat Saya</span>
+                        </label>
+                        <a href="#" class="text-sm font-medium text-brand-green hover:text-green-700 transition">Lupa Password?</a>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-green text-white font-bold text-lg py-3 rounded-xl hover:bg-green-700 shadow-lg shadow-green-200 hover:-translate-y-1 transition-all duration-300">
+                        Masuk Sekarang
+                    </button>
+
+                </form>
+
+                <div class="relative my-8">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-200"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-4 bg-white text-gray-500">Atau masuk dengan</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <button class="flex items-center justify-center py-3 px-4 rounded-xl border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition gap-2">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="h-5 w-5">
+                        <span class="text-sm font-semibold text-gray-700">Google</span>
+                    </button>
+                    <button class="flex items-center justify-center py-3 px-4 rounded-xl border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition gap-2">
+                        <i class="fab fa-apple text-xl text-gray-900"></i>
+                        <span class="text-sm font-semibold text-gray-700">Apple</span>
+                    </button>
+                </div>
+
+                <p class="mt-8 text-center text-sm text-gray-600">
+                    Belum punya akun? 
+                    <a href="order.html" class="font-bold text-brand-green hover:underline">Daftar Free Trial</a>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+
+</body>
+</html>

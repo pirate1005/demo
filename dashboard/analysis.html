@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Tools - BandarMology</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB',
+                            orange: '#FF4500'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        logo: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        .custom-scroll::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        /* Dropdown Menu Style */
+        .nav-item {
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 180px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            z-index: 50;
+            margin-top: 0.5rem;
+        }
+
+        .nav-item:hover .dropdown {
+            display: block;
+            animation: slideDown 0.2s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .active-tool {
+            background-color: #27AE60;
+            color: white;
+            border-color: #27AE60;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-800" x-data="{ sidebarOpen: false, currentTool: 'net_buy' }">
+
+    <div class="flex h-screen overflow-hidden">
+
+        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+            class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
+
+            <div class="flex items-center justify-center h-20 border-b border-gray-700 bg-brand-dark/50">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <img src="../assets/img/logo.png" alt="Logo" class="h-8 w-auto object-contain brightness-0 invert">
+                    <span class="text-xl font-extralight tracking-tight font-logo text-white"
+                        style="letter-spacing: -0.05em;">
+                        Bandar<span class="text-brand-green font-normal">Mo</span>logy
+                    </span>
+                </a>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+                <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Main Menu</p>
+                <a href="dashboard.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-th-large w-5"></i> Dashboard
+                </a>
+
+                <a href="affiliate.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-users w-5"></i> Affiliate Area
+                </a>
+
+                <a href="withdraw.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-wallet w-5"></i> Withdrawal
+                </a>
+
+                <a href="analysis.html"
+                    class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
+                    <i class="fas fa-chart-line w-5"></i> Analysis Tools
+                </a>
+                <a href="purchase.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-shopping-cart w-5"></i> Purchase Order
+                </a>
+                <a href="testimonial.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-comment-dots w-5"></i> Testimonial
+                </a>
+
+                <a href="download.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-download w-5"></i> Download Area
+                </a>
+
+                <a href="statistic.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-chart-pie w-5"></i> Statistic
+                </a>
+
+                <a href="content.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i
+                        class="fas fa-newspaper w-5"></i> Content</a>
+                <a href="broadcast.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-bullhorn w-5"></i> Broadcast
+                </a>
+                <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 mt-6">Akun</p>
+
+                <a href="bank.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-university w-5"></i> Bank Account
+                </a>
+                <a href="settings.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-user-cog w-5"></i> Pengaturan
+                </a>
+                <a href="../index.html"
+                    class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition">
+                    <i class="fas fa-sign-out-alt w-5"></i> Logout
+                </a>
+            </nav>
+
+            <div class="p-4 border-t border-gray-700 bg-brand-dark/50">
+                <div class="flex items-center gap-3">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                        class="w-10 h-10 rounded-full border-2 border-brand-green">
+                    <div>
+                        <p class="text-sm font-bold text-white">Budi Santoso</p>
+                        <p class="text-xs text-brand-green">Member PRO</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            style="display: none;"></div>
+
+
+        <div class="flex-1 flex flex-col overflow-hidden">
+
+            <header class="bg-white border-b border-gray-200 h-20 flex items-center justify-between px-6 lg:px-10">
+                <div class="flex items-center gap-4">
+                    <button @click="sidebarOpen = !sidebarOpen"
+                        class="lg:hidden text-gray-500 hover:text-brand-green"><i
+                            class="fas fa-bars text-2xl"></i></button>
+                    <h1 class="text-xl font-bold text-gray-800 hidden sm:block">Analysis Tools</h1>
+                </div>
+                <div class="flex items-center gap-6">
+                    <button class="relative text-gray-500 hover:text-brand-green transition">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 lg:p-8">
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 min-h-[600px] flex flex-col">
+
+                    <div class="border-b border-gray-200 p-2 overflow-x-auto">
+                        <div class="flex items-center gap-1 min-w-max">
+
+                            <div class="nav-item">
+                                <button
+                                    class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg flex items-center gap-1 transition">
+                                    Screener <i class="fas fa-chevron-down text-[10px]"></i>
+                                </button>
+                                <div class="dropdown">
+                                    <a href="#" @click.prevent="currentTool = 'accum_screener'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Accum
+                                        Screener</a>
+                                    <a href="#" @click.prevent="currentTool = 'funda_screener'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Funda
+                                        Screener</a>
+                                    <a href="#" @click.prevent="currentTool = 'mos_screener'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">MOS Screener</a>
+                                    <a href="#" @click.prevent="currentTool = 'sb_screener'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">SB Screener</a>
+                                </div>
+                            </div>
+
+                            <div class="nav-item">
+                                <button
+                                    class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg flex items-center gap-1 transition">
+                                    Broker Tools <i class="fas fa-chevron-down text-[10px]"></i>
+                                </button>
+                                <div class="dropdown">
+                                    <a href="#" @click.prevent="currentTool = 'broker_summary'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Broker
+                                        Summary</a>
+                                    <a href="#" @click.prevent="currentTool = 'broker_balance'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Broker
+                                        Balance</a>
+                                    <a href="#" @click.prevent="currentTool = 'broker_detail'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Broker Detail</a>
+                                    <a href="#" @click.prevent="currentTool = 'broker_top'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Broker Top
+                                        Buy</a>
+                                    <a href="#" @click.prevent="currentTool = 'broker_gap'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Broker Gap</a>
+                                </div>
+                            </div>
+
+                            <div class="nav-item">
+                                <button
+                                    class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg flex items-center gap-1 transition">
+                                    Top Search <i class="fas fa-chevron-down text-[10px]"></i>
+                                </button>
+                                <div class="dropdown">
+                                    <a href="#" @click.prevent="currentTool = 'top_accum'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Top Accum</a>
+                                    <a href="#" @click.prevent="currentTool = 'top_dist'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Top
+                                        Distribution</a>
+                                    <a href="#" @click.prevent="currentTool = 'top_stock'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Top Stock</a>
+                                    <a href="#" @click.prevent="currentTool = 'top_broker'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Top Broker</a>
+                                    <a href="#" @click.prevent="currentTool = 'top_avg'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Top AVG</a>
+                                    <a href="#" @click.prevent="currentTool = 'top_value'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Top Value</a>
+                                    <a href="#" @click.prevent="currentTool = 'unbalanced'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Unbalanced</a>
+                                </div>
+                            </div>
+
+                            <button @click="currentTool = 'net_buy'"
+                                :class="currentTool === 'net_buy' ? 'bg-gray-200 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-100'"
+                                class="px-4 py-2 text-sm font-medium rounded-lg transition">Net Buy</button>
+
+                            <button @click="currentTool = 'net_buy_asing'"
+                                :class="currentTool === 'net_buy_asing' ? 'bg-gray-200 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-100'"
+                                class="px-4 py-2 text-sm font-medium rounded-lg transition">Net Buy Asing</button>
+
+                            <div class="nav-item">
+                                <button
+                                    class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg flex items-center gap-1 transition">
+                                    Stock <i class="fas fa-chevron-down text-[10px]"></i>
+                                </button>
+                                <div class="dropdown">
+                                    <a href="#" @click.prevent="currentTool = 'stock_tracking'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Stock
+                                        Tracking</a>
+                                    <a href="#" @click.prevent="currentTool = 'stock_inventory'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Stock
+                                        Inventory</a>
+                                    <a href="#" @click.prevent="currentTool = 'stock_recap'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Stock Recap</a>
+                                    <a href="#" @click.prevent="currentTool = 'stock_balance'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Stock Balance</a>
+                                    <a href="#" @click.prevent="currentTool = 'stock_comparison'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Stock
+                                        Comparison</a>
+                                </div>
+                            </div>
+
+                            <div class="nav-item">
+                                <button
+                                    class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg flex items-center gap-1 transition">
+                                    Advance Feature <i class="fas fa-chevron-down text-[10px]"></i>
+                                </button>
+                                <div class="dropdown">
+                                    <a href="#" @click.prevent="currentTool = 'lq45'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">LQ45 Report</a>
+                                    <a href="#" @click.prevent="currentTool = 'flda'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Foreign Local
+                                        Data</a>
+                                    <a href="#" @click.prevent="currentTool = 'lbs'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Level Buy
+                                        Strategies</a>
+                                </div>
+                            </div>
+
+                            <div class="nav-item">
+                                <button
+                                    class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg flex items-center gap-1 transition">
+                                    Signal <i class="fas fa-chevron-down text-[10px]"></i>
+                                </button>
+                                <div class="dropdown">
+                                    <a href="#" @click.prevent="currentTool = 'signal_swing'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Signal Swing</a>
+                                    <a href="#" @click.prevent="currentTool = 'trend_following'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Trend
+                                        Following</a>
+                                </div>
+                            </div>
+
+                            <button @click="currentTool = 'charts'"
+                                :class="currentTool === 'charts' ? 'bg-gray-200 text-gray-900 font-bold' : 'text-gray-600 hover:bg-gray-100'"
+                                class="px-4 py-2 text-sm font-medium rounded-lg transition">Charts</button>
+
+                            <div class="nav-item">
+                                <button
+                                    class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg flex items-center gap-1 transition">
+                                    History <i class="fas fa-chevron-down text-[10px]"></i>
+                                </button>
+                                <div class="dropdown">
+                                    <a href="#" @click.prevent="currentTool = 'daily_screener'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Daily
+                                        Screener</a>
+                                    <a href="#" @click.prevent="currentTool = 'big_acc'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Big ACC</a>
+                                    <a href="#" @click.prevent="currentTool = 'small_acc'"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Small ACC</a>
+                                </div>
+                            </div>
+
+                            <button @click="currentTool = 'trading_plan'"
+                                class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg transition">Trading
+                                Plan</button>
+                            <button @click="currentTool = 'pro_trader'"
+                                class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg transition">Pro
+                                Trader</button>
+
+                            <div class="nav-item">
+                                <button
+                                    class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg flex items-center gap-1 transition">
+                                    Help <i class="fas fa-chevron-down text-[10px]"></i>
+                                </button>
+                                <div class="dropdown right-0 left-auto">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Garansi
+                                        Platinum</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Benefit
+                                        Pembelajaran</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="p-6 border-b border-gray-100 bg-white sticky top-0 z-20">
+                        <div class="flex flex-wrap items-end gap-6">
+
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-bold text-gray-500">Tanggal</label>
+                                <input type="date" value="2025-12-08"
+                                    class="border border-gray-300 rounded px-3 py-1.5 text-sm w-40 focus:border-brand-green focus:ring-1 focus:ring-brand-green outline-none">
+                            </div>
+
+                            <div class="flex flex-col gap-1"
+                                x-show="['stock_tracking', 'broker_detail', 'charts'].includes(currentTool)">
+                                <label class="text-xs font-bold text-gray-500">Kode Saham</label>
+                                <input type="text" placeholder="BBCA"
+                                    class="border border-gray-300 rounded px-3 py-1.5 text-sm w-32 focus:border-brand-green outline-none uppercase">
+                            </div>
+
+                            <button
+                                class="bg-[#FF3300] hover:bg-red-600 text-white font-bold py-1.5 px-6 rounded text-sm shadow-sm transition">
+                                Submit
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="flex-1 overflow-x-auto p-6 bg-white min-h-[400px]">
+
+                        <div x-show="currentTool === 'net_buy'" class="w-full">
+                            <h3 class="text-lg font-bold text-gray-800 mb-4 border-l-4 border-brand-green pl-3">Net Buy
+                                Analysis</h3>
+                            <table class="w-full text-sm text-left border-collapse">
+                                <thead class="text-xs text-gray-500 font-bold border-b border-gray-200">
+                                    <tr>
+                                        <th class="py-3 pr-4">No</th>
+                                        <th class="py-3 px-4">Saham</th>
+                                        <th class="py-3 px-4 text-red-500">Net Buy <i class="fas fa-sort"></i></th>
+                                        <th class="py-3 px-4 text-red-500">Avg <i class="fas fa-sort"></i></th>
+                                        <th class="py-3 px-4">Value</th>
+                                        <th class="py-3 px-4 text-center">Foreign</th>
+                                        <th class="py-3 px-4 text-center">Local</th>
+                                        <th class="py-3 px-4 text-center">Keterangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100 text-gray-700">
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pr-4">1</td>
+                                        <td class="py-3 px-4 font-bold">GOTO</td>
+                                        <td class="py-3 px-4">7.171.050</td>
+                                        <td class="py-3 px-4">64</td>
+                                        <td class="py-3 px-4">Rp 45.951.522.200</td>
+                                        <td class="py-3 px-4 text-center">53</td>
+                                        <td class="py-3 px-4 text-center">47</td>
+                                        <td class="py-3 px-4 text-center"><span
+                                                class="bg-green-700 text-white text-[10px] font-bold px-3 py-1 rounded">Big
+                                                ACC</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pr-4">2</td>
+                                        <td class="py-3 px-4 font-bold">BUMI</td>
+                                        <td class="py-3 px-4">5.929.648</td>
+                                        <td class="py-3 px-4">239</td>
+                                        <td class="py-3 px-4">Rp 141.995.416.400</td>
+                                        <td class="py-3 px-4 text-center">47</td>
+                                        <td class="py-3 px-4 text-center">53</td>
+                                        <td class="py-3 px-4 text-center"><span
+                                                class="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded">Big
+                                                Dist</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pr-4">3</td>
+                                        <td class="py-3 px-4 font-bold">HUMI</td>
+                                        <td class="py-3 px-4">5.327.305</td>
+                                        <td class="py-3 px-4">217</td>
+                                        <td class="py-3 px-4">Rp 115.606.178.800</td>
+                                        <td class="py-3 px-4 text-center">28</td>
+                                        <td class="py-3 px-4 text-center">72</td>
+                                        <td class="py-3 px-4 text-center"><span
+                                                class="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded">Big
+                                                Dist</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pr-4">4</td>
+                                        <td class="py-3 px-4 font-bold">BKSL</td>
+                                        <td class="py-3 px-4">5.107.874</td>
+                                        <td class="py-3 px-4">185</td>
+                                        <td class="py-3 px-4">Rp 94.297.663.100</td>
+                                        <td class="py-3 px-4 text-center">38</td>
+                                        <td class="py-3 px-4 text-center">62</td>
+                                        <td class="py-3 px-4 text-center"><span
+                                                class="bg-green-700 text-white text-[10px] font-bold px-3 py-1 rounded">Big
+                                                ACC</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div x-show="currentTool === 'broker_summary'" class="w-full text-center py-20"
+                            style="display: none;">
+                            <i class="fas fa-handshake text-6xl text-gray-200 mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-400">Broker Summary View</h3>
+                            <p class="text-sm text-gray-400">Data broker akan muncul di sini setelah Anda menekan
+                                Submit.</p>
+                        </div>
+
+                        <div x-show="currentTool === 'charts'" class="w-full h-[500px]" style="display: none;">
+                            <div class="tradingview-widget-container" style="height:100%;width:100%">
+                                <div class="tradingview-widget-container__widget"
+                                    style="height:calc(100% - 32px);width:100%"></div>
+                                <script type="text/javascript"
+                                    src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
+                                    async>
+                                        { "autosize": true, "symbol": "IDX:COMPOSITE", "interval": "D", "timezone": "Asia/Jakarta", "theme": "light", "style": "1", "locale": "id", "enable_publishing": false, "hide_top_toolbar": false, "save_image": false, "calendar": false, "hide_volume": true, "support_host": "https://www.tradingview.com" }
+                                    </script>
+                            </div>
+                        </div>
+
+                        <div x-show="!['net_buy', 'broker_summary', 'charts'].includes(currentTool)"
+                            class="w-full text-center py-20" style="display: none;">
+                            <div class="inline-block p-4 rounded-full bg-gray-100 mb-4">
+                                <i class="fas fa-layer-group text-4xl text-gray-400"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-600 capitalize">Fitur: <span
+                                    x-text="currentTool.replace('_', ' ')"></span></h3>
+                            <p class="text-sm text-gray-400 mt-1">Silakan atur parameter di atas dan tekan tombol
+                                <strong>Submit</strong>.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-6 text-center text-xs text-gray-400">
+                    &copy; 2025 BandarMology Analysis System. Data delay 15 minutes.
+                </div>
+
+            </main>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdrawal - BandarMology</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        logo: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-800" x-data="{ sidebarOpen: false, modalOpen: false }">
+
+    <div class="flex h-screen overflow-hidden">
+
+        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+            class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
+
+            <div class="flex items-center justify-center h-20 border-b border-gray-700 bg-brand-dark/50">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <img src="../assets/img/logo.png" alt="Logo" class="h-8 w-auto object-contain brightness-0 invert">
+                    <span class="text-xl font-extralight tracking-tight font-logo text-white"
+                        style="letter-spacing: -0.05em;">
+                        Bandar<span class="text-brand-green font-normal">Mo</span>logy
+                    </span>
+                </a>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+                <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Main Menu</p>
+
+                <a href="dashboard.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-th-large w-5"></i> Dashboard
+                </a>
+
+                <a href="affiliate.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-users w-5"></i> Affiliate Area
+                </a>
+
+                <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
+                    <i class="fas fa-wallet w-5"></i> Withdrawal
+                </a>
+                <a href="analysis.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-chart-line w-5"></i> Analysis Tools
+                </a>
+                <a href="purchase.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-shopping-cart w-5"></i> Purchase Order
+                </a>
+
+                <a href="testimonial.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-comment-dots w-5"></i> Testimonial
+                </a>
+                <a href="download.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-download w-5"></i> Download Area
+                </a>
+
+                <a href="statistic.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-chart-pie w-5"></i> Statistic
+                </a>
+
+                <a href="content.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i
+                        class="fas fa-newspaper w-5"></i> Content</a>
+
+                <a href="broadcast.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-bullhorn w-5"></i> Broadcast
+                </a>
+                <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 mt-6">Akun</p>
+                <a href="bank.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-university w-5"></i> Bank Account
+                </a>
+                <a href="settings.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-user-cog w-5"></i> Pengaturan
+                </a>
+                <a href="../index.html"
+                    class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition">
+                    <i class="fas fa-sign-out-alt w-5"></i> Logout
+                </a>
+            </nav>
+        </aside>
+
+        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            style="display: none;"></div>
+
+
+        <div class="flex-1 flex flex-col overflow-hidden">
+
+            <header class="bg-white border-b border-gray-200 h-20 flex items-center justify-between px-6 lg:px-10">
+                <div class="flex items-center gap-4">
+                    <button @click="sidebarOpen = !sidebarOpen"
+                        class="lg:hidden text-gray-500 hover:text-brand-green"><i
+                            class="fas fa-bars text-2xl"></i></button>
+                    <h1 class="text-xl font-bold text-gray-800">Withdrawal</h1>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm font-bold text-gray-800">Budi Santoso</p>
+                        <p class="text-xs text-brand-green">Saldo: Rp 1.500.000</p>
+                    </div>
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                        class="w-10 h-10 rounded-full border-2 border-brand-green">
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 lg:p-10">
+
+                <div
+                    class="bg-red-50 border border-red-200 rounded-2xl p-8 mb-10 flex flex-col md:flex-row justify-between items-center shadow-sm">
+                    <div class="mb-6 md:mb-0">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div
+                                class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-500 text-xl">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <span class="text-gray-500 font-bold uppercase text-sm tracking-wider">Saldo Komisi</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">Rp 1.500.000</h2>
+                        <p class="text-sm text-red-500 mt-2"><i class="fas fa-info-circle mr-1"></i> Minimal penarikan
+                            Rp 50.000</p>
+                    </div>
+
+                    <button @click="modalOpen = true"
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-blue-200 transition-transform transform hover:-translate-y-1 flex items-center gap-2">
+                        <i class="fas fa-paper-plane"></i> Request Withdrawal
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-900">Riwayat Penarikan</h3>
+                            <p class="text-xs text-gray-500">Daftar permintaan pencairan dana Anda.</p>
+                        </div>
+                        <button class="text-gray-400 hover:text-brand-green"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead class="text-xs text-gray-400 uppercase bg-white border-b border-gray-100">
+                                <tr>
+                                    <th class="px-6 py-4 font-bold tracking-wider">#</th>
+                                    <th class="px-6 py-4 font-bold tracking-wider">BANK</th>
+                                    <th class="px-6 py-4 font-bold tracking-wider">JUMLAH (IDR)</th>
+                                    <th class="px-6 py-4 font-bold tracking-wider">TANGGAL</th>
+                                    <th class="px-6 py-4 font-bold tracking-wider text-center">STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-50 bg-white">
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 text-gray-500">1</td>
+                                    <td class="px-6 py-4">
+                                        <div class="font-bold text-gray-900">BCA - 1234567890</div>
+                                        <div class="text-xs text-gray-500">a.n Budi Santoso</div>
+                                    </td>
+                                    <td class="px-6 py-4 font-bold text-gray-900">Rp 500.000</td>
+                                    <td class="px-6 py-4 text-gray-500">10 Des 2025</td>
+                                    <td class="px-6 py-4 text-center">
+                                        <span
+                                            class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold">Pending</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 text-gray-500">2</td>
+                                    <td class="px-6 py-4">
+                                        <div class="font-bold text-gray-900">OVO - 08123456789</div>
+                                        <div class="text-xs text-gray-500">a.n Budi Santoso</div>
+                                    </td>
+                                    <td class="px-6 py-4 font-bold text-gray-900">Rp 250.000</td>
+                                    <td class="px-6 py-4 text-gray-500">01 Des 2025</td>
+                                    <td class="px-6 py-4 text-center">
+                                        <span
+                                            class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Success</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 text-gray-500">3</td>
+                                    <td class="px-6 py-4">
+                                        <div class="font-bold text-gray-900">BCA - 1234567890</div>
+                                        <div class="text-xs text-gray-500">a.n Budi Santoso</div>
+                                    </td>
+                                    <td class="px-6 py-4 font-bold text-gray-900">Rp 100.000</td>
+                                    <td class="px-6 py-4 text-gray-500">25 Nov 2025</td>
+                                    <td class="px-6 py-4 text-center">
+                                        <span
+                                            class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold">Rejected</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="p-4 border-t border-gray-100 flex justify-between items-center bg-gray-50">
+                        <span class="text-xs text-gray-500">Menampilkan 3 dari 3 data</span>
+                        <div class="flex gap-2">
+                            <button
+                                class="px-3 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-400 cursor-not-allowed">Previous</button>
+                            <button
+                                class="px-3 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-600 hover:bg-gray-50">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <div x-show="modalOpen" class="fixed inset-0 z-50 overflow-y-auto" style="display: none;">
+            <div class="fixed inset-0 bg-gray-900/75 transition-opacity" @click="modalOpen = false"></div>
+
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div
+                    class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+
+                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 border-b border-gray-100">
+                        <h3 class="text-lg font-semibold leading-6 text-gray-900">Request Withdrawal</h3>
+                    </div>
+
+                    <div class="px-6 py-6">
+
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6 rounded-r-md">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-info-circle text-blue-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-xs text-blue-700 font-medium">
+                                        Minimum withdrawal Rp. 50.000 – Setiap WD dikurangi Rp. 6.500 (admin bank)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="#">
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Amount</label>
+                                <input type="number"
+                                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition"
+                                    placeholder="Masukkan jumlah penarikan" min="50000" required>
+                            </div>
+
+                            <div class="flex justify-end gap-3 mt-8">
+                                <button type="button" @click="modalOpen = false"
+                                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-green transition">
+                                    Close
+                                </button>
+                                <button type="submit"
+                                    class="px-4 py-2 text-sm font-medium text-white bg-[#FF4500] border border-transparent rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 shadow-sm transition">
+                                    Withdrawal
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
