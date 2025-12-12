@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Akurasi - BandarMology</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        logo: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            
+            <div class="flex items-center justify-between">
+
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition group">
+                    <img src="assets/img/logo.png" alt="Logo BandarMology" class="h-10 w-auto object-contain">
+                    <span class="text-2xl md:text-3xl font-semibold tracking-tight font-logo text-gray-900" style="letter-spacing: -0.05em;">
+                        Bandar<span class="text-brand-green font-normal">mo</span>logy
+                    </span>
+                </a>
+
+                <div class="hidden md:flex space-x-8 font-medium text-gray-600 text-[15px]">
+                    <a href="growth.html" class="hover:text-brand-green transition">Growth Academy</a>
+                    <a href="price.html" class="hover:text-brand-green transition">Price</a>
+                    <a href="affiliate.html" class="hover:text-brand-green transition">Affiliate</a>
+                    <a href="cek-akurasi.html" class="hover:text-brand-green transition">Cek Akurasi</a>
+                    <a href="stock-pick.html" class="hover:text-brand-green transition">Stock Pick</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="hidden md:flex items-center gap-4">
+                        <a href="login.html" class="font-semibold text-gray-700 hover:text-brand-green transition text-sm md:text-base">Masuk</a>
+                        <a href="order.html" class="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-700 transition shadow-lg hover:shadow-green-200 text-sm md:text-base">Free Trial</a>
+                    </div>
+
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-600 hover:text-brand-green focus:outline-none">
+                        <i class="fas fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
+                        <i class="fas fa-times text-2xl" x-show="mobileMenuOpen" style="display: none;"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <div x-show="mobileMenuOpen" 
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-2"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-2"
+                 class="md:hidden mt-4 pb-4 border-t border-gray-100 flex flex-col space-y-4 pt-4" 
+                 style="display: none;">
+                
+                <a href="growth.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Growth Academy</a>
+                <a href="price.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Price</a>
+                <a href="affiliate.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Affiliate</a>
+                <a href="cek-akurasi.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Cek Akurasi</a>
+                <a href="stock-pick.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Stock Pick</a>
+
+                <div class="border-t border-gray-100 pt-4 flex flex-col gap-3">
+                    <a href="login.html" class="text-center w-full py-2 text-gray-700 font-bold border border-gray-200 rounded-lg hover:bg-gray-50">Masuk</a>
+                    <a href="order.html" class="text-center w-full py-2 bg-brand-green text-white font-bold rounded-lg hover:bg-green-700 shadow-md">Free Trial</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="flex-1 py-16 px-6" x-data="{ showResult: false, stockCode: '', searchDate: '' }">
+        <div class="max-w-5xl mx-auto">
+            
+            <div class="text-center mb-10">
+                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900">Cek Akurasi Signal</h1>
+                <p class="text-gray-500 mt-2">Validasi performa algoritma kami dengan data historis.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 mb-10">
+                <form @submit.prevent="if(stockCode && searchDate) { showResult = true; } else { alert('Mohon isi data lengkap'); }">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+                        
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Pilih Tanggal</label>
+                            <input x-model="searchDate" type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Kode Saham</label>
+                            <input x-model="stockCode" type="text" placeholder="Contoh: BBCA" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition uppercase" required>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="w-full bg-brand-green hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition transform hover:-translate-y-1">
+                                <i class="fas fa-search mr-2"></i> Cek Akurasi
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <div x-show="showResult" 
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0 translate-y-4"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden" style="display: none;">
+                
+                <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                    <h3 class="font-bold text-gray-800 text-lg">
+                        Hasil Analisa: <span class="text-brand-green uppercase" x-text="stockCode"></span>
+                    </h3>
+                    <span class="text-sm text-gray-500" x-text="'Data pada: ' + searchDate"></span>
+                </div>
+
+                <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <div class="lg:col-span-2 h-[400px] bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden relative">
+                        <div class="tradingview-widget-container" style="height:100%;width:100%">
+                            <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {
+                            "autosize": true,
+                            "symbol": "IDX:BBCA", 
+                            "interval": "D",
+                            "timezone": "Asia/Jakarta",
+                            "theme": "light",
+                            "style": "1",
+                            "locale": "id",
+                            "enable_publishing": false,
+                            "hide_top_toolbar": true, 
+                            "save_image": false,
+                            "calendar": false,
+                            "hide_volume": true,
+                            "support_host": "https://www.tradingview.com"
+                            }
+                            </script>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-1 space-y-6">
+                        
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
+                            <p class="text-sm text-gray-500 font-bold uppercase mb-1">Status Bandarmology</p>
+                            <h2 class="text-2xl font-extrabold text-blue-600">BIG ACCUMULATION</h2>
+                            <p class="text-xs text-gray-400 mt-1">Indikasi kuat kenaikan harga</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-3 border-b pb-2">Detail Transaksi</h4>
+                            <table class="w-full text-sm">
+                                <tbody class="divide-y divide-gray-100">
+                                    <tr>
+                                        <td class="py-2 text-gray-500">Net Buy (Lot)</td>
+                                        <td class="py-2 text-right font-bold text-green-600">+85.400</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 text-gray-500">Net Sell (Lot)</td>
+                                        <td class="py-2 text-right font-bold text-red-500">-23.100</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 text-gray-500">Average Price</td>
+                                        <td class="py-2 text-right font-bold">9.250</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 text-gray-500">Total Value</td>
+                                        <td class="py-2 text-right font-bold">78 Milyar</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-3 border-b pb-2">Top 3 Broker (Net Buy)</h4>
+                            <div class="flex gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded font-bold text-xs border border-gray-300">KZ</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded font-bold text-xs border border-gray-300">BK</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded font-bold text-xs border border-gray-300">YU</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white py-8 text-center text-sm border-t-4 border-brand-green mt-auto">
+        <p>&copy; 2025 BandarMology.net - Hak Cipta Dilindungi.</p>
+    </footer>
+
+</body>
+</html>

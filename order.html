@@ -118,12 +118,12 @@
 
                         <div class="grid md:grid-cols-2 gap-6 mb-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Alamat Email</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Alamat Gmail</label>
                                 <div class="relative">
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <i class="fas fa-envelope text-gray-400"></i>
                                     </div>
-                                    <input type="email" class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="email@anda.com" required>
+                                    <input type="email" class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="gmail@anda.com" required>
                                 </div>
                             </div>
 
@@ -133,8 +133,11 @@
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <i class="fas fa-lock text-gray-400"></i>
                                     </div>
-                                    <input type="password" class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="******" required>
+                                    <input type="password" id="passwordInput" class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="******" required>
                                 </div>
+                                <p id="passwordAlert" class="text-xs mt-2 text-gray-400 transition-colors duration-300">
+                                    <i class="fas fa-info-circle mr-1"></i> Minimal 8 karakter unik.
+                                </p>
                             </div>
                         </div>
 
@@ -202,6 +205,31 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const passwordInput = document.getElementById('passwordInput');
+        const passwordAlert = document.getElementById('passwordAlert');
+
+        passwordInput.addEventListener('keyup', function() {
+            const value = passwordInput.value;
+            
+            if (value.length === 0) {
+                // Default (Abu-abu)
+                passwordAlert.className = 'text-xs mt-2 text-gray-400 transition-colors duration-300';
+                passwordAlert.innerHTML = '<i class="fas fa-info-circle mr-1"></i> Minimal 8 karakter unik.';
+            } 
+            else if (value.length < 8) {
+                // Kurang (Merah)
+                passwordAlert.className = 'text-xs mt-2 text-red-500 font-bold transition-colors duration-300 animate-pulse';
+                passwordAlert.innerHTML = `<i class="fas fa-times-circle mr-1"></i> Kurang ${8 - value.length} karakter lagi.`;
+            } 
+            else {
+                // Cukup (Hijau)
+                passwordAlert.className = 'text-xs mt-2 text-green-600 font-bold transition-colors duration-300';
+                passwordAlert.innerHTML = '<i class="fas fa-check-circle mr-1"></i> Password kuat!';
+            }
+        });
+    </script>
 
 </body>
 </html>

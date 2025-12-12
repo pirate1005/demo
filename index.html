@@ -50,23 +50,21 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap"
         rel="stylesheet">
 
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 </head>
 
 <body class="bg-white text-gray-800 relative">
 
-    <nav
-        class="sticky top-0 z-40 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100">
-        <div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
-
-            <div class="flex items-center space-x-10">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            
+            <div class="flex items-center justify-between">
 
                 <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition group">
                     <img src="assets/img/logo.png" alt="Logo BandarMology" class="h-10 w-auto object-contain">
-
-                    <span class="text-2xl md:text-3xl font-semibold tracking-tight font-logo text-gray-900"
-                        style="letter-spacing: -0.05em;">
-                        Bandar
-                        <span class="text-brand-green">Mo</span>logy
+                    <span class="text-2xl md:text-3xl font-semibold tracking-tight font-logo text-gray-900" style="letter-spacing: -0.05em;">
+                        Bandar<span class="text-brand-green font-normal">mo</span>logy
                     </span>
                 </a>
 
@@ -74,15 +72,44 @@
                     <a href="growth.html" class="hover:text-brand-green transition">Growth Academy</a>
                     <a href="price.html" class="hover:text-brand-green transition">Price</a>
                     <a href="affiliate.html" class="hover:text-brand-green transition">Affiliate</a>
+                    <a href="cek-akurasi.html" class="hover:text-brand-green transition">Cek Akurasi</a>
+                    <a href="stock-pick.html" class="hover:text-brand-green transition">Stock Pick</a>
                 </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="hidden md:flex items-center gap-4">
+                        <a href="login.html" class="font-semibold text-gray-700 hover:text-brand-green transition text-sm md:text-base">Masuk</a>
+                        <a href="order.html" class="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-700 transition shadow-lg hover:shadow-green-200 text-sm md:text-base">Free Trial</a>
+                    </div>
+
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-600 hover:text-brand-green focus:outline-none">
+                        <i class="fas fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
+                        <i class="fas fa-times text-2xl" x-show="mobileMenuOpen" style="display: none;"></i>
+                    </button>
+                </div>
+
             </div>
 
-            <div class="flex items-center space-x-4">
-                <a href="login.html"
-                    class="font-semibold text-gray-700 hover:text-brand-green transition text-sm md:text-base">Masuk</a>
-                <a href="price.html"
-                    class="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-700 transition shadow-lg hover:shadow-green-200 text-sm md:text-base">Free
-                    Trial</a>
+            <div x-show="mobileMenuOpen" 
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-2"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-2"
+                 class="md:hidden mt-4 pb-4 border-t border-gray-100 flex flex-col space-y-4 pt-4" 
+                 style="display: none;">
+                
+                <a href="growth.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Growth Academy</a>
+                <a href="price.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Price</a>
+                <a href="affiliate.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Affiliate</a>
+                <a href="cek-akurasi.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Cek Akurasi</a>
+                <a href="stock-pick.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Stock Pick</a>
+
+                <div class="border-t border-gray-100 pt-4 flex flex-col gap-3">
+                    <a href="login.html" class="text-center w-full py-2 text-gray-700 font-bold border border-gray-200 rounded-lg hover:bg-gray-50">Masuk</a>
+                    <a href="order.html" class="text-center w-full py-2 bg-brand-green text-white font-bold rounded-lg hover:bg-green-700 shadow-md">Free Trial</a>
+                </div>
             </div>
 
         </div>
@@ -93,10 +120,10 @@
         id="top">
         <div class="md:w-1/2 text-center md:text-left space-y-8" data-aos="fade-right" data-aos-duration="1000">
             <h1 class="text-4xl md:text-[3.5rem] font-extrabold text-gray-900 leading-[1.15]">
-                Tools Analisis <br> BandarMology terbaik.
+                Tools Analisa <br> Bandarmology terbaik.
             </h1>
             <p class="text-lg text-gray-500 max-w-lg mx-auto md:mx-0 leading-relaxed">
-                Profit Maksimal Loss Minimal dengan <br> Tools Analisis BandarMology Terbaik di Indonesia.
+                Pahami Pergerakan Bandar <br> Raih Profit Maksimal Dengan Loss Minimal.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
                 <a href="price.html"
@@ -107,11 +134,10 @@
         </div>
 
         <div class="md:w-1/2 flex justify-center w-full" data-aos="fade-left" data-aos-duration="1000">
-            <div class="relative w-full max-w-md h-[500px] hero-slide-container shadow-2xl bg-gray-100">
-                <img src="assets/img/hero.png" class="hero-slide-image active" alt="Slide 1">
-                <img src="assets/img/hero2.png" class="hero-slide-image" alt="Slide 2">
-                <img src="assets/img/hero3.png" class="hero-slide-image" alt="Slide 3">
-
+            <div class="relative w-full max-w-sm h-[400px] hero-slide-container flex items-center justify-center">
+                <img src="assets/img/new-cover.png" class="hero-slide-image active object-contain w-full h-full drop-shadow-xl" alt="Slide 1">
+                <img src="assets/img/new-cover.png" class="hero-slide-image active object-contain w-full h-full drop-shadow-xl" alt="Slide 2">
+                <img src="assets/img/new-cover.png" class="hero-slide-image active object-contain w-full h-full drop-shadow-xl" alt="Slide 3">
             </div>
         </div>
     </section>
@@ -130,28 +156,28 @@
                 <div class="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-brand-green/50 transition-colors duration-300"
                     data-aos="fade-up" data-aos-delay="0">
                     <div class="text-brand-green text-3xl mb-4"><i class="fas fa-users"></i></div>
-                    <h3 class="text-4xl font-extrabold text-white mb-2 font-mono" id="counter-trader">15.420</h3>
+                    <h3 class="text-4xl font-extrabold text-white mb-2 font-mono" id="counter-trader">14</h3>
                     <p class="text-gray-400 text-sm uppercase tracking-wider font-semibold">Trader Bergabung</p>
                 </div>
 
                 <div class="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-brand-green/50 transition-colors duration-300"
                     data-aos="fade-up" data-aos-delay="100">
                     <div class="text-blue-400 text-3xl mb-4"><i class="fas fa-chart-bar"></i></div>
-                    <h3 class="text-4xl font-extrabold text-white mb-2 font-mono" id="counter-saham">8.250</h3>
+                    <h3 class="text-4xl font-extrabold text-white mb-2 font-mono" id="counter-saham">8.375</h3>
                     <p class="text-gray-400 text-sm uppercase tracking-wider font-semibold">Total Analisa Chart</p>
                 </div>
 
                 <div class="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-brand-green/50 transition-colors duration-300"
                     data-aos="fade-up" data-aos-delay="200">
                     <div class="text-yellow-400 text-3xl mb-4"><i class="fas fa-bolt"></i></div>
-                    <h3 class="text-4xl font-extrabold text-white mb-2 font-mono" id="counter-signal">124.900</h3>
+                    <h3 class="text-4xl font-extrabold text-white mb-2 font-mono" id="counter-signal">125</h3>
                     <p class="text-gray-400 text-sm uppercase tracking-wider font-semibold">Sinyal Terkirim</p>
                 </div>
 
                 <div class="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-brand-green/50 transition-colors duration-300"
                     data-aos="fade-up" data-aos-delay="300">
                     <div class="text-purple-400 text-3xl mb-4"><i class="fas fa-crown"></i></div>
-                    <h3 class="text-4xl font-extrabold text-white mb-2 font-mono" id="counter-premium">2.345</h3>
+                    <h3 class="text-4xl font-extrabold text-white mb-2 font-mono" id="counter-premium">37</h3>
                     <p class="text-gray-400 text-sm uppercase tracking-wider font-semibold">Member Premium</p>
                 </div>
 
@@ -170,626 +196,690 @@
             </div>
         </div>
     </section>
-    <section class="bg-white py-10 border-t border-gray-50">
-        <div class="text-center mb-10 px-4" data-aos="fade-up">
-            <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900">
-                Dukung Saham-Saham Unggulan.
-            </h2>
-            <p class="text-gray-500 mt-2">Bergabung dengan komunitas yang cerdas berinvestasi.</p>
-        </div>
 
-        <div class="logo-slider">
-            <div class="logos-slide">
-                <a href="#"
-                    class="group relative w-72 h-44 bg-[#E4002B] rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="assets/img/tlkm.png"
-                        class="h-16 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-white text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">TLKM</h3>
-                        <p class="text-sm opacity-90">Telkom Indonesia</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white font-bold flex items-center gap-2">
-                        <span>Lihat Chart</span> <i class="fas fa-chart-line"></i>
-                    </div>
-                </a>
+    <section class="bg-white py-24 relative overflow-hidden border-t border-gray-100" 
+             x-data="{ 
+                activeSlide: 0,
+                // Daftar 9 Slide Lengkap
+                slides: [
+                    {
+                        badge: 'Accumulation Screener',
+                        title: 'Deteksi Akumulasi Bandar',
+                        desc: 'Temukan saham-saham yang sedang diakumulasi besar-besaran (Big ACC) oleh bandar. Screener ini memfilter ribuan saham secara real-time untuk menemukan peluang entry terbaik dengan probabilitas tinggi.',
+                        image: 'assets/img/saham/1.jpeg'
+                    },
+                    {
+                        badge: 'Advanced Charting',
+                        title: 'Analisa Teknikal Presisi',
+                        desc: 'Chart interaktif dengan indikator bandarmologi overlay. Identifikasi tren harga, support/resistance, dan sinyal beli/jual dengan visualisasi yang jelas dan mudah dipahami.',
+                        image: 'assets/img/saham/2.jpeg'
+                    },
+                    {
+                        badge: 'Stock Detail',
+                        title: 'Bedah Saham Mendalam',
+                        desc: 'Lihat detail lengkap pergerakan satu saham. Dari Net Buy harian, broker top buyer/seller, hingga alokasi dana ideal. Semua data penting dalam satu halaman ringkas.',
+                        image: 'assets/img/saham/3.jpeg'
+                    },
+                    {
+                        badge: 'Signal Screener',
+                        title: 'Sinyal Trading Otomatis',
+                        desc: 'Dapatkan rekomendasi saham harian lengkap dengan harga entry (AVG) dan target profit (TP 1, TP 2, TP 3). Cocok untuk Anda yang sibuk dan butuh panduan instan.',
+                        image: 'assets/img/saham/4.jpeg'
+                    },
+                    {
+                        badge: 'MOS Screener',
+                        title: 'Cari Saham Murah (Undervalued)',
+                        desc: 'Gabungan analisa fundamental dan teknikal. Temukan saham dengan Margin of Safety (MOS) tinggi yang harganya masih jauh di bawah nilai wajarnya (Book Value).',
+                        image: 'assets/img/saham/5.jpeg'
+                    },
+                    {
+                        badge: 'Fundamental Screener',
+                        title: 'Filter Kinerja Perusahaan',
+                        desc: 'Screening saham berdasarkan rasio keuangan seperti PER, PBV, ROE, dan NPM. Pastikan Anda hanya membeli saham dari perusahaan yang sehat dan bertumbuh.',
+                        image: 'assets/img/saham/6.jpeg'
+                    },
+                    {
+                        badge: 'Broker Detail',
+                        title: 'Lacak Jejak Broker',
+                        desc: 'Ketahui broker mana yang sedang menguasai saham tertentu. Lihat rata-rata harga beli (AVG) mereka untuk mengetahui di mana posisi bandar sebenarnya.',
+                        image: 'assets/img/saham/7.jpeg'
+                    },
+                    {
+                        badge: 'Broker Summary',
+                        title: 'Peta Kekuatan Broker',
+                        desc: 'Analisa siapa yang menjadi Buyer dan Seller dominan. Apakah asing atau lokal? Apakah ritel atau institusi? Data ini krusial untuk menentukan tren jangka pendek.',
+                        image: 'assets/img/saham/8.jpeg'
+                    },
+                    {
+                        badge: 'Trading Plan',
+                        title: 'Perencanaan Trading Matang',
+                        desc: 'Jangan trading tanpa rencana. Fitur ini memberikan area Buffer Zone untuk buy on weakness, serta kalkulasi reward vs risk yang terukur secara matematis.',
+                        image: 'assets/img/saham/9.jpeg'
+                    }
+                ],
+                nextSlide() {
+                    this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+                },
+                prevSlide() {
+                    this.activeSlide = (this.activeSlide === 0) ? this.slides.length - 1 : this.activeSlide - 1;
+                },
+                autoPlay() {
+                    setInterval(() => { this.nextSlide() }, 5000); // Ganti slide tiap 5 detik
+                }
+             }" 
+             x-init="autoPlay()">
 
-                <a href="#"
-                    class="group relative w-72 h-44 bg-[#00529C] rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png"
-                        class="h-14 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-white text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">BBCA</h3>
-                        <p class="text-sm opacity-90">Bank Central Asia</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white font-bold flex items-center gap-2">
-                        <span>Analisis</span> <i class="fas fa-search-dollar"></i>
-                    </div>
-                </a>
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex flex-col lg:flex-row items-center gap-16 min-h-[600px]">
+            
+            <div class="lg:w-1/2 relative z-10" data-aos="fade-right">
+                
+                <template x-for="(slide, index) in slides" :key="index">
+                    <div x-show="activeSlide === index" 
+                         x-transition:enter="transition ease-out duration-500"
+                         x-transition:enter-start="opacity-0 translate-x-[-20px]"
+                         x-transition:enter-end="opacity-100 translate-x-0"
+                         x-transition:leave="transition ease-in duration-300 absolute top-0 left-0 w-full"
+                         x-transition:leave-start="opacity-100 translate-x-0"
+                         x-transition:leave-end="opacity-0 translate-x-[20px]">
+                        
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-orange-50 rounded-full border border-orange-100 w-fit mb-6">
+                            <i class="fas fa-check text-orange-500 text-sm"></i>
+                            <span class="text-gray-700 text-sm font-bold tracking-wide" x-text="slide.badge"></span>
+                        </div>
 
-                <a href="#"
-                    class="group relative w-72 h-44 bg-white border border-gray-200 rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="assets/img/asii.png"
-                        class="h-16 object-contain transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-gray-800 text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">ASII</h3>
-                        <p class="text-sm text-gray-500">Astra International</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-blue-600 font-bold flex items-center gap-2">
-                        <span>Detail</span> <i class="fas fa-info-circle"></i>
-                    </div>
-                </a>
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-[1.15] mb-6" x-text="slide.title"></h2>
+                        
+                        <p class="text-lg text-gray-500 leading-relaxed mb-8" x-text="slide.desc"></p>
 
-                <a href="#"
-                    class="group relative w-72 h-44 bg-[#005E9D] rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="assets/img/bbri.png"
-                        class="h-16 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-white text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">BBRI</h3>
-                        <p class="text-sm opacity-90">Bank Rakyat Indonesia</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white font-bold flex items-center gap-2">
-                        <span>Prospek</span> <i class="fas fa-chart-pie"></i>
-                    </div>
-                </a>
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                            <a href="order.html" class="inline-block bg-[#F59E0B] hover:bg-orange-600 text-white font-bold text-lg px-8 py-3 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-1">
+                                Coba Sekarang
+                            </a>
+                            
+                            <div class="flex gap-2">
+                                <button @click="prevSlide()" class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-orange-500 hover:text-orange-500 hover:bg-orange-50 transition">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button @click="nextSlide()" class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-orange-500 hover:text-orange-500 hover:bg-orange-50 transition">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 text-sm text-gray-400 font-mono">
+                            Fitur <span x-text="index + 1"></span> dari <span x-text="slides.length"></span>
+                        </div>
 
-                <a href="#"
-                    class="group relative w-72 h-44 bg-[#00AA13] rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="assets/img/goto.png"
-                        class="h-14 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-white text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">GOTO</h3>
-                        <p class="text-sm opacity-90">GoTo Gojek Tokopedia</p>
                     </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white font-bold flex items-center gap-2">
-                        <span>Berita</span> <i class="fas fa-newspaper"></i>
-                    </div>
-                </a>
-
-                <a href="#"
-                    class="group relative w-72 h-44 bg-[#1F369A] rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="assets/img/unvr.png"
-                        class="h-16 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-white text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">UNVR</h3>
-                        <p class="text-sm opacity-90">Unilever Indonesia</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white font-bold flex items-center gap-2">
-                        <span>Laporan</span> <i class="fas fa-file-alt"></i>
-                    </div>
-                </a>
-
-                <a href="#"
-                    class="group relative w-72 h-44 bg-[#E4002B] rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="assets/img/tlkm.png"
-                        class="h-16 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-white text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">TLKM</h3>
-                        <p class="text-sm opacity-90">Telkom Indonesia</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white font-bold flex items-center gap-2">
-                        <span>Lihat Chart</span> <i class="fas fa-chart-line"></i>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-72 h-44 bg-[#00529C] rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png"
-                        class="h-14 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-white text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">BBCA</h3>
-                        <p class="text-sm opacity-90">Bank Central Asia</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white font-bold flex items-center gap-2">
-                        <span>Analisis</span> <i class="fas fa-search-dollar"></i>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-72 h-44 bg-white border border-gray-200 rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="assets/img/asii.png"
-                        class="h-16 object-contain transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-gray-800 text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">ASII</h3>
-                        <p class="text-sm text-gray-500">Astra International</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-blue-600 font-bold flex items-center gap-2">
-                        <span>Detail</span> <i class="fas fa-info-circle"></i>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-72 h-44 bg-[#005E9D] rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="assets/img/bbri.png"
-                        class="h-16 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-white text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">BBRI</h3>
-                        <p class="text-sm opacity-90">Bank Rakyat Indonesia</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white font-bold flex items-center gap-2">
-                        <span>Prospek</span> <i class="fas fa-chart-pie"></i>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-72 h-44 bg-[#00AA13] rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="assets/img/goto.png"
-                        class="h-14 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-white text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">GOTO</h3>
-                        <p class="text-sm opacity-90">GoTo Gojek Tokopedia</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white font-bold flex items-center gap-2">
-                        <span>Berita</span> <i class="fas fa-newspaper"></i>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-72 h-44 bg-[#1F369A] rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer p-4">
-                    <img src="assets/img/unvr.png"
-                        class="h-16 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-75 group-hover:-translate-y-4 mb-2">
-                    <div class="text-white text-center transition-transform duration-300 group-hover:-translate-y-4">
-                        <h3 class="font-bold text-xl">UNVR</h3>
-                        <p class="text-sm opacity-90">Unilever Indonesia</p>
-                    </div>
-                    <div
-                        class="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 text-white font-bold flex items-center gap-2">
-                        <span>Laporan</span> <i class="fas fa-file-alt"></i>
-                    </div>
-                </a>
+                </template>
 
             </div>
-        </div>
-    </section>
 
-    <section id="fitur" class="bg-brand-bg py-24 overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16 relative z-10">
-            <div class="md:w-1/2 flex justify-center" data-aos="fade-right">
-                <div>
-                    <img src="assets/img/hero.png" class="w-full h-full object-cover">
+            <div class="lg:w-1/2 relative w-full flex justify-center items-center" data-aos="fade-left">
+                
+                <div class="absolute inset-0 bg-orange-100/50 blur-3xl opacity-60 rounded-full transform scale-90 translate-y-10 z-0"></div>
+
+                <div class="relative z-10 w-full aspect-[16/10] bg-white rounded-xl shadow-2xl border border-gray-200 p-2">
+                    <template x-for="(slide, index) in slides" :key="index">
+                        <img :src="slide.image" 
+                             x-show="activeSlide === index"
+                             x-transition:enter="transition ease-out duration-700 delay-100"
+                             x-transition:enter-start="opacity-0 translate-y-10 scale-95"
+                             x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                             x-transition:leave="transition ease-in duration-300 absolute inset-0"
+                             x-transition:leave-start="opacity-100 scale-100"
+                             x-transition:leave-end="opacity-0 scale-95"
+                             class="w-full h-full object-cover rounded-lg border border-gray-100">
+                    </template>
                 </div>
-                <div
-                    class="absolute -left-10 top-10 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob">
-                </div>
-            </div>
-            <div class="md:w-1/2 space-y-8" data-aos="fade-left">
-                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">Tools Analisa<br> Bandamology
-                    terbaik.</h2>
-                <p class="text-gray-600 text-lg leading-relaxed">Profit Maksimal Loss Minimal Semua Pasti Cuan.</p>
-                <ul class="space-y-4 text-gray-700">
-                    <li class="flex items-center gap-3">
-                        <span class="bg-green-100 text-green-600 p-1 rounded-full"><i class="fas fa-check"></i></span>
-                        Deteksi Akumulasi & Distribusi Bandar
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="bg-green-100 text-green-600 p-1 rounded-full"><i class="fas fa-check"></i></span>
-                        Tracking Foreign Flow (Asing) Real-time
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="bg-green-100 text-green-600 p-1 rounded-full"><i class="fas fa-check"></i></span>
-                        Screening Saham Potensial Harian
-                    </li>
-                </ul>
-                <a href="#"
-                    class="inline-block bg-white text-brand-green border-2 border-brand-green px-8 py-3 rounded-full font-bold hover:bg-brand-green hover:text-white transition shadow-sm">Free
-                    Trial</a>
-            </div>
-        </div>
-    </section>
 
-    <section class="bg-white py-24 relative">
+            </div>
+
+        </div>
+
+        <div class="flex justify-center gap-2 mt-12 flex-wrap">
+            <template x-for="(slide, index) in slides" :key="index">
+                <button @click="activeSlide = index" 
+                        class="h-2 rounded-full transition-all duration-300"
+                        :class="activeSlide === index ? 'w-8 bg-orange-500' : 'w-2 bg-gray-300 hover:bg-gray-400'">
+                </button>
+            </template>
+        </div>
+
+    </div>
+</section>
+
+
+    <section class="bg-white py-24 overflow-hidden border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6">Dipercaya oleh kreator terbaik.</h2>
+            <div class="flex flex-col-reverse md:flex-row items-center gap-16">
+                <div class="md:w-1/2 relative" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-orange-100 blur-3xl opacity-40 rounded-full transform scale-90 -translate-x-10"></div>
+                    <img src="assets/img/saham/1.jpeg" alt="Accumulation Screener" 
+                         class="relative z-10 w-full rounded-xl shadow-2xl border border-gray-100 transform hover:scale-105 transition duration-500">
+                </div>
+                <div class="md:w-1/2 space-y-6" data-aos="fade-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-100 w-fit">
+                        <i class="fas fa-check text-orange-500 text-sm"></i>
+                        <span class="text-gray-600 text-sm font-semibold tracking-wide">Accumulation Screener</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Deteksi Akumulasi Bandar Secara Real-time
+                    </h2>
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>Temukan saham-saham yang sedang diakumulasi besar-besaran (Big ACC) oleh Big Player. Fitur ini memfilter ribuan saham dalam hitungan detik untuk menemukan peluang dengan probabilitas kenaikan tertinggi.</p>
+                        <p>Jangan buang waktu menganalisa satu per satu. Biarkan sistem kami yang bekerja menyaring data pasar untuk Anda.</p>
+                    </div>
+                    <div class="pt-4"><a href="#" class="inline-block bg-[#F59E0B] hover:bg-orange-600 text-white font-bold text-lg px-8 py-3 rounded-md shadow-md transition-all duration-300 hover:-translate-y-1">Coba Screener</a></div>
+                </div>
             </div>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="bg-gray-50 p-8 rounded-3xl hover:shadow-xl transition duration-300 border border-gray-100"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-yellow-400 text-lg mb-4 flex"><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i></div>
-                    <p class="text-gray-600 text-sm mb-6 leading-relaxed italic">"Dibandingkan dengan layanan tautan
-                        lain, Linkr membebankan biaya lebih rendah."</p>
-                    <div class="flex items-center gap-3">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full">
-                        <div>
-                            <h4 class="font-bold text-sm">Christian R.</h4><span
-                                class="text-xs text-gray-400">Pengusaha</span>
-                        </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-24 overflow-hidden border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 space-y-6" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-100 w-fit">
+                        <i class="fas fa-check text-orange-500 text-sm"></i>
+                        <span class="text-gray-600 text-sm font-semibold tracking-wide">Advanced Charting</span>
                     </div>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-3xl hover:shadow-xl transition duration-300 border border-gray-100"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-yellow-400 text-lg mb-4 flex"><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i></div>
-                    <p class="text-gray-600 text-sm mb-6 leading-relaxed italic">"Fitur toko dan postingan sangat
-                        membantu bisnis kecil saya."</p>
-                    <div class="flex items-center gap-3">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full">
-                        <div>
-                            <h4 class="font-bold text-sm">Sofia López</h4><span
-                                class="text-xs text-gray-400">Podcaster</span>
-                        </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Analisa Teknikal dengan Data Bandarmologi
+                    </h2>
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>Gabungkan kekuatan analisa teknikal dan bandarmologi dalam satu chart interaktif. Lihat area support & resistance yang valid berdasarkan volume akumulasi bandar.</p>
+                        <p>Indikator visual yang jelas membantu Anda menentukan titik entry dan exit dengan presisi tinggi.</p>
                     </div>
+                    <div class="pt-4"><a href="#" class="inline-block bg-[#F59E0B] hover:bg-orange-600 text-white font-bold text-lg px-8 py-3 rounded-md shadow-md transition-all duration-300 hover:-translate-y-1">Lihat Chart</a></div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-3xl hover:shadow-xl transition duration-300 border border-gray-100"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-yellow-400 text-lg mb-4 flex"><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i></div>
-                    <p class="text-gray-600 text-sm mb-6 leading-relaxed italic">"Sangat intuitif dan gampang
-                        dimengerti."</p>
-                    <div class="flex items-center gap-3">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-10 h-10 rounded-full">
-                        <div>
-                            <h4 class="font-bold text-sm">Lucas F.</h4><span
-                                class="text-xs text-gray-400">Konsultan</span>
-                        </div>
+                <div class="md:w-1/2 relative" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-green-100 blur-3xl opacity-40 rounded-full transform scale-90 translate-x-10"></div>
+                    <img src="assets/img/saham/2.jpeg" alt="Advanced Charting" 
+                         class="relative z-10 w-full rounded-xl shadow-2xl border border-gray-100 transform hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-24 overflow-hidden border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col-reverse md:flex-row items-center gap-16">
+                <div class="md:w-1/2 relative" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-blue-100 blur-3xl opacity-40 rounded-full transform scale-90 -translate-x-10"></div>
+                    <img src="assets/img/saham/3.jpeg" alt="Stock Detail" 
+                         class="relative z-10 w-full rounded-xl shadow-2xl border border-gray-100 transform hover:scale-105 transition duration-500">
+                </div>
+                <div class="md:w-1/2 space-y-6" data-aos="fade-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-100 w-fit">
+                        <i class="fas fa-check text-orange-500 text-sm"></i>
+                        <span class="text-gray-600 text-sm font-semibold tracking-wide">Stock Detail Analysis</span>
                     </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Bedah Saham Secara Menyeluruh
+                    </h2>
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>Dapatkan gambaran utuh tentang satu emiten dalam satu halaman ringkas. Dari tren harga, rata-rata harga bandar (AVG), hingga top buyer dan top seller.</p>
+                        <p>Fitur ini juga memberikan rekomendasi alokasi dana yang ideal agar portofolio Anda tetap sehat.</p>
+                    </div>
+                    <div class="pt-4"><a href="#" class="inline-block bg-[#F59E0B] hover:bg-orange-600 text-white font-bold text-lg px-8 py-3 rounded-md shadow-md transition-all duration-300 hover:-translate-y-1">Analisa Saham</a></div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-3xl hover:shadow-xl transition duration-300 border border-gray-100"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-yellow-400 text-lg mb-4 flex"><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i></div>
-                    <p class="text-gray-600 text-sm mb-6 leading-relaxed italic">"Banyak template gratis yang bagus."
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-24 overflow-hidden border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 space-y-6" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-100 w-fit">
+                        <i class="fas fa-check text-orange-500 text-sm"></i>
+                        <span class="text-gray-600 text-sm font-semibold tracking-wide">Automated Signals</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Sinyal Trading Otomatis
+                    </h2>
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>Bingung menentukan target profit? Fitur Signal Screener memberikan rekomendasi TP 1 (5%), TP 2 (10%), hingga TP 3 (20%) secara otomatis berdasarkan volatilitas harga.</p>
+                        <p>Cocok untuk trader sibuk yang membutuhkan panduan instan tanpa harus menghitung manual.</p>
+                    </div>
+                    <div class="pt-4"><a href="#" class="inline-block bg-[#F59E0B] hover:bg-orange-600 text-white font-bold text-lg px-8 py-3 rounded-md shadow-md transition-all duration-300 hover:-translate-y-1">Dapatkan Sinyal</a></div>
+                </div>
+                <div class="md:w-1/2 relative" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-yellow-100 blur-3xl opacity-40 rounded-full transform scale-90 translate-x-10"></div>
+                    <img src="assets/img/saham/4.jpeg" alt="Signal Screener" 
+                         class="relative z-10 w-full rounded-xl shadow-2xl border border-gray-100 transform hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-24 overflow-hidden border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col-reverse md:flex-row items-center gap-16">
+                <div class="md:w-1/2 relative" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-red-100 blur-3xl opacity-40 rounded-full transform scale-90 -translate-x-10"></div>
+                    <img src="assets/img/saham/5.jpeg" alt="MOS Screener" 
+                         class="relative z-10 w-full rounded-xl shadow-2xl border border-gray-100 transform hover:scale-105 transition duration-500">
+                </div>
+                <div class="md:w-1/2 space-y-6" data-aos="fade-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-100 w-fit">
+                        <i class="fas fa-check text-orange-500 text-sm"></i>
+                        <span class="text-gray-600 text-sm font-semibold tracking-wide">MOS Screener</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Temukan Saham Salah Harga
+                    </h2>
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>Gunakan Margin of Safety (MOS) Screener untuk menemukan saham undervalued yang harganya jauh di bawah nilai wajarnya (Book Value).</p>
+                        <p>Kombinasi sempurna antara value investing dan timing bandarmologi untuk hasil investasi jangka panjang yang maksimal.</p>
+                    </div>
+                    <div class="pt-4"><a href="#" class="inline-block bg-[#F59E0B] hover:bg-orange-600 text-white font-bold text-lg px-8 py-3 rounded-md shadow-md transition-all duration-300 hover:-translate-y-1">Cari Undervalued</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-24 overflow-hidden border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 space-y-6" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-100 w-fit">
+                        <i class="fas fa-check text-orange-500 text-sm"></i>
+                        <span class="text-gray-600 text-sm font-semibold tracking-wide">Fundamental Filter</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Filter Kinerja Perusahaan
+                    </h2>
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>Screening saham berdasarkan rasio keuangan penting seperti PER, PBV, ROE, dan NPM. Pastikan Anda hanya berinvestasi pada perusahaan yang sehat dan mencetak laba.</p>
+                        <p>Data fundamental disajikan secara ringkas agar Anda bisa membandingkan kinerja antar emiten dengan cepat.</p>
+                    </div>
+                    <div class="pt-4"><a href="#" class="inline-block bg-[#F59E0B] hover:bg-orange-600 text-white font-bold text-lg px-8 py-3 rounded-md shadow-md transition-all duration-300 hover:-translate-y-1">Filter Fundamental</a></div>
+                </div>
+                <div class="md:w-1/2 relative" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-purple-100 blur-3xl opacity-40 rounded-full transform scale-90 translate-x-10"></div>
+                    <img src="assets/img/saham/6.jpeg" alt="Fundamental Screener" 
+                         class="relative z-10 w-full rounded-xl shadow-2xl border border-gray-100 transform hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-24 overflow-hidden border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col-reverse md:flex-row items-center gap-16">
+                <div class="md:w-1/2 relative" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-teal-100 blur-3xl opacity-40 rounded-full transform scale-90 -translate-x-10"></div>
+                    <img src="assets/img/saham/7.jpeg" alt="Broker Detail" 
+                         class="relative z-10 w-full rounded-xl shadow-2xl border border-gray-100 transform hover:scale-105 transition duration-500">
+                </div>
+                <div class="md:w-1/2 space-y-6" data-aos="fade-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-100 w-fit">
+                        <i class="fas fa-check text-orange-500 text-sm"></i>
+                        <span class="text-gray-600 text-sm font-semibold tracking-wide">Broker Detail</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Lacak Jejak Broker
+                    </h2>
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>Ketahui broker mana yang sedang menguasai saham tertentu. Lihat rata-rata harga beli (Broker AVG) mereka untuk mengetahui di mana posisi bandar sebenarnya.</p>
+                        <p>Gunakan data ini untuk menghindari entry di harga yang terlalu tinggi dibandingkan harga bandar.</p>
+                    </div>
+                    <div class="pt-4"><a href="#" class="inline-block bg-[#F59E0B] hover:bg-orange-600 text-white font-bold text-lg px-8 py-3 rounded-md shadow-md transition-all duration-300 hover:-translate-y-1">Cek Broker</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-24 overflow-hidden border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 space-y-6" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-100 w-fit">
+                        <i class="fas fa-check text-orange-500 text-sm"></i>
+                        <span class="text-gray-600 text-sm font-semibold tracking-wide">Broker Summary</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Peta Kekuatan Broker
+                    </h2>
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>Analisa siapa yang menjadi Buyer dan Seller dominan. Apakah asing atau lokal? Apakah ritel atau institusi? </p>
+                        <p>Broker Summary memberikan ringkasan Top 5 Buyer dan Seller untuk membantu Anda melihat distribusi barang yang sedang terjadi.</p>
+                    </div>
+                    <div class="pt-4"><a href="#" class="inline-block bg-[#F59E0B] hover:bg-orange-600 text-white font-bold text-lg px-8 py-3 rounded-md shadow-md transition-all duration-300 hover:-translate-y-1">Lihat Summary</a></div>
+                </div>
+                <div class="md:w-1/2 relative" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-indigo-100 blur-3xl opacity-40 rounded-full transform scale-90 translate-x-10"></div>
+                    <img src="assets/img/saham/8.jpeg" alt="Broker Summary" 
+                         class="relative z-10 w-full rounded-xl shadow-2xl border border-gray-100 transform hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-24 overflow-hidden border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col-reverse md:flex-row items-center gap-16">
+                <div class="md:w-1/2 relative" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-pink-100 blur-3xl opacity-40 rounded-full transform scale-90 -translate-x-10"></div>
+                    <img src="assets/img/saham/9.jpeg" alt="Trading Plan" 
+                         class="relative z-10 w-full rounded-xl shadow-2xl border border-gray-100 transform hover:scale-105 transition duration-500">
+                </div>
+                <div class="md:w-1/2 space-y-6" data-aos="fade-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-100 w-fit">
+                        <i class="fas fa-check text-orange-500 text-sm"></i>
+                        <span class="text-gray-600 text-sm font-semibold tracking-wide">Trading Plan Otomatis</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Rencana Trading yang Matang
+                    </h2>
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>Jangan trading tanpa rencana. Fitur ini memberikan area "Buffer Zone" untuk buy on weakness, serta kalkulasi reward vs risk yang terukur secara matematis.</p>
+                        <p>Dapatkan rekomendasi titik Stop Loss dan Target Profit yang rasional untuk menjaga psikologi trading Anda.</p>
+                    </div>
+                    <div class="pt-4"><a href="#" class="inline-block bg-[#F59E0B] hover:bg-orange-600 text-white font-bold text-lg px-8 py-3 rounded-md shadow-md transition-all duration-300 hover:-translate-y-1">Buat Plan</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="bg-white py-24 border-t border-gray-100 overflow-hidden">
+        
+        <div class="max-w-7xl mx-auto px-6 mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+                Apa Kata Mereka Tentang <br>Bandar<span class="text-brand-green">Mo</span>logy?
+            </h2>
+            <p class="text-gray-500 mt-3 text-lg">Bergabunglah dengan ribuan trader yang sudah merasakan manfaatnya.</p>
+        </div>
+
+        <div class="relative w-full overflow-hidden group">
+            
+            <div class="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div class="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
+
+            <div class="flex gap-6 w-max animate-scroll group-hover:paused">
+                
+                <div class="w-80 md:w-96 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "@BandarMology fitur screener-nya gila sih. Saya masih nggak percaya value yang didapet dengan harga segini. Fitur Broker Summary-nya ngebantu banget buat liat siapa yang lagi akumulasi diem-diem."
                     </p>
-                    <div class="flex items-center gap-3">
-                        <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-10 h-10 rounded-full">
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green p-0.5">
                         <div>
-                            <h4 class="font-bold text-sm">Juliette L.</h4><span
-                                class="text-xs text-gray-400">Artis</span>
+                            <h4 class="font-bold text-gray-900 text-sm">Christian R.</h4>
+                            <span class="text-xs text-gray-400 font-medium">@christian_trader</span>
                         </div>
                     </div>
                 </div>
+
+                <div class="w-80 md:w-96 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "BandarMology mungkin terminal terbaik buat investor ritel yang nggak sanggup beli Bloomberg atau FactSet. Data fundamentalnya lengkap banget, valuasinya juga akurat."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green p-0.5">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Sofia López</h4>
+                            <span class="text-xs text-gray-400 font-medium">Full-time Investor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-80 md:w-96 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "@BandarMology tetep jadi value proposition terbaik di market saat ini. Fitur MOS Screener-nya ngebantu banget buat nyaring saham undervalue secara instan."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green p-0.5">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Typical Capital</h4>
+                            <span class="text-xs text-gray-400 font-medium">Fund Manager</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-80 md:w-96 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "Salah satu platform finansial yang paling sering saya pake. Buat data keuangan perusahaan US dan Indo, ini udah lengkap banget buat user pertama kayak saya."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green p-0.5">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Raul Shah</h4>
+                            <span class="text-xs text-gray-400 font-medium">@Raul_DSF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-80 md:w-96 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "Akhirnya nemu tools yang bisa nampilin Foreign Flow secara real-time dan akurat. Trading jadi lebih tenang karena tau arah uang besarnya kemana."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green p-0.5">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Juliette L.</h4>
+                            <span class="text-xs text-gray-400 font-medium">Scalper Trader</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="w-80 md:w-96 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "@BandarMology fitur screener-nya gila sih. Saya masih nggak percaya value yang didapet dengan harga segini. Fitur Broker Summary-nya ngebantu banget buat liat siapa yang lagi akumulasi diem-diem."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green p-0.5">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Christian R.</h4>
+                            <span class="text-xs text-gray-400 font-medium">@christian_trader</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-80 md:w-96 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "BandarMology mungkin terminal terbaik buat investor ritel yang nggak sanggup beli Bloomberg atau FactSet. Data fundamentalnya lengkap banget, valuasinya juga akurat."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green p-0.5">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Sofia López</h4>
+                            <span class="text-xs text-gray-400 font-medium">Full-time Investor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-80 md:w-96 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "@BandarMology tetep jadi value proposition terbaik di market saat ini. Fitur MOS Screener-nya ngebantu banget buat nyaring saham undervalue secara instan."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green p-0.5">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Typical Capital</h4>
+                            <span class="text-xs text-gray-400 font-medium">Fund Manager</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-80 md:w-96 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "Salah satu platform finansial yang paling sering saya pake. Buat data keuangan perusahaan US dan Indo, ini udah lengkap banget buat user pertama kayak saya."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green p-0.5">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Raul Shah</h4>
+                            <span class="text-xs text-gray-400 font-medium">@Raul_DSF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-80 md:w-96 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "Akhirnya nemu tools yang bisa nampilin Foreign Flow secara real-time dan akurat. Trading jadi lebih tenang karena tau arah uang besarnya kemana."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green p-0.5">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Juliette L.</h4>
+                            <span class="text-xs text-gray-400 font-medium">Scalper Trader</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+
     </section>
 
-    <section class="bg-gray-50 py-24 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-6">
 
-            <div class="text-center mb-12 max-w-3xl mx-auto" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-                    Data <span class="text-brand-green">Real-time</span> Akurat.
+    <section id="faq" class="bg-white py-24 relative border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-green font-bold tracking-wider uppercase text-sm">Pertanyaan Umum</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4">
+                    Masih Ragu? <br>Baca Ini Dulu.
                 </h2>
-                <p class="text-gray-600 text-lg">
-                    Pantau pergerakan <i>Net Buy</i> Asing dan Lokal secara langsung. Dapatkan sinyal Big Accumulation
-                    (Big ACC) dan Big Distribution (Big Dist) dalam satu tampilan tabel yang mudah dibaca.
-                </p>
+                <p class="text-gray-500 text-lg">Jawaban jujur untuk trading yang lebih serius.</p>
             </div>
 
-            <div class="relative" data-aos="fade-up" data-aos-delay="200">
-                <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur opacity-20">
-                </div>
+            <div class="space-y-4">
 
-                <div class="relative bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-                    <div class="bg-gray-50 border-b border-gray-100 px-4 py-3 flex gap-2">
-                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                        <div class="ml-4 text-xs text-gray-400 font-mono">BandarMology Pro Screener</div>
-                    </div>
-
-                    <div class="p-2 md:p-4 overflow-x-auto">
-                        <img src="assets/img/saham/1.jpeg" alt="Tabel Screener Saham Net Buy"
-                            class="w-full h-auto rounded-lg shadow-inner min-w-[800px] md:min-w-0">
+                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: true }" data-aos="fade-up" data-aos-delay="0">
+                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-gray-900">1. Apa itu BandarMology.net?</span>
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
+                        Platform analisa berbasis data yang bikin trader retail akhirnya ngerti apa yang bandar lakukan. Kalau sampai hari ini kamu masih ikut rumor, kamu butuh ini — sekarang juga.
                     </div>
                 </div>
 
-                <div
-                    class="absolute -bottom-6 -right-6 hidden md:flex items-center gap-3 bg-white p-4 rounded-xl shadow-xl border border-gray-100 animate-bounce-slow">
-                    <div class="bg-green-100 p-2 rounded-full text-green-600">
-                        <i class="fas fa-check-circle text-2xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs text-gray-500 font-bold uppercase">Akurasi Sinyal</p>
-                        <p class="text-xl font-bold text-gray-900">98.5%</p>
+                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="50">
+                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-gray-900">2. Kenapa saya harus join?</span>
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
+                        Karena setiap hari tanpa data bandarmologi = peluang hilang + risiko nyangkut makin besar. Kalau kamu serius mau upgrade trading, inilah pintu masuknya. Tunda = rugi waktu.
                     </div>
                 </div>
-            </div>
 
-        </div>
-    </section>
+                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="100">
+                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-gray-900">3. Emang sepenting itu baca gerakan bandar?</span>
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
+                        Iya. 80% pergerakan harga digerakkan big player. Kalau kamu nggak tahu siapa yang akumulasi dan distribusi, kamu cuma ikut arus. Join dan hentikan trading dalam gelap.
+                    </div>
+                </div>
 
-    <section class="bg-gray-50 py-20 border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
+                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="150">
+                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-gray-900">4. Apa tools-nya benar-benar membantu?</span>
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
+                        Tools kami memperlihatkan akumulasi, distribusi, dan aktivitas broker dengan lebih jelas. Kalau kamu belum punya alat seperti ini, kamu tertinggal dari trader lain yang sudah pakai. Lebih cepat gabung, lebih cepat paham.
+                    </div>
+                </div>
 
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900">
-                    Edukasi & Wawasan Trading.
-                </h2>
-                <p class="text-gray-500 mt-2">Pelajari cara membaca pergerakan pasar dari ahlinya.</p>
-            </div>
+                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="200">
+                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-gray-900">5. Pemula bisa ikut?</span>
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
+                        Justru harus! Pemula tanpa belajar bandarmologi itu target empuk bandar. Gabung sekarang untuk berhenti jadi “exit liquidity” market.
+                    </div>
+                </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="250">
+                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-gray-900">6. Ada sinyal beli/jual?</span>
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
+                        Kami tidak memerintah kamu beli/jual. Kami kasih data real, pola, dan insight yang membuat keputusanmu jauh lebih tajam. Kalau kamu pengen trading dengan kepastian arah, ini alatnya.
+                    </div>
+                </div>
 
-                <a href="#"
-                    class="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-64 overflow-hidden">
-                        <img src="assets/img/hero.png" alt="Analisis Teknikal"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="300">
+                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-gray-900">7. Datanya real-time?</span>
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
+                        Cukup cepat untuk membuatmu tidak lagi telat masuk. Tools kami bukan untuk tebak-tebakan — tapi untuk mendeteksi pergerakan besar sebelum meledak.
                     </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                    <div class="p-6 relative z-10">
-                        <h3
-                            class="text-xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                            Membedah Pergerakan Bandar</h3>
-                        <p class="text-gray-500 mt-2 group-hover:text-gray-200 transition-colors duration-300">Belajar
-                            cara mendeteksi akumulasi dan distribusi besar-besaran yang tidak terlihat di chart biasa.
-                        </p>
-                        <div
-                            class="mt-4 flex items-center gap-2 text-brand-green font-bold group-hover:text-white transition-colors duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Baca Selengkapnya</span> <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </a>
+                </div>
 
-                <a href="#"
-                    class="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-64 overflow-hidden">
-                        <img src="assets/img/hero2.png" alt="Manajemen Risiko"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="350">
+                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-gray-900">8. Bagaimana cara join?</span>
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
+                        Masuk ke Bandarmology.net, pilih paket membership, dan langsung aktif. Tidak ribet. Tidak nunggu. Semakin cepat kamu mulai, semakin cepat kamu meninggalkan pola trading asal-asalan.
                     </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                    <div class="p-6 relative z-10">
-                        <h3
-                            class="text-xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                            Psikologi & Manajemen Risiko</h3>
-                        <p class="text-gray-500 mt-2 group-hover:text-gray-200 transition-colors duration-300">Kunci
-                            bertahan di pasar modal bukan hanya profit, tapi bagaimana menjaga modal Anda tetap aman.
-                        </p>
-                        <div
-                            class="mt-4 flex items-center gap-2 text-brand-green font-bold group-hover:text-white transition-colors duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Tonton Video</span> <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                </a>
+                </div>
 
-                <a href="#"
-                    class="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-64 overflow-hidden">
-                        <img src="assets/img/hero3.png" alt="Strategi Cuan"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="400">
+                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-gray-900">9. Ada komunitasnya?</span>
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
+                        Ada. Dan ini bukan komunitas biasa. Ini lingkungan tempat member bahas peluang setiap hari, saling berbagi analisa, dan saling dorong untuk lebih disiplin. Gabung komunitas → mindset trading ikut naik level.
                     </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                    <div class="p-6 relative z-10">
-                        <h3
-                            class="text-xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                            Strategi Trading Harian (Scalping)</h3>
-                        <p class="text-gray-500 mt-2 group-hover:text-gray-200 transition-colors duration-300">Teknik
-                            mencari cuan cepat di pasar yang sedang volatile dengan memanfaatkan momentum sesaat.</p>
-                        <div
-                            class="mt-4 flex items-center gap-2 text-brand-green font-bold group-hover:text-white transition-colors duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Pelajari Tekniknya</span> <i class="fas fa-chart-bar"></i>
-                        </div>
-                    </div>
-                </a>
+                </div>
 
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-gray-50 py-20 border-t border-gray-100 overflow-hidden">
-        <div class="text-center mb-10 px-6" data-aos="fade-up">
-            <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900">
-                Edukasi & Wawasan Trading.
-            </h2>
-            <p class="text-gray-500 mt-2">Pelajari cara membaca pergerakan pasar dari ahlinya.</p>
-        </div>
-
-        <div class="logo-slider">
-            <div class="logos-slide flex gap-8 pl-8">
-
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden">
-                        <img src="assets/img/saham/1.jpeg" alt="Analisis Teknikal"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="450">
+                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-gray-900">10. Ada promo?</span>
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
+                        Kalau promo masih buka, ambil. Kuotanya selalu diserbu karena banyak trader yang sadar mereka butuh data, bukan harapan. Kesempatan jarang datang dua kali.
                     </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Membedah Bandar</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Deteksi akumulasi dan distribusi besar yang tidak terlihat di chart biasa.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Baca Selengkapnya</span> <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden">
-                        <img src="assets/img/saham/2.jpeg" alt="Manajemen Risiko"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Psikologi Trading</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Kunci bertahan di pasar modal adalah menjaga mental dan money management.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Tonton Video</span> <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden">
-                        <img src="assets/img/saham/3.jpeg" alt="Strategi Cuan"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Strategi Scalping</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Teknik mencari cuan cepat di pasar volatile dengan momentum.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Pelajari Teknik</span> <i class="fas fa-chart-bar"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden">
-                        <img src="assets/img/saham/4.jpeg" alt="Swing Trading"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Swing Santai</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Metode trading santai untuk pekerja kantoran tanpa pantau monitor.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Baca Panduan</span> <i class="fas fa-book-open"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden"><img src="assets/img/saham/5.jpeg"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Membedah Bandar</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Deteksi akumulasi dan distribusi besar yang tidak terlihat di chart biasa.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Baca Selengkapnya</span> <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden"><img src="assets/img/saham/6.jpeg"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Psikologi Trading</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Kunci bertahan di pasar modal adalah menjaga mental dan money management.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Tonton Video</span> <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden"><img src="assets/img/saham/7.jpeg"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Strategi Scalping</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Teknik mencari cuan cepat di pasar volatile dengan momentum.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Pelajari Teknik</span> <i class="fas fa-chart-bar"></i>
-                        </div>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden"><img src="assets/img/saham/8.jpeg"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Swing Santai</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Metode trading santai untuk pekerja kantoran tanpa pantau monitor.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Baca Panduan</span> <i class="fas fa-book-open"></i>
-                        </div>
-                    </div>
-                </a>
+                </div>
 
             </div>
+
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#pricing" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-brand-green rounded-full hover:bg-green-700 hover:shadow-lg hover:-translate-y-1 shadow-green-200">
+                    Gabung Sekarang
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -810,12 +900,7 @@
                         <br>
                         No Wa : 0853-7050-5430
                     </p>
-                    <div
-                        class="inline-flex items-center gap-3 border border-gray-600 rounded px-4 py-2 cursor-pointer hover:border-white hover:bg-white/10 transition group">
-                        <i class="fas fa-globe text-gray-400 group-hover:text-white"></i>
-                        <span class="text-sm font-medium">Bahasa Indonesia</span>
-                        <i class="fas fa-chevron-down text-xs ml-2 text-gray-400"></i>
-                    </div>
+                    
                 </div>
                 <div class="md:col-span-2">
                     <h3 class="font-bold text-white mb-6 text-base tracking-wide">Perusahaan</h3>
@@ -848,24 +933,6 @@
             </div>
 
             <div class="flex flex-col md:flex-row justify-between items-center border-t border-gray-700/50 pt-10 gap-6">
-                <div class="flex gap-3">
-                    <a href="#"
-                        class="bg-white text-black px-4 py-2 rounded-lg flex items-center gap-3 hover:bg-gray-200 transition shadow-lg transform hover:-translate-y-1">
-                        <i class="fab fa-apple text-2xl"></i>
-                        <div class="text-left leading-none">
-                            <div class="text-[10px] font-bold uppercase tracking-wider">Download on the</div>
-                            <div class="text-sm font-bold">App Store</div>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="bg-white text-black px-4 py-2 rounded-lg flex items-center gap-3 hover:bg-gray-200 transition shadow-lg transform hover:-translate-y-1">
-                        <i class="fab fa-google-play text-xl"></i>
-                        <div class="text-left leading-none">
-                            <div class="text-[10px] font-bold uppercase tracking-wider">GET IT ON</div>
-                            <div class="text-sm font-bold">Google Play</div>
-                        </div>
-                    </a>
-                </div>
                 <div class="flex gap-4">
                     <a href="#"
                         class="bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-green transition transform hover:rotate-12"><i
@@ -880,13 +947,25 @@
             </div>
             <div class="mt-12 text-center text-gray-500 text-xs flex flex-col items-center gap-4">
                 <p>&copy; 2025 BandarMology.net - Hak Cipta Dilindungi.</p>
-                <div class="flex gap-2 opacity-60">
-                    <div class="bg-white px-2 py-1 rounded h-6 flex items-center"><img
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
-                            class="h-full"></div>
-                    <div class="bg-white px-2 py-1 rounded h-6 flex items-center"><img
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
-                            class="h-full"></div>
+                
+                <div class="flex flex-wrap justify-center gap-3 opacity-90">
+                    
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1200px-Bank_Central_Asia.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/1200px-Bank_Mandiri_logo_2016.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/BANK_BRI_logo.svg/1200px-BANK_BRI_logo.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_QRIS.svg/1200px-Logo_QRIS.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -967,28 +1046,28 @@
         const stats = [
             {
                 id: 'counter-trader',
-                startVal: 15420,
+                startVal: 14,
                 minAdd: 1,
                 maxAdd: 3,
                 interval: 3000 // Nambah setiap 3 detik
             },
             {
                 id: 'counter-saham',
-                startVal: 8250,
+                startVal: 8375,
                 minAdd: 5,
                 maxAdd: 12,
                 interval: 2000 // Nambah setiap 2 detik
             },
             {
                 id: 'counter-signal',
-                startVal: 124900,
+                startVal: 125,
                 minAdd: 10,
                 maxAdd: 50,
                 interval: 1500 // Nambah cepat (1.5 detik)
             },
             {
                 id: 'counter-premium',
-                startVal: 2345,
+                startVal: 37,
                 minAdd: 0,
                 maxAdd: 1,
                 interval: 8000 // Nambah lambat (kadang nambah, kadang enggak)
