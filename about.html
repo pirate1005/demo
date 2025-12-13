@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Bandarmology</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        logo: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-white text-gray-800 relative font-sans">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition group">
+                    <img src="assets/img/logo.png" alt="Logo" class="h-10 w-auto object-contain">
+                    <span class="text-2xl font-semibold tracking-tight font-logo text-gray-900">
+                        Bandar<span class="text-brand-green font-normal">Mo</span>logy
+                    </span>
+                </a>
+
+                <div class="hidden md:flex space-x-8 font-medium text-gray-600 text-[15px]">
+                    <a href="growth.html" class="hover:text-brand-green transition">Growth Academy</a>
+                    <a href="price.html" class="hover:text-brand-green transition">Price</a>
+                    <a href="affiliate.html" class="hover:text-brand-green transition">Affiliate</a>
+                    <a href="cek-akurasi.html" class="hover:text-brand-green transition">Cek Akurasi</a>
+                    <a href="stock-pick.html" class="hover:text-brand-green transition">Stock Pick</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="hidden md:flex items-center gap-4">
+                        <a href="login.html" class="font-semibold text-gray-700 hover:text-brand-green transition">Masuk</a>
+                        <a href="order.html" class="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-700 transition shadow-lg hover:shadow-green-200">Free Trial</a>
+                    </div>
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-600 hover:text-brand-green focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div x-show="mobileMenuOpen" class="md:hidden mt-4 pb-4 border-t border-gray-100 flex flex-col space-y-4 pt-4" style="display: none;">
+                <a href="growth.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Growth Academy</a>
+                <a href="price.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Price</a>
+                <a href="affiliate.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Affiliate</a>
+                <a href="cek-akurasi.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Cek Akurasi</a>
+                <a href="stock-pick.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Stock Pick</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative py-20 bg-brand-dark text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#27AE60 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+            <span class="text-brand-green font-bold tracking-wider uppercase text-sm mb-2 block">Mengenal Lebih Dekat</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">Tentang <span class="text-brand-green">Kami</span></h1>
+            <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
+                Bandarmology.net adalah platform tools analisa saham berbasis data yang dirancang khusus untuk membantu trader dan investor ritel Indonesia mengambil keputusan lebih objektif, terukur, dan tidak mudah terjebak euforia market.
+            </p>
+            <div class="mt-8">
+                <p class="text-sm text-gray-400 italic">"Kami percaya bahwa market tidak digerakkan oleh rumor, tapi oleh aliran dana."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition duration-300" data-aos="fade-right">
+                    <div class="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-eye text-3xl text-brand-green"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Visi Kami</h2>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        Menjadi platform analisa saham terpercaya yang memberdayakan trader ritel agar tidak lagi menjadi korban permainan market.
+                    </p>
+                </div>
+
+                <div class="space-y-6" data-aos="fade-left">
+                    <h2 class="text-3xl font-bold text-gray-900">Misi Kami</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-brand-green text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Menyediakan tools analisa yang transparan, berbasis data, dan mudah digunakan.</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-brand-green text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Membantu trader ritel memahami fase akumulasi, distribusi, dan pergerakan bandar.</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-brand-green text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Mengedukasi pengguna agar berpikir logis, disiplin, dan tidak emosional dalam trading.</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-brand-green text-sm"></i>
+                            </div>
+                            <p class="text-gray-600">Menciptakan ekosistem belajar yang jujur, realistis, dan berorientasi proses.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand-bg border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Apa yang Membuat Kami Berbeda?</h2>
+                <div class="w-24 h-1.5 bg-brand-green mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Data, Bukan Sekadar Opini</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Kami tidak menjual janji cuan instan. Semua analisa di Bandarmology.net berangkat dari data transaksi market, bukan sekadar opini atau bisikan grup.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-green-100 text-brand-green rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Tools Khusus Trader Ritel</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Dikembangkan untuk menjawab masalah nyata: Terlambat masuk, salah timing, terjebak FOMO, dan buta arah akumulasi/distribusi bandar.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Edukatif & Praktis</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Bukan hanya tools, tapi juga media belajar. Kami membantu pengguna memahami alasan kenapa harus buy, kapan harus wait, dan kapan saatnya keluar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-green rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-12" data-aos="fade-up">Untuk Siapa Bandarmology?</h2>
+            
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:bg-white/20 transition" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-chart-line text-3xl text-brand-green mb-4"></i>
+                    <h4 class="font-bold">Trader Ritel</h4>
+                    <p class="text-xs text-gray-300 mt-2">Yang ingin naik level</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:bg-white/20 transition" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-briefcase text-3xl text-blue-400 mb-4"></i>
+                    <h4 class="font-bold">Investor</h4>
+                    <p class="text-xs text-gray-300 mt-2">Keputusan berbasis data</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:bg-white/20 transition" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-seedling text-3xl text-yellow-400 mb-4"></i>
+                    <h4 class="font-bold">Pemula</h4>
+                    <p class="text-xs text-gray-300 mt-2">Belajar cara yang benar</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:bg-white/20 transition" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-shield-alt text-3xl text-red-400 mb-4"></i>
+                    <h4 class="font-bold">Trader Logis</h4>
+                    <p class="text-xs text-gray-300 mt-2">Lelah dengan rumor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-green-50 border-t border-green-100">
+        <div class="max-w-4xl mx-auto px-6 text-center" data-aos="zoom-in">
+            <div class="inline-block p-4 rounded-full bg-white shadow-md mb-6">
+                <i class="fas fa-handshake text-4xl text-brand-green"></i>
+            </div>
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Komitmen Kami</h2>
+            <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                Bandarmology.net <span class="font-bold text-red-500">bukan pengelola dana</span> dan <span class="font-bold text-red-500">bukan penjamin profit</span>. 
+                Kami berkomitmen menyediakan tools berkualitas, data yang relevan, dan edukasi yang jujur.
+            </p>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-green-200 inline-block">
+                <p class="font-bold text-gray-800">
+                    "Keputusan trading tetap berada di tangan pengguna. Kami membantu membuka data, bukan mendikte keputusan."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white pt-20 pb-10 font-sans border-t-4 border-green-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16">
+                <div class="md:col-span-4 pr-10">
+                    <a href="#"
+                        class="text-3xl font-bold flex items-center gap-1 mb-4 text-white hover:text-green-400 transition">
+                        <span class="text-4xl"><img src="assets/img/logo.png" alt="Logo Bandarology"
+                                class="h-10 w-auto object-contain"></span> Bandarmology.net
+                    </a>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Perumahan Saqinah Jl Pendidikan
+                        <br>
+                        Paya Bujok Seulemak
+                        <br>
+                        Kota Langsa - Aceh
+                        <br>
+                        No Wa : 0853-7050-5430
+                    </p>
+                    
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Perusahaan</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="about.html" class="hover:text-brand-green transition">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Karir</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Komunitas</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-green transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Komunitas</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Legal</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-green transition">Privasi</a></li>
+                        <li><a href="terms.html" class="hover:text-brand-green transition">Syarat</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Bantuan</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-green transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-gray-700/50 pt-10 gap-6">
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-green transition transform hover:rotate-12"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#"
+                        class="bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-green transition transform hover:rotate-12"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="#"
+                        class="bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-green transition transform hover:rotate-12"><i
+                            class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="mt-12 text-center text-gray-500 text-xs flex flex-col items-center gap-4">
+                <p>&copy; 2025 Bandarmoogy.net - Hak Cipta Dilindungi.</p>
+                
+                <div class="flex flex-wrap justify-center gap-3 opacity-90">
+                    
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1200px-Bank_Central_Asia.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/1200px-Bank_Mandiri_logo_2016.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/BANK_BRI_logo.svg/1200px-BANK_BRI_logo.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_QRIS.svg/1200px-Logo_QRIS.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-center group">
+        <a href="https://wa.me/6285370505430" target="_blank" class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+        <button id="backToTopBtn" class="hidden w-12 h-12 bg-brand-green rounded-full items-center justify-center text-white shadow-lg border-2 border-white hover:bg-green-800 hover:-translate-y-1 transition-all duration-300 animate-bounce-slow">
+            <i class="fas fa-arrow-up text-lg"></i>
+        </button>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 800 });
+        
+        // Back to Top Logic
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('hidden');
+                backToTopBtn.classList.add('flex');
+            } else {
+                backToTopBtn.classList.add('hidden');
+                backToTopBtn.classList.remove('flex');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
