@@ -740,149 +740,93 @@
     </section>
 
 
-    <section id="faq" class="bg-white py-24 relative border-t border-gray-100">
-        <div class="max-w-4xl mx-auto px-6 relative z-10">
-            
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-brand-green font-bold tracking-wider uppercase text-sm">Pertanyaan Umum</span>
-                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4">
-                    Masih Ragu? <br>Baca Ini Dulu.
-                </h2>
-                <p class="text-gray-500 text-lg">Jawaban jujur untuk trading yang lebih serius.</p>
+    <footer class="bg-brand-dark text-white pt-20 pb-10 font-sans border-t-4 border-green-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16">
+                <div class="md:col-span-4 pr-10">
+                    <a href="#"
+                        class="text-3xl font-bold flex items-center gap-1 mb-4 text-white hover:text-green-400 transition">
+                        <span class="text-4xl"><img src="assets/img/logo.png" alt="Logo Bandarology"
+                                class="h-10 w-auto object-contain"></span> Bandarmology.net
+                    </a>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Perumahan Saqinah Jl Pendidikan
+                        <br>
+                        Paya Bujok Seulemak
+                        <br>
+                        Kota Langsa - Aceh
+                        <br>
+                        Kontak Wa : 0853-7050-5430
+                    </p>
+                    
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Perusahaan</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="about.html" class="hover:text-brand-green transition">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Karir</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Komunitas</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-green transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Komunitas</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Legal</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-green transition">Privasi</a></li>
+                        <li><a href="terms.html" class="hover:text-brand-green transition">Syarat</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Bantuan</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="faq.html" class="hover:text-brand-green transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Kontak</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="space-y-4">
-
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: true }" data-aos="fade-up" data-aos-delay="0">
-                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-bold text-gray-900">1. Apa itu Bandarmology.net?</span>
-                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
-                        Platform analisa berbasis data yang bikin trader retail akhirnya ngerti apa yang bandar lakukan. Kalau sampai hari ini kamu masih ikut rumor, kamu butuh ini — sekarang juga.
-                    </div>
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-gray-700/50 pt-10 gap-6">
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-green transition transform hover:rotate-12"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#"
+                        class="bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-green transition transform hover:rotate-12"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="#"
+                        class="bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-green transition transform hover:rotate-12"><i
+                            class="fab fa-twitter"></i></a>
                 </div>
-
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="50">
-                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-bold text-gray-900">2. Kenapa saya harus join?</span>
-                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
-                        Karena setiap hari tanpa data bandarmologi = peluang hilang + risiko nyangkut makin besar. Kalau kamu serius mau upgrade trading, inilah pintu masuknya. Tunda = rugi waktu.
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="100">
-                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-bold text-gray-900">3. Emang sepenting itu baca gerakan bandar?</span>
-                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
-                        Iya. 80% pergerakan harga digerakkan big player. Kalau kamu nggak tahu siapa yang akumulasi dan distribusi, kamu cuma ikut arus. Join dan hentikan trading dalam gelap.
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="150">
-                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-bold text-gray-900">4. Apa tools-nya benar-benar membantu?</span>
-                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
-                        Tools kami memperlihatkan akumulasi, distribusi, dan aktivitas broker dengan lebih jelas. Kalau kamu belum punya alat seperti ini, kamu tertinggal dari trader lain yang sudah pakai. Lebih cepat gabung, lebih cepat paham.
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="200">
-                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-bold text-gray-900">5. Pemula bisa ikut?</span>
-                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
-                        Justru harus! Pemula tanpa belajar bandarmologi itu target empuk bandar. Gabung sekarang untuk berhenti jadi “exit liquidity” market.
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="250">
-                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-bold text-gray-900">6. Ada sinyal beli/jual?</span>
-                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
-                        Kami tidak memerintah kamu beli/jual. Kami kasih data real, pola, dan insight yang membuat keputusanmu jauh lebih tajam. Kalau kamu pengen trading dengan kepastian arah, ini alatnya.
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="300">
-                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-bold text-gray-900">7. Datanya real-time?</span>
-                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
-                        Cukup cepat untuk membuatmu tidak lagi telat masuk. Tools kami bukan untuk tebak-tebakan — tapi untuk mendeteksi pergerakan besar sebelum meledak.
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="350">
-                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-bold text-gray-900">8. Bagaimana cara join?</span>
-                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
-                        Masuk ke Bandarmology.net, pilih paket membership, dan langsung aktif. Tidak ribet. Tidak nunggu. Semakin cepat kamu mulai, semakin cepat kamu meninggalkan pola trading asal-asalan.
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="400">
-                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-bold text-gray-900">9. Ada komunitasnya?</span>
-                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
-                        Ada. Dan ini bukan komunitas biasa. Ini lingkungan tempat member bahas peluang setiap hari, saling berbagi analisa, dan saling dorong untuk lebih disiplin. Gabung komunitas → mindset trading ikut naik level.
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md" x-data="{ open: false }" data-aos="fade-up" data-aos-delay="450">
-                    <button @click="open = !open" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-bold text-gray-900">10. Ada promo?</span>
-                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-gray-200 text-brand-green transition-transform duration-300" :class="open ? 'rotate-180' : ''">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div x-show="open" x-collapse class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-200/50 pt-4">
-                        Kalau promo masih buka, ambil. Kuotanya selalu diserbu karena banyak trader yang sadar mereka butuh data, bukan harapan. Kesempatan jarang datang dua kali.
-                    </div>
-                </div>
-
             </div>
+            <div class="mt-12 text-center text-gray-500 text-xs flex flex-col items-center gap-4">
+                <p>&copy; 2025 Bandarmoogy.net - Hak Cipta Dilindungi.</p>
+                
+                <div class="flex flex-wrap justify-center gap-3 opacity-90">
+                    
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1200px-Bank_Central_Asia.svg.png" class="h-full w-auto object-contain">
+                    </div>
 
-            <div class="text-center mt-12" data-aos="fade-up">
-                <a href="#pricing" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-brand-green rounded-full hover:bg-green-700 hover:shadow-lg hover:-translate-y-1 shadow-green-200">
-                    Gabung Sekarang
-                </a>
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/1200px-Bank_Mandiri_logo_2016.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/BANK_BRI_logo.svg/1200px-BANK_BRI_logo.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_QRIS.svg/1200px-Logo_QRIS.svg.png" class="h-full w-auto object-contain">
+                    </div>
+
+                </div>
             </div>
-
         </div>
-    </section>
+    </footer>
 
     <footer class="bg-brand-dark text-white pt-20 pb-10 font-sans border-t-4 border-green-800">
         <div class="max-w-7xl mx-auto px-6">
