@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cek Akurasi - Bandarmology</title>
+    <title>Kebijakan Privasi - Bandarmology</title>
     <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,12 +27,14 @@
             }
         }
     </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+<body class="bg-brand-bg text-gray-800 relative font-sans">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-6 py-4">
@@ -94,120 +97,99 @@
         </div>
     </nav>
 
-    <section class="flex-1 py-16 px-6" x-data="{ showResult: false, stockCode: '', searchDate: '' }">
-        <div class="max-w-5xl mx-auto">
+    <section class="bg-brand-dark text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#27AE60 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Kebijakan <span class="text-brand-green">Privasi</span></h1>
+            <p class="text-gray-300 text-lg">Perlindungan Data & Ketentuan Hak Cipta.</p>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-20">
+        <div class="max-w-4xl mx-auto px-6">
             
-            <div class="text-center mb-10">
-                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900">Cek Akurasi Signal</h1>
-                <p class="text-gray-500 mt-2">Validasi performa algoritma kami dengan data historis.</p>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 mb-10">
-                <form @submit.prevent="if(stockCode && searchDate) { showResult = true; } else { alert('Mohon isi data lengkap'); }">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-                        
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Pilih Tanggal</label>
-                            <input x-model="searchDate" type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" required>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Kode Saham</label>
-                            <input x-model="stockCode" type="text" placeholder="Contoh: BBCA" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition uppercase" required>
-                        </div>
-
-                        <div>
-                            <button type="submit" class="w-full bg-brand-green hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition transform hover:-translate-y-1">
-                                <i class="fas fa-search mr-2"></i> Cek Akurasi
-                            </button>
-                        </div>
-
+            <div class="bg-red-50 border-l-4 border-red-500 p-8 rounded-r-xl shadow-sm mb-12" data-aos="fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 text-red-500 mt-1">
+                        <i class="fas fa-exclamation-circle text-3xl"></i>
                     </div>
-                </form>
+                    <div>
+                        <h2 class="text-xl font-bold text-red-700 mb-2">KEBIJAKAN KETAT: DILARANG MENYEBARLUASKAN DATA</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Seluruh data, chart, sinyal, screener, dan materi edukasi yang terdapat di dalam member area <strong>Bandarmology.net</strong> adalah hak kekayaan intelektual kami dan bersifat <strong>RAHASIA (Confidential)</strong> khusus untuk member aktif.
+                        </p>
+                        <ul class="list-disc list-outside ml-4 text-sm text-gray-700 space-y-2 font-medium">
+                            <li>Dilarang keras membagikan akun (Sharing Account) kepada pihak lain.</li>
+                            <li>Dilarang menyebarkan screenshot, video, atau data mentah ke media sosial, grup WhatsApp/Telegram, atau platform publik lainnya tanpa izin tertulis.</li>
+                            <li>Dilarang menjual kembali data atau sinyal Bandarmology (Re-selling).</li>
+                        </ul>
+                        <p class="text-red-600 text-sm font-bold mt-4 italic">
+                            Pelanggaran terhadap ketentuan ini akan mengakibatkan pemblokiran akun permanen tanpa pengembalian dana (No Refund) dan potensi tuntutan hukum.
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div x-show="showResult" 
-                 x-transition:enter="transition ease-out duration-300"
-                 x-transition:enter-start="opacity-0 translate-y-4"
-                 x-transition:enter-end="opacity-100 translate-y-0"
-                 class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden" style="display: none;">
-                
-                <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-                    <h3 class="font-bold text-gray-800 text-lg">
-                        Hasil Analisa: <span class="text-brand-green uppercase" x-text="stockCode"></span>
+            <div class="space-y-12 text-gray-700 leading-relaxed">
+
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-brand-green text-sm">1</span>
+                        Pengumpulan Data Pribadi
                     </h3>
-                    <span class="text-sm text-gray-500" x-text="'Data pada: ' + searchDate"></span>
+                    <p class="mb-4">
+                        Kami mengumpulkan informasi pribadi Anda (seperti nama, alamat email, dan nomor WhatsApp) semata-mata untuk keperluan administrasi akun, verifikasi keamanan, dan komunikasi layanan.
+                    </p>
+                    <p>
+                        Kami menjamin bahwa data pribadi Anda <strong>tidak akan diperjualbelikan</strong> atau dibagikan kepada pihak ketiga untuk tujuan pemasaran di luar ekosistem Bandarmology.
+                    </p>
                 </div>
 
-                <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    
-                    <div class="lg:col-span-2 h-[400px] bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden relative">
-                        <div class="tradingview-widget-container" style="height:100%;width:100%">
-                            <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                            {
-                            "autosize": true,
-                            "symbol": "IDX:BBCA", 
-                            "interval": "D",
-                            "timezone": "Asia/Jakarta",
-                            "theme": "light",
-                            "style": "1",
-                            "locale": "id",
-                            "enable_publishing": false,
-                            "hide_top_toolbar": true, 
-                            "save_image": false,
-                            "calendar": false,
-                            "hide_volume": true,
-                            "support_host": "https://www.tradingview.com"
-                            }
-                            </script>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-1 space-y-6">
-                        
-                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
-                            <p class="text-sm text-gray-500 font-bold uppercase mb-1">Status Bandarmology</p>
-                            <h2 class="text-2xl font-extrabold text-blue-600">BIG ACCUMULATION</h2>
-                            <p class="text-xs text-gray-400 mt-1">Indikasi kuat kenaikan harga</p>
-                        </div>
-
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-3 border-b pb-2">Detail Transaksi</h4>
-                            <table class="w-full text-sm">
-                                <tbody class="divide-y divide-gray-100">
-                                    <tr>
-                                        <td class="py-2 text-gray-500">Net Buy (Lot)</td>
-                                        <td class="py-2 text-right font-bold text-green-600">+85.400</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 text-gray-500">Net Sell (Lot)</td>
-                                        <td class="py-2 text-right font-bold text-red-500">-23.100</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 text-gray-500">Average Price</td>
-                                        <td class="py-2 text-right font-bold">9.250</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 text-gray-500">Total Value</td>
-                                        <td class="py-2 text-right font-bold">78 Milyar</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-3 border-b pb-2">Top 3 Broker (Net Buy)</h4>
-                            <div class="flex gap-2">
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded font-bold text-xs border border-gray-300">KZ</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded font-bold text-xs border border-gray-300">BK</span>
-                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded font-bold text-xs border border-gray-300">YU</span>
-                            </div>
-                        </div>
-
-                    </div>
-
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-brand-green text-sm">2</span>
+                        Keamanan Akun
+                    </h3>
+                    <p class="mb-4">
+                        Satu akun hanya berlaku untuk satu pengguna (Single User License). Sistem kami dilengkapi dengan deteksi keamanan yang dapat mengenali jika sebuah akun diakses dari banyak perangkat atau lokasi yang mencurigakan secara bersamaan.
+                    </p>
+                    <p>
+                        Jika sistem mendeteksi aktivitas anomali (seperti sharing account), sistem akan secara otomatis mengunci akun Anda untuk perlindungan.
+                    </p>
                 </div>
+
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-brand-green text-sm">3</span>
+                        Penggunaan Cookies
+                    </h3>
+                    <p>
+                        Website kami menggunakan cookies untuk meningkatkan pengalaman pengguna, mengingat preferensi login Anda, dan melacak kinerja sistem afiliasi (tracking referral). Dengan menggunakan website ini, Anda menyetujui penggunaan cookies sesuai dengan kebijakan kami.
+                    </p>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-brand-green text-sm">4</span>
+                        Disclaimer & Risiko
+                    </h3>
+                    <p class="mb-4">
+                        Bandarmology.net menyediakan alat bantu analisis (tools) dan data historis. Segala keputusan investasi dan trading adalah tanggung jawab penuh pengguna.
+                    </p>
+                    <p>
+                        Kami tidak bertanggung jawab atas kerugian finansial yang mungkin timbul akibat penggunaan data dari website ini. Data pasar saham bersifat dinamis dan risiko selalu menyertai setiap transaksi di pasar modal.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="mt-16 text-center border-t border-gray-200 pt-10" data-aos="fade-up">
+                <p class="text-gray-500 text-sm mb-6">
+                    Dengan mendaftar dan menggunakan layanan Bandarmology, Anda dianggap telah membaca, mengerti, dan menyetujui seluruh Kebijakan Privasi ini.
+                </p>
+                <a href="index.html" class="inline-block border border-gray-300 text-gray-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100 hover:text-gray-900 transition">
+                    Kembali ke Beranda
+                </a>
             </div>
 
         </div>
@@ -322,6 +304,11 @@
         </button>
 
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 800 });
+    </script>
 
 </body>
 </html>

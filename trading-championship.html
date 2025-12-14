@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bandarmology - Home</title>
+    <title>Trading Championship - Bandarmology</title>
     <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
-<script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -15,7 +16,8 @@
                         brand: {
                             green: '#27AE60',
                             dark: '#0f0535',
-                            bg: '#F9FAFB'
+                            bg: '#F9FAFB',
+                            gold: '#FFD700' // Warna Emas untuk Championship
                         }
                     },
                     fontFamily: {
@@ -27,35 +29,15 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Agar scroll manual juga halus */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap"
-        rel="stylesheet">
-
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="bg-white text-gray-800 relative">
+<body class="bg-brand-bg text-gray-800 relative font-sans">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
+   <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-6 py-4">
             
             <div class="flex items-center justify-between">
@@ -116,141 +98,168 @@
         </div>
     </nav>
 
-<section class="bg-brand-bg py-24 relative overflow-hidden" id="affiliate">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+    <section class="bg-brand-dark text-white py-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-green rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-gold rounded-full mix-blend-multiply filter blur-[100px] opacity-10"></div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+                <i class="fas fa-trophy text-yellow-400"></i>
+                <span class="text-sm font-bold tracking-wider uppercase text-yellow-100">Official Tournament</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Bandarmology <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-600">Trading Championship</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
+                Buktikan skill analisamu menjadi Professional Trader. Tanpa risiko uang asli, manfaatkan data Bandarmology, dan menangkan hadiahnya.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#register" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-extrabold px-8 py-4 rounded-full hover:scale-105 transition transform shadow-lg shadow-yellow-500/20">
+                    Daftar Sekarang
+                </a>
+                <a href="#rules" class="bg-transparent border border-gray-500 text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition">
+                    Pelajari Aturan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="rules" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
             
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
-                    Promo <span class="text-brand-green">Afiliasi</span>
-                </h2>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-                    Ajak teman Anda bergabung ke Bandarmology dan dapatkan pasif income tanpa batas.
-                </p>
+                <h2 class="text-3xl font-extrabold text-gray-900">Cara Kerja Kompetisi</h2>
+                <p class="text-gray-500 mt-2">Kompetisi yang adil, transparan, dan edukatif.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 mb-20">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-center hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 font-bold">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Siapkan Akun Stockbit</h3>
+                    <p class="text-gray-600 text-sm">
+                        Buat akun di aplikasi Stockbit (Gratis) dan gunakan fitur <strong>Virtual Trading</strong>. Anda akan mendapatkan modal virtual awal sebesar <strong>Rp 100.000.000</strong>.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-center hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-100 text-brand-green rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 font-bold">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Analisa dengan Bandarmology</h3>
+                    <p class="text-gray-600 text-sm">
+                        Gunakan tools Bandarmology.net untuk mencari saham yang sedang diakumulasi bandar. Tentukan Entry dan Exit point Anda berdasarkan data kami.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-center hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 font-bold">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Raih Profit Tertinggi</h3>
+                    <p class="text-gray-600 text-sm">
+                        Trading di akun virtual Stockbit. Peserta dengan persentase pertumbuhan aset (Growth) tertinggi di akhir periode akan menjadi juara.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-brand-dark text-white rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden" data-aos="zoom-in">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full mix-blend-overlay -mr-10 -mt-10"></div>
                 
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-brand-green hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-brand-green text-2xl mb-6">
-                        <i class="fas fa-percentage"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Komisi 15-20% Recurring</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Dapatkan komisi dari setiap pembelian dan perpanjangan layanan. Selama referral Anda memperpanjang, Anda <strong>tetap dapat komisi terus-menerus</strong>.
-                    </p>
+                <div class="relative z-10">
+                    <h3 class="text-2xl font-bold mb-2">Jadwal Pelaksanaan</h3>
+                    <p class="text-gray-300">Jangan sampai ketinggalan start awal kompetisi.</p>
                 </div>
-
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-blue-500 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-2xl mb-6">
-                        <i class="fas fa-cookie-bite"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Cookie 90 Hari</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Jika user klik link Anda dan baru mendaftar dalam waktu kurang dari 90 hari (selama cookie browser belum dihapus), tetap dihitung sebagai referral Anda.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-yellow-500 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 text-2xl mb-6">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Mudah Dicairkan</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Dana komisi bisa ditarik kapan saja jika saldo sudah mencapai minimal <strong>Rp 50.000</strong>. Proses cepat dan transparan.
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden" data-aos="fade-up">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-green via-green-400 to-blue-500"></div>
                 
-                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center md:text-left">
-                    Strategi & Tugas Anda:
-                </h3>
-
-                <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
-                    
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Sebarkan Link Keluarga</h4>
-                            <p class="text-sm text-gray-600 mt-1">Bagikan Link Afiliasi ke keluarga, teman dekat, dan sahabat Anda.</p>
+                <div class="flex gap-6 relative z-10">
+                    <div class="text-center">
+                        <div class="text-3xl font-extrabold text-brand-green">01</div>
+                        <div class="text-xs uppercase tracking-wider text-gray-400">Februari</div>
+                        <div class="text-lg font-bold">2026</div>
+                    </div>
+                    <div class="h-16 w-px bg-gray-700"></div>
+                    <div class="text-left">
+                        <div class="text-sm text-gray-400 mb-1">Status Pendaftaran:</div>
+                        <div class="inline-block bg-green-600 text-white px-4 py-1 rounded-full text-xs font-bold animate-pulse">
+                            DIBUKA
                         </div>
                     </div>
-
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fab fa-telegram-plane"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Promosi Grup Saham</h4>
-                            <p class="text-sm text-gray-600 mt-1">Share link web replika Anda ke grup Telegram Saham atau WhatsApp tempat Anda bergabung.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Pasang Banner Website</h4>
-                            <p class="text-sm text-gray-600 mt-1">Jika memiliki Website/Blog, taruh banner promosi yang berisi Link referral Anda disana.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Personal Message (PM)</h4>
-                            <p class="text-sm text-gray-600 mt-1">Scrape User Grup Telegram, dan kirim pesan berisi analisa chart secara personal (Japri).</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">WA Sender Broadcast</h4>
-                            <p class="text-sm text-gray-600 mt-1">Gunakan Aplikasi WA Sender untuk membroadcast Link Afiliasi Anda secara massal namun tertarget.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Update Status Sosmed</h4>
-                            <p class="text-sm text-gray-600 mt-1">Pasang Status Chart di WA, IG, dan FB dengan konten trading yang memancing orang bertanya.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Buat Komunitas Kecil</h4>
-                            <p class="text-sm text-gray-600 mt-1">Buat Grup WA/Tele bersama teman kantor/alumni atau komunitas ngopi bareng bahas aset komoditas.</p>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
 
-            <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="200">
-                <p class="text-gray-500 mb-6 italic">Jadilah Affiliator Kami, Dapatkan Penghasilan Tanpa Batas.</p>
-                <a href="#" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-brand-green rounded-full hover:bg-green-700 hover:shadow-lg hover:-translate-y-1 shadow-green-200">
-                    <i class="fas fa-user-plus mr-2"></i> Daftar Gratis
-                </a>
+        </div>
+    </section>
+
+    <section id="register" class="py-20 bg-brand-bg relative">
+        <div class="max-w-3xl mx-auto px-6">
+            
+            <div class="text-center mb-10" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold text-gray-900">Formulir Pendaftaran</h2>
+                <p class="text-gray-500 mt-2">Pastikan Username Stockbit Anda benar untuk proses verifikasi.</p>
+            </div>
+
+            <div class="bg-white rounded-[2rem] shadow-xl border border-gray-100 p-8 md:p-12" data-aos="fade-up" data-aos-delay="100">
+                <form action="#" method="POST" class="space-y-6">
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Nama Lengkap</label>
+                        <div class="relative">
+                            <i class="fas fa-user absolute left-4 top-4 text-gray-400"></i>
+                            <input type="text" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="Masukkan nama sesuai KTP" required>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Alamat Email</label>
+                            <div class="relative">
+                                <i class="fas fa-envelope absolute left-4 top-4 text-gray-400"></i>
+                                <input type="email" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="email@anda.com" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Nomor WhatsApp</label>
+                            <div class="relative">
+                                <i class="fab fa-whatsapp absolute left-4 top-4 text-gray-400"></i>
+                                <input type="number" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="08123xxx" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Kota Domisili</label>
+                        <div class="relative">
+                            <i class="fas fa-map-marker-alt absolute left-4 top-4 text-gray-400"></i>
+                            <input type="text" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="Contoh: Jakarta Selatan" required>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 p-6 rounded-xl border border-yellow-200">
+                        <label class="block text-sm font-bold text-gray-800 mb-2">Username Stockbit</label>
+                        <p class="text-xs text-gray-500 mb-3">Pastikan akun sudah diset ke Virtual Trading 100 Juta.</p>
+                        <div class="relative">
+                            <i class="fas fa-at absolute left-4 top-4 text-yellow-600"></i>
+                            <input type="text" class="w-full pl-12 pr-4 py-3 bg-white border border-yellow-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition" placeholder="username_stockbit_anda" required>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 mt-4">
+                        <input type="checkbox" id="agree" class="mt-1 w-4 h-4 text-brand-green border-gray-300 rounded focus:ring-brand-green cursor-pointer" required>
+                        <label for="agree" class="text-sm text-gray-600 cursor-pointer select-none">
+                            Saya setuju untuk mengikuti aturan kompetisi yang berlaku dan data yang saya berikan adalah benar.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-green text-white font-bold text-lg py-4 rounded-xl hover:bg-green-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 shadow-green-200 flex items-center justify-center gap-2 mt-6">
+                        <span>Submit Pendaftaran</span> <i class="fas fa-paper-plane"></i>
+                    </button>
+
+                </form>
             </div>
 
         </div>
@@ -366,111 +375,10 @@
 
     </div>
 
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Init AOS
         AOS.init({ once: true, duration: 800 });
-
-        // Slideshow Logic
-        const slides = document.querySelectorAll('.hero-slide-image');
-        let currentSlide = 0;
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 4000);
-
-        // ==========================================
-        // BACK TO TOP LOGIC
-        // ==========================================
-        const backToTopBtn = document.getElementById('backToTopBtn');
-
-        window.addEventListener('scroll', () => {
-            // Jika scroll lebih dari 300px, munculkan tombol
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.remove('hidden');
-                backToTopBtn.classList.add('flex');
-            } else {
-                backToTopBtn.classList.add('hidden');
-                backToTopBtn.classList.remove('flex');
-            }
-        });
-
-        // Event Klik untuk Scroll ke Atas
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Efek scroll halus
-            });
-        });
-
-        // ==========================================
-        // LOGIC LIVE COUNTER (Penambah Angka Otomatis)
-        // ==========================================
-
-        // Fungsi untuk memformat angka dengan titik (contoh: 15.000)
-        function formatNumber(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        }
-
-        // Konfigurasi setiap counter
-        const stats = [
-            {
-                id: 'counter-trader',
-                startVal: 15420,
-                minAdd: 1,
-                maxAdd: 3,
-                interval: 3000 // Nambah setiap 3 detik
-            },
-            {
-                id: 'counter-saham',
-                startVal: 8250,
-                minAdd: 5,
-                maxAdd: 12,
-                interval: 2000 // Nambah setiap 2 detik
-            },
-            {
-                id: 'counter-signal',
-                startVal: 124900,
-                minAdd: 10,
-                maxAdd: 50,
-                interval: 1500 // Nambah cepat (1.5 detik)
-            },
-            {
-                id: 'counter-premium',
-                startVal: 2345,
-                minAdd: 0,
-                maxAdd: 1,
-                interval: 8000 // Nambah lambat (kadang nambah, kadang enggak)
-            }
-        ];
-
-        // Menjalankan fungsi interval untuk masing-masing id
-        stats.forEach(stat => {
-            let currentVal = stat.startVal;
-            const element = document.getElementById(stat.id);
-
-            setInterval(() => {
-                // Acak penambahan angka
-                // Jika Math.random() < 0.3 artinya ada kemungkinan 30% angka tidak bertambah (biar natural)
-                if (Math.random() > 0.1) {
-                    const randomAdd = Math.floor(Math.random() * (stat.maxAdd - stat.minAdd + 1)) + stat.minAdd;
-                    currentVal += randomAdd;
-
-                    // Update teks di HTML
-                    if (element) {
-                        element.innerText = formatNumber(currentVal);
-
-                        // Efek kedip sedikit saat angka berubah (opsional)
-                        element.style.opacity = 0.7;
-                        setTimeout(() => element.style.opacity = 1, 200);
-                    }
-                }
-            }, stat.interval);
-        });
     </script>
 
 </body>
-
 </html>

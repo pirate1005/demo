@@ -38,11 +38,13 @@
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-6 py-4">
+            
             <div class="flex items-center justify-between">
+
                 <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition group">
-                    <img src="assets/img/logo.png" alt="Logo" class="h-10 w-auto object-contain">
-                    <span class="text-2xl font-semibold tracking-tight font-logo text-gray-900">
-                        Bandar<span class="text-brand-green font-normal">Mo</span>logy
+                    <img src="assets/img/logo.png" alt="Logo Bandarmology" class="h-10 w-auto object-contain">
+                    <span class="text-2xl md:text-3xl font-semibold tracking-tight font-logo text-gray-900" style="letter-spacing: -0.05em;">
+                        Bandar<span class="text-brand-green font-normal">mo</span>logy
                     </span>
                 </a>
 
@@ -52,26 +54,46 @@
                     <a href="affiliate.html" class="hover:text-brand-green transition">Affiliate</a>
                     <a href="cek-akurasi.html" class="hover:text-brand-green transition">Cek Akurasi</a>
                     <a href="stock-pick.html" class="hover:text-brand-green transition">Stock Pick</a>
+                    <a href="trading-championship.html" class="hover:text-brand-green transition">Trading Championship</a>
                 </div>
 
                 <div class="flex items-center gap-4">
                     <div class="hidden md:flex items-center gap-4">
-                        <a href="login.html" class="font-semibold text-gray-700 hover:text-brand-green transition">Masuk</a>
-                        <a href="order.html" class="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-700 transition shadow-lg hover:shadow-green-200">Free Trial</a>
+                        <a href="login.html" class="font-semibold text-gray-700 hover:text-brand-green transition text-sm md:text-base">Masuk</a>
+                        <a href="order.html" class="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-700 transition shadow-lg hover:shadow-green-200 text-sm md:text-base">Free Trial</a>
                     </div>
+
                     <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-600 hover:text-brand-green focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
+                        <i class="fas fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
+                        <i class="fas fa-times text-2xl" x-show="mobileMenuOpen" style="display: none;"></i>
                     </button>
                 </div>
+
             </div>
 
-            <div x-show="mobileMenuOpen" class="md:hidden mt-4 pb-4 border-t border-gray-100 flex flex-col space-y-4 pt-4" style="display: none;">
+            <div x-show="mobileMenuOpen" 
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 -translate-y-2"
+                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-2"
+                 class="md:hidden mt-4 pb-4 border-t border-gray-100 flex flex-col space-y-4 pt-4" 
+                 style="display: none;">
+                
                 <a href="growth.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Growth Academy</a>
                 <a href="price.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Price</a>
                 <a href="affiliate.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Affiliate</a>
                 <a href="cek-akurasi.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Cek Akurasi</a>
                 <a href="stock-pick.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Stock Pick</a>
+                <a href="trading-championship.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Trading Championship</a>
+
+                <div class="border-t border-gray-100 pt-4 flex flex-col gap-3">
+                    <a href="login.html" class="text-center w-full py-2 text-gray-700 font-bold border border-gray-200 rounded-lg hover:bg-gray-50">Login</a>
+                    <a href="order.html" class="text-center w-full py-2 bg-brand-green text-white font-bold rounded-lg hover:bg-green-700 shadow-md">Free Trial</a>
+                </div>
             </div>
+
         </div>
     </nav>
 
@@ -250,20 +272,19 @@
                     <h3 class="font-bold text-white mb-6 text-base tracking-wide">Perusahaan</h3>
                     <ul class="space-y-3 text-gray-400 text-sm">
                         <li><a href="about.html" class="hover:text-brand-green transition">Tentang Kami</a></li>
-                        <li><a href="#" class="hover:text-brand-green transition">Karir</a></li>
+                        <li><a href="career.html" class="hover:text-brand-green transition">Karir</a></li>
                     </ul>
                 </div>
                 <div class="md:col-span-2">
                     <h3 class="font-bold text-white mb-6 text-base tracking-wide">Komunitas</h3>
                     <ul class="space-y-3 text-gray-400 text-sm">
-                        <li><a href="#" class="hover:text-brand-green transition">Blog</a></li>
-                        <li><a href="#" class="hover:text-brand-green transition">Komunitas</a></li>
+                        <li><a href="https://stockbit.com/PRIMA15?source=" class="hover:text-brand-green transition">Komunitas</a></li>
                     </ul>
                 </div>
                 <div class="md:col-span-2">
                     <h3 class="font-bold text-white mb-6 text-base tracking-wide">Legal</h3>
                     <ul class="space-y-3 text-gray-400 text-sm">
-                        <li><a href="#" class="hover:text-brand-green transition">Privasi</a></li>
+                        <li><a href="privacy.html" class="hover:text-brand-green transition">Privasi</a></li>
                         <li><a href="terms.html" class="hover:text-brand-green transition">Syarat</a></li>
                     </ul>
                 </div>
@@ -271,7 +292,7 @@
                     <h3 class="font-bold text-white mb-6 text-base tracking-wide">Bantuan</h3>
                     <ul class="space-y-3 text-gray-400 text-sm">
                         <li><a href="faq.html" class="hover:text-brand-green transition">FAQ</a></li>
-                        <li><a href="#" class="hover:text-brand-green transition">Kontak</a></li>
+                        <li><a href="contact-us.html" class="hover:text-brand-green transition">Kontak</a></li>
                     </ul>
                 </div>
             </div>
@@ -316,12 +337,26 @@
     </footer>
 
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-center group">
-        <a href="https://wa.me/6285370505430" target="_blank" class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300">
+
+        <a href="https://wa.me/6285370505430" target="_blank"
+            class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300 relative group/wa">
             <i class="fab fa-whatsapp text-2xl"></i>
+            <span
+                class="absolute right-14 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover/wa:opacity-100 transition whitespace-nowrap">WhatsApp</span>
         </a>
-        <button id="backToTopBtn" class="hidden w-12 h-12 bg-brand-green rounded-full items-center justify-center text-white shadow-lg border-2 border-white hover:bg-green-800 hover:-translate-y-1 transition-all duration-300 animate-bounce-slow">
+
+        <a href="https://t.me/bandarmologynet" target="_blank"
+            class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-600 hover:scale-110 transition-all duration-300 relative group/tele">
+            <i class="fab fa-telegram-plane text-2xl"></i>
+            <span
+                class="absolute right-14 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover/tele:opacity-100 transition whitespace-nowrap">Telegram</span>
+        </a>
+
+        <button id="backToTopBtn"
+            class="hidden w-12 h-12 bg-brand-green rounded-full items-center justify-center text-white shadow-lg border-2 border-white hover:bg-green-800 hover:-translate-y-1 transition-all duration-300 animate-bounce-slow">
             <i class="fas fa-arrow-up text-lg"></i>
         </button>
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

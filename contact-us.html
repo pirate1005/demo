@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bandarmology - Home</title>
+    <title>Hubungi Kami - Bandarmology</title>
     <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
-<script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -27,33 +28,13 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Agar scroll manual juga halus */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap"
-        rel="stylesheet">
-
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="bg-white text-gray-800 relative">
+<body class="bg-brand-bg text-gray-800 relative font-sans">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-6 py-4">
@@ -116,141 +97,106 @@
         </div>
     </nav>
 
-<section class="bg-brand-bg py-24 relative overflow-hidden" id="affiliate">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+    <section class="bg-brand-dark text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#27AE60 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Hubungi <span class="text-brand-green">Kami</span></h1>
+            <p class="text-gray-300 text-lg">Punya pertanyaan atau butuh bantuan? Tim kami siap membantu.</p>
+        </div>
+    </section>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
             
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
-                    Promo <span class="text-brand-green">Afiliasi</span>
-                </h2>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-                    Ajak teman Anda bergabung ke Bandarmology dan dapatkan pasif income tanpa batas.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 mb-20">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
                 
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-brand-green hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-brand-green text-2xl mb-6">
-                        <i class="fas fa-percentage"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Komisi 15-20% Recurring</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Dapatkan komisi dari setiap pembelian dan perpanjangan layanan. Selama referral Anda memperpanjang, Anda <strong>tetap dapat komisi terus-menerus</strong>.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-blue-500 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-2xl mb-6">
-                        <i class="fas fa-cookie-bite"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Cookie 90 Hari</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Jika user klik link Anda dan baru mendaftar dalam waktu kurang dari 90 hari (selama cookie browser belum dihapus), tetap dihitung sebagai referral Anda.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-yellow-500 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 text-2xl mb-6">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Mudah Dicairkan</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Dana komisi bisa ditarik kapan saja jika saldo sudah mencapai minimal <strong>Rp 50.000</strong>. Proses cepat dan transparan.
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden" data-aos="fade-up">
-                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-green via-green-400 to-blue-500"></div>
-                
-                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center md:text-left">
-                    Strategi & Tugas Anda:
-                </h3>
-
-                <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+                <div class="space-y-10" data-aos="fade-right">
                     
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fas fa-share-alt"></i>
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Informasi Kontak</h2>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan mengenai fitur, paket membership, atau kendala teknis lainnya.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-brand-green flex-shrink-0 text-xl">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Kantor Pusat</h4>
+                                <p class="text-gray-600 mt-1 leading-relaxed">
+                                    Perumahan Saqinah Jl Pendidikan<br>
+                                    Paya Bujok Seulemak<br>
+                                    Kota Langsa - Aceh
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Sebarkan Link Keluarga</h4>
-                            <p class="text-sm text-gray-600 mt-1">Bagikan Link Afiliasi ke keluarga, teman dekat, dan sahabat Anda.</p>
+
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-brand-green flex-shrink-0 text-xl">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">WhatsApp Support</h4>
+                                <p class="text-gray-600 mt-1">0853-7050-5430</p>
+                                <a href="https://wa.me/6285370505430" class="text-sm text-brand-green font-bold hover:underline mt-1 inline-block">Chat Sekarang &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-brand-green flex-shrink-0 text-xl">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Email</h4>
+                                <p class="text-gray-600 mt-1">support@bandarmology.net</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fab fa-telegram-plane"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Promosi Grup Saham</h4>
-                            <p class="text-sm text-gray-600 mt-1">Share link web replika Anda ke grup Telegram Saham atau WhatsApp tempat Anda bergabung.</p>
-                        </div>
+                    <div class="w-full h-64 bg-gray-200 rounded-2xl overflow-hidden shadow-sm border border-gray-200 mt-8">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.527878848773!2d97.96568137405232!3d4.471649996843779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMjgnMTcuOSJOIDk3wrA1OCswNC44IkU!5e0!3m2!1sen!2sid!4v1635748293847!5m2!1sen!2sid" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
                     </div>
 
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Pasang Banner Website</h4>
-                            <p class="text-sm text-gray-600 mt-1">Jika memiliki Website/Blog, taruh banner promosi yang berisi Link referral Anda disana.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Personal Message (PM)</h4>
-                            <p class="text-sm text-gray-600 mt-1">Scrape User Grup Telegram, dan kirim pesan berisi analisa chart secara personal (Japri).</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">WA Sender Broadcast</h4>
-                            <p class="text-sm text-gray-600 mt-1">Gunakan Aplikasi WA Sender untuk membroadcast Link Afiliasi Anda secara massal namun tertarget.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Update Status Sosmed</h4>
-                            <p class="text-sm text-gray-600 mt-1">Pasang Status Chart di WA, IG, dan FB dengan konten trading yang memancing orang bertanya.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-brand-green">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Buat Komunitas Kecil</h4>
-                            <p class="text-sm text-gray-600 mt-1">Buat Grup WA/Tele bersama teman kantor/alumni atau komunitas ngopi bareng bahas aset komoditas.</p>
-                        </div>
-                    </div>
-                    
                 </div>
-            </div>
 
-            <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="200">
-                <p class="text-gray-500 mb-6 italic">Jadilah Affiliator Kami, Dapatkan Penghasilan Tanpa Batas.</p>
-                <a href="#" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-brand-green rounded-full hover:bg-green-700 hover:shadow-lg hover:-translate-y-1 shadow-green-200">
-                    <i class="fas fa-user-plus mr-2"></i> Daftar Gratis
-                </a>
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100 h-fit sticky top-28" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Kirim Pesan</h3>
+                    
+                    <form action="#" method="POST" class="space-y-5">
+                        
+                        <div>
+                            <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" class="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="Masukkan nama Anda" required>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Alamat Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="email@contoh.com" required>
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-sm font-bold text-gray-700 mb-2">Subjek Pesan</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="Contoh: Kendala Login / Pertanyaan Fitur" required>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-bold text-gray-700 mb-2">Isi Pesan</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition resize-none" placeholder="Tuliskan detail pertanyaan atau kendala Anda di sini..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-green text-white font-bold py-4 rounded-xl hover:bg-green-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 shadow-green-200 flex items-center justify-center gap-2">
+                            <span>Kirim Pesan</span> <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                    </form>
+                </div>
+
             </div>
 
         </div>
@@ -366,111 +312,10 @@
 
     </div>
 
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Init AOS
         AOS.init({ once: true, duration: 800 });
-
-        // Slideshow Logic
-        const slides = document.querySelectorAll('.hero-slide-image');
-        let currentSlide = 0;
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 4000);
-
-        // ==========================================
-        // BACK TO TOP LOGIC
-        // ==========================================
-        const backToTopBtn = document.getElementById('backToTopBtn');
-
-        window.addEventListener('scroll', () => {
-            // Jika scroll lebih dari 300px, munculkan tombol
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.remove('hidden');
-                backToTopBtn.classList.add('flex');
-            } else {
-                backToTopBtn.classList.add('hidden');
-                backToTopBtn.classList.remove('flex');
-            }
-        });
-
-        // Event Klik untuk Scroll ke Atas
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Efek scroll halus
-            });
-        });
-
-        // ==========================================
-        // LOGIC LIVE COUNTER (Penambah Angka Otomatis)
-        // ==========================================
-
-        // Fungsi untuk memformat angka dengan titik (contoh: 15.000)
-        function formatNumber(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        }
-
-        // Konfigurasi setiap counter
-        const stats = [
-            {
-                id: 'counter-trader',
-                startVal: 15420,
-                minAdd: 1,
-                maxAdd: 3,
-                interval: 3000 // Nambah setiap 3 detik
-            },
-            {
-                id: 'counter-saham',
-                startVal: 8250,
-                minAdd: 5,
-                maxAdd: 12,
-                interval: 2000 // Nambah setiap 2 detik
-            },
-            {
-                id: 'counter-signal',
-                startVal: 124900,
-                minAdd: 10,
-                maxAdd: 50,
-                interval: 1500 // Nambah cepat (1.5 detik)
-            },
-            {
-                id: 'counter-premium',
-                startVal: 2345,
-                minAdd: 0,
-                maxAdd: 1,
-                interval: 8000 // Nambah lambat (kadang nambah, kadang enggak)
-            }
-        ];
-
-        // Menjalankan fungsi interval untuk masing-masing id
-        stats.forEach(stat => {
-            let currentVal = stat.startVal;
-            const element = document.getElementById(stat.id);
-
-            setInterval(() => {
-                // Acak penambahan angka
-                // Jika Math.random() < 0.3 artinya ada kemungkinan 30% angka tidak bertambah (biar natural)
-                if (Math.random() > 0.1) {
-                    const randomAdd = Math.floor(Math.random() * (stat.maxAdd - stat.minAdd + 1)) + stat.minAdd;
-                    currentVal += randomAdd;
-
-                    // Update teks di HTML
-                    if (element) {
-                        element.innerText = formatNumber(currentVal);
-
-                        // Efek kedip sedikit saat angka berubah (opsional)
-                        element.style.opacity = 0.7;
-                        setTimeout(() => element.style.opacity = 1, 200);
-                    }
-                }
-            }, stat.interval);
-        });
     </script>
 
 </body>
-
 </html>
