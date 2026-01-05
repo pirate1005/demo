@@ -29,15 +29,27 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
-        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scroll::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
     </style>
 </head>
 
@@ -45,12 +57,14 @@
 
     <div class="flex h-screen overflow-hidden">
 
-        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
-            
+        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+            class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
+
             <div class="flex items-center justify-center h-20 border-b border-gray-700 bg-brand-dark/50">
                 <a href="index.html" class="flex items-center gap-2 group">
                     <img src="../assets/img/logo.png" alt="Logo" class="h-8 w-auto object-contain brightness-0 invert">
-                    <span class="text-xl font-extralight tracking-tight font-logo text-white" style="letter-spacing: -0.05em;">
+                    <span class="text-xl font-extralight tracking-tight font-logo text-white"
+                        style="letter-spacing: -0.05em;">
                         Bandar<span class="text-brand-green font-normal">Mo</span>logy
                     </span>
                 </a>
@@ -58,49 +72,60 @@
 
             <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto custom-scroll">
                 <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Admin Menu</p>
-                
-                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
+
+                <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
                     <i class="fas fa-th-large w-5"></i> Dashboard
                 </a>
-                
-                <a href="activity.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+
+                <a href="activity.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-history w-5"></i> Activity Logs
                 </a>
 
-                <a href="promo.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="promo.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-tags w-5"></i> Promo Code
                 </a>
 
-                <a href="members.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="members.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-users w-5"></i> Member Management
                 </a>
 
-                <a href="products.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="products.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-box w-5"></i> Products
                 </a>
 
-                <a href="gallery.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="gallery.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-images w-5"></i> Gallery Management
                 </a>
 
-                
-                <a href="testimonial.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+
+                <a href="testimonial.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-comment-dots w-5"></i> Testimonial
                 </a>
 
-                <a href="sales.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="sales.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-money-bill-wave w-5"></i> Sales Management
                 </a>
 
-                <a href="withdraw.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="withdraw.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-hand-holding-usd w-5"></i> Withdrawal
                 </a>
 
-                <a href="contact.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="contact.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-envelope w-5"></i> Contact Management
                 </a>
 
-                <a href="download.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="download.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-download w-5"></i> Download Management
                 </a>
 
@@ -109,49 +134,64 @@
                     <i class="fas fa-newspaper w-5"></i> Content Management
                 </a>
 
-                <a href="banner.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="banner.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-image w-5"></i> Banner Management
                 </a>
 
-                <a href="broadcast.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="broadcast.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-bullhorn w-5"></i> Broadcast
                 </a>
 
-                <a href="email.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="email.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-envelope-open-text w-5"></i> Email Management
                 </a>
 
-                <a href="subscribe.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="subscribe.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-user-clock w-5"></i> Subscribe Management
                 </a>
 
-                <a href="cronjob.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="cronjob.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-clock w-5"></i> Cronjob Management
                 </a>
 
-                <a href="inbox.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="inbox.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <div class="flex items-center gap-3">
                         <i class="fas fa-inbox w-5"></i> Inbox
                     </div>
-                    <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm animate-pulse">3</span>
+                    <span
+                        class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm animate-pulse">3</span>
                 </a>
 
-                <a href="statistic.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="statistic.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-chart-pie w-5"></i> Statistic
                 </a>
 
+                <a href="admin_event.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-calendar-alt w-5"></i> Event Management
+                </a>
                 <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 mt-6">Settings</p>
-                <a href="profile.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="profile.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-user-cog w-5"></i> User Profile
                 </a>
-                <a href="../login.html" class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition">
+                <a href="../login.html"
+                    class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition">
                     <i class="fas fa-sign-out-alt w-5"></i> Logout
                 </a>
             </nav>
 
             <div class="p-4 border-t border-gray-700 bg-brand-dark/50">
                 <div class="flex items-center gap-3">
-                    <img src="https://randomuser.me/api/portraits/men/1.jpg" class="w-10 h-10 rounded-full border-2 border-red-500">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg"
+                        class="w-10 h-10 rounded-full border-2 border-red-500">
                     <div>
                         <p class="text-sm font-bold text-white">Administrator</p>
                         <p class="text-xs text-red-400">Super Admin</p>
@@ -160,14 +200,17 @@
             </div>
         </aside>
 
-        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-40 lg:hidden" style="display: none;"></div>
+        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            style="display: none;"></div>
 
 
         <div class="flex-1 flex flex-col overflow-hidden">
-            
+
             <header class="bg-white border-b border-gray-200 h-20 flex items-center justify-between px-6 lg:px-10">
                 <div class="flex items-center gap-4">
-                    <button @click="sidebarOpen = !sidebarOpen" class="lg:hidden text-gray-500 hover:text-brand-green"><i class="fas fa-bars text-2xl"></i></button>
+                    <button @click="sidebarOpen = !sidebarOpen"
+                        class="lg:hidden text-gray-500 hover:text-brand-green"><i
+                            class="fas fa-bars text-2xl"></i></button>
                     <h1 class="text-xl font-bold text-gray-800">Admin Dashboard</h1>
                 </div>
                 <div class="flex items-center gap-6">
@@ -179,9 +222,9 @@
             </header>
 
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 lg:p-10">
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
-                    
+
                     <div class="bg-red-50 border border-red-200 rounded-lg p-6 hover:shadow-md transition">
                         <div class="text-gray-400 text-xl mb-4"><i class="fas fa-users"></i></div>
                         <h3 class="text-3xl font-bold text-gray-800">5</h3>
@@ -215,12 +258,15 @@
                 </div>
 
                 <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
-                    
-                    <div class="xl:col-span-2 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden h-fit">
-                        
-                        <div class="p-6 border-b border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+
+                    <div
+                        class="xl:col-span-2 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden h-fit">
+
+                        <div
+                            class="p-6 border-b border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                             <h3 class="font-bold text-lg text-gray-900">Member Management</h3>
-                            <button @click="modalOpen = true" class="bg-[#3B82F6] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm shadow-sm transition flex items-center gap-2">
+                            <button @click="modalOpen = true"
+                                class="bg-[#3B82F6] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm shadow-sm transition flex items-center gap-2">
                                 <i class="fas fa-plus"></i> Add New Member
                             </button>
                         </div>
@@ -242,8 +288,12 @@
                                         <td class="px-6 py-4 text-gray-400">1</td>
                                         <td class="px-6 py-4">
                                             <div class="flex items-center gap-3">
-                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-lg bg-gray-100">
-                                                <div><div class="font-bold text-gray-900">ilham</div><div class="text-xs text-gray-400">gosend292@gmail.com</div></div>
+                                                <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                                    class="w-10 h-10 rounded-lg bg-gray-100">
+                                                <div>
+                                                    <div class="font-bold text-gray-900">ilham</div>
+                                                    <div class="text-xs text-gray-400">gosend292@gmail.com</div>
+                                                </div>
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 font-bold text-gray-800">087881572117</td>
@@ -251,8 +301,12 @@
                                         <td class="px-6 py-4"><span class="text-red-500 font-bold">Actived</span></td>
                                         <td class="px-6 py-4 text-right">
                                             <div class="flex justify-end gap-2">
-                                                <button class="w-8 h-8 rounded bg-blue-50 text-blue-500 hover:bg-blue-100 transition flex items-center justify-center"><i class="fas fa-edit"></i></button>
-                                                <button class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i class="fas fa-trash-alt"></i></button>
+                                                <button
+                                                    class="w-8 h-8 rounded bg-blue-50 text-blue-500 hover:bg-blue-100 transition flex items-center justify-center"><i
+                                                        class="fas fa-edit"></i></button>
+                                                <button
+                                                    class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i
+                                                        class="fas fa-trash-alt"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -260,8 +314,12 @@
                                         <td class="px-6 py-4 text-gray-400">2</td>
                                         <td class="px-6 py-4">
                                             <div class="flex items-center gap-3">
-                                                <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-10 h-10 rounded-lg bg-gray-100">
-                                                <div><div class="font-bold text-gray-900">andes</div><div class="text-xs text-gray-400">andessastrayunaf@gmail.com</div></div>
+                                                <img src="https://randomuser.me/api/portraits/men/45.jpg"
+                                                    class="w-10 h-10 rounded-lg bg-gray-100">
+                                                <div>
+                                                    <div class="font-bold text-gray-900">andes</div>
+                                                    <div class="text-xs text-gray-400">andessastrayunaf@gmail.com</div>
+                                                </div>
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 font-bold text-gray-800">082267408475</td>
@@ -269,8 +327,12 @@
                                         <td class="px-6 py-4"><span class="text-red-500 font-bold">Actived</span></td>
                                         <td class="px-6 py-4 text-right">
                                             <div class="flex justify-end gap-2">
-                                                <button class="w-8 h-8 rounded bg-blue-50 text-blue-500 hover:bg-blue-100 transition flex items-center justify-center"><i class="fas fa-edit"></i></button>
-                                                <button class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i class="fas fa-trash-alt"></i></button>
+                                                <button
+                                                    class="w-8 h-8 rounded bg-blue-50 text-blue-500 hover:bg-blue-100 transition flex items-center justify-center"><i
+                                                        class="fas fa-edit"></i></button>
+                                                <button
+                                                    class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i
+                                                        class="fas fa-trash-alt"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -284,44 +346,75 @@
                         <div class="space-y-6">
                             <div class="flex items-center justify-between group">
                                 <div class="flex items-center gap-3">
-                                    <img src="https://randomuser.me/api/portraits/men/11.jpg" class="w-10 h-10 rounded-lg bg-gray-100 object-cover">
-                                    <div><h4 class="text-sm font-bold text-gray-800 group-hover:text-brand-green transition">Atharki</h4><p class="text-xs text-gray-400 truncate w-32">tarki1902@gmail.com</p></div>
+                                    <img src="https://randomuser.me/api/portraits/men/11.jpg"
+                                        class="w-10 h-10 rounded-lg bg-gray-100 object-cover">
+                                    <div>
+                                        <h4
+                                            class="text-sm font-bold text-gray-800 group-hover:text-brand-green transition">
+                                            Atharki</h4>
+                                        <p class="text-xs text-gray-400 truncate w-32">tarki1902@gmail.com</p>
+                                    </div>
                                 </div>
-                                <span class="bg-blue-50 text-blue-500 text-xs font-bold px-3 py-1 rounded-full">30 Point</span>
+                                <span class="bg-blue-50 text-blue-500 text-xs font-bold px-3 py-1 rounded-full">30
+                                    Point</span>
                             </div>
                             <div class="flex items-center justify-between group">
                                 <div class="flex items-center gap-3">
-                                    <img src="https://randomuser.me/api/portraits/men/21.jpg" class="w-10 h-10 rounded-lg bg-gray-100 object-cover">
-                                    <div><h4 class="text-sm font-bold text-gray-800 group-hover:text-brand-green transition">Syahran Abrar</h4><p class="text-xs text-gray-400 truncate w-32">syahran.abrar@gmail.com</p></div>
+                                    <img src="https://randomuser.me/api/portraits/men/21.jpg"
+                                        class="w-10 h-10 rounded-lg bg-gray-100 object-cover">
+                                    <div>
+                                        <h4
+                                            class="text-sm font-bold text-gray-800 group-hover:text-brand-green transition">
+                                            Syahran Abrar</h4>
+                                        <p class="text-xs text-gray-400 truncate w-32">syahran.abrar@gmail.com</p>
+                                    </div>
                                 </div>
-                                <span class="bg-gray-100 text-gray-400 text-xs font-bold px-3 py-1 rounded-full">0 Point</span>
+                                <span class="bg-gray-100 text-gray-400 text-xs font-bold px-3 py-1 rounded-full">0
+                                    Point</span>
                             </div>
                             <div class="flex items-center justify-between group">
                                 <div class="flex items-center gap-3">
-                                    <img src="https://randomuser.me/api/portraits/men/31.jpg" class="w-10 h-10 rounded-lg bg-gray-100 object-cover">
-                                    <div><h4 class="text-sm font-bold text-gray-800 group-hover:text-brand-green transition">Non</h4><p class="text-xs text-gray-400 truncate w-32">tar@gmail.com</p></div>
+                                    <img src="https://randomuser.me/api/portraits/men/31.jpg"
+                                        class="w-10 h-10 rounded-lg bg-gray-100 object-cover">
+                                    <div>
+                                        <h4
+                                            class="text-sm font-bold text-gray-800 group-hover:text-brand-green transition">
+                                            Non</h4>
+                                        <p class="text-xs text-gray-400 truncate w-32">tar@gmail.com</p>
+                                    </div>
                                 </div>
-                                <span class="bg-gray-100 text-gray-400 text-xs font-bold px-3 py-1 rounded-full">0 Point</span>
+                                <span class="bg-gray-100 text-gray-400 text-xs font-bold px-3 py-1 rounded-full">0
+                                    Point</span>
                             </div>
                         </div>
                     </div>
 
                 </div>
 
-                <div class="mt-12 text-center text-gray-500 text-xs flex flex-col items-center gap-4 border-t border-gray-200 pt-8">
+                <div
+                    class="mt-12 text-center text-gray-500 text-xs flex flex-col items-center gap-4 border-t border-gray-200 pt-8">
                     <p>&copy; 2025 BandarMology.net - Admin Panel.</p>
-                    <div class="flex flex-wrap justify-center gap-3 opacity-70 grayscale hover:grayscale-0 transition duration-300">
-                        <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1200px-Bank_Central_Asia.svg.png" class="h-full w-auto object-contain">
+                    <div
+                        class="flex flex-wrap justify-center gap-3 opacity-70 grayscale hover:grayscale-0 transition duration-300">
+                        <div
+                            class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1200px-Bank_Central_Asia.svg.png"
+                                class="h-full w-auto object-contain">
                         </div>
-                        <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/1200px-Bank_Mandiri_logo_2016.svg.png" class="h-full w-auto object-contain">
+                        <div
+                            class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/1200px-Bank_Mandiri_logo_2016.svg.png"
+                                class="h-full w-auto object-contain">
                         </div>
-                        <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/BANK_BRI_logo.svg/1200px-BANK_BRI_logo.svg.png" class="h-full w-auto object-contain">
+                        <div
+                            class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/BANK_BRI_logo.svg/1200px-BANK_BRI_logo.svg.png"
+                                class="h-full w-auto object-contain">
                         </div>
-                        <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_QRIS.svg/1200px-Logo_QRIS.svg.png" class="h-full w-auto object-contain">
+                        <div
+                            class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_QRIS.svg/1200px-Logo_QRIS.svg.png"
+                                class="h-full w-auto object-contain">
                         </div>
                     </div>
                 </div>
@@ -333,8 +426,9 @@
             <div class="fixed inset-0 bg-black/50 transition-opacity" @click="modalOpen = false"></div>
 
             <div class="flex min-h-full items-center justify-center p-4">
-                <div class="relative w-full max-w-2xl bg-white rounded-lg shadow-xl transform transition-all overflow-hidden flex flex-col">
-                    
+                <div
+                    class="relative w-full max-w-2xl bg-white rounded-lg shadow-xl transform transition-all overflow-hidden flex flex-col">
+
                     <div class="px-6 py-4 border-b border-gray-100 bg-white">
                         <h3 class="text-lg font-bold text-gray-800">Add New Member</h3>
                     </div>
@@ -344,38 +438,47 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                                 <div>
                                     <label class="block text-sm font-bold text-gray-700 mb-2">Username</label>
-                                    <input type="text" class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="mazdafx@gmail.com">
+                                    <input type="text"
+                                        class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                                        placeholder="mazdafx@gmail.com">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-700 mb-2">Email</label>
-                                    <input type="email" class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
+                                    <input type="email"
+                                        class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
                                 </div>
                             </div>
 
                             <div class="mb-4">
                                 <label class="block text-sm font-bold text-gray-700 mb-2">No. Handphone</label>
-                                <input type="number" class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
+                                <input type="number"
+                                    class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
                             </div>
 
                             <div class="mb-4">
                                 <label class="block text-sm font-bold text-gray-700 mb-2">Kota</label>
-                                <input type="text" class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
+                                <input type="text"
+                                    class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
                             </div>
 
                             <div class="mb-4">
                                 <label class="block text-sm font-bold text-gray-700 mb-2">Password</label>
-                                <input type="password" class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" placeholder="..........">
+                                <input type="password"
+                                    class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                                    placeholder="..........">
                             </div>
 
                             <div class="mb-6">
                                 <label class="block text-sm font-bold text-gray-700 mb-2">Product</label>
                                 <div class="relative">
-                                    <select class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 outline-none appearance-none">
+                                    <select
+                                        class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 outline-none appearance-none">
                                         <option>Pro</option>
                                         <option>Platinum</option>
                                         <option>Trial</option>
                                     </select>
-                                    <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-500">
+                                    <div
+                                        class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-500">
                                         <i class="fas fa-chevron-down text-xs"></i>
                                     </div>
                                 </div>
@@ -384,10 +487,12 @@
                     </div>
 
                     <div class="px-6 py-4 bg-white border-t border-gray-100 flex justify-end gap-3">
-                        <button @click="modalOpen = false" class="px-4 py-2 text-gray-600 bg-gray-200 rounded hover:bg-gray-300 transition text-sm font-bold">
+                        <button @click="modalOpen = false"
+                            class="px-4 py-2 text-gray-600 bg-gray-200 rounded hover:bg-gray-300 transition text-sm font-bold">
                             Close
                         </button>
-                        <button class="px-6 py-2 bg-[#FF4500] text-white rounded hover:bg-red-600 transition shadow text-sm font-bold">
+                        <button
+                            class="px-6 py-2 bg-[#FF4500] text-white rounded hover:bg-red-600 transition shadow text-sm font-bold">
                             Submit
                         </button>
                     </div>
@@ -399,4 +504,5 @@
     </div>
 
 </body>
+
 </html>

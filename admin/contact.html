@@ -17,7 +17,7 @@
                             green: '#27AE60',
                             dark: '#0f0535',
                             bg: '#F9FAFB',
-                            orange: '#FF4500' 
+                            orange: '#FF4500'
                         }
                     },
                     fontFamily: {
@@ -29,15 +29,27 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
-        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scroll::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
     </style>
 </head>
 
@@ -45,12 +57,14 @@
 
     <div class="flex h-screen overflow-hidden">
 
-        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
-            
+        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+            class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
+
             <div class="flex items-center justify-center h-20 border-b border-gray-700 bg-brand-dark/50">
                 <a href="index.html" class="flex items-center gap-2 group">
                     <img src="../assets/img/logo.png" alt="Logo" class="h-8 w-auto object-contain brightness-0 invert">
-                    <span class="text-xl font-extralight tracking-tight font-logo text-white" style="letter-spacing: -0.05em;">
+                    <span class="text-xl font-extralight tracking-tight font-logo text-white"
+                        style="letter-spacing: -0.05em;">
                         Bandar<span class="text-brand-green font-normal">Mo</span>logy
                     </span>
                 </a>
@@ -58,49 +72,60 @@
 
             <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto custom-scroll">
                 <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Admin Menu</p>
-                
-                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+
+                <a href="dashboard.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-th-large w-5"></i> Dashboard
                 </a>
-                
-                <a href="activity.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+
+                <a href="activity.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-history w-5"></i> Activity Logs
                 </a>
 
-                <a href="promo.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="promo.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-tags w-5"></i> Promo Code
                 </a>
 
-                <a href="members.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="members.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-users w-5"></i> Member Management
                 </a>
 
-                <a href="products.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="products.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-box w-5"></i> Products
                 </a>
 
-                <a href="gallery.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="gallery.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-images w-5"></i> Gallery Management
                 </a>
 
-                
-                <a href="testimonial.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+
+                <a href="testimonial.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-comment-dots w-5"></i> Testimonial
                 </a>
 
-                <a href="sales.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="sales.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-money-bill-wave w-5"></i> Sales Management
                 </a>
 
-                <a href="withdraw.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="withdraw.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-hand-holding-usd w-5"></i> Withdrawal
                 </a>
 
-                <a href="contact.html" class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
+                <a href="contact.html"
+                    class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
                     <i class="fas fa-envelope w-5"></i> Contact Management
                 </a>
 
-                <a href="download.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="download.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-download w-5"></i> Download Management
                 </a>
 
@@ -109,47 +134,63 @@
                     <i class="fas fa-newspaper w-5"></i> Content Management
                 </a>
 
-                <a href="banner.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="banner.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-image w-5"></i> Banner Management
                 </a>
 
-                <a href="broadcast.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="broadcast.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-bullhorn w-5"></i> Broadcast
                 </a>
 
-                <a href="email.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="email.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-envelope-open-text w-5"></i> Email Management
                 </a>
 
-                <a href="subscribe.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="subscribe.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-user-clock w-5"></i> Subscribe Management
                 </a>
 
-                <a href="cronjob.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="cronjob.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-clock w-5"></i> Cronjob Management
                 </a>
 
-                <a href="inbox.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="inbox.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <div class="flex items-center gap-3">
                         <i class="fas fa-inbox w-5"></i> Inbox
                     </div>
-                    <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm animate-pulse">3</span>
+                    <span
+                        class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm animate-pulse">3</span>
                 </a>
-                <a href="statistic.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="statistic.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-chart-pie w-5"></i> Statistic
                 </a>
+
+                <a href="admin_event.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-calendar-alt w-5"></i> Event Management
+                </a>
                 <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 mt-6">Settings</p>
-                <a href="profile.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="profile.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-user-cog w-5"></i> User Profile
                 </a>
-                <a href="../login.html" class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition">
+                <a href="../login.html"
+                    class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition">
                     <i class="fas fa-sign-out-alt w-5"></i> Logout
                 </a>
             </nav>
 
             <div class="p-4 border-t border-gray-700 bg-brand-dark/50">
                 <div class="flex items-center gap-3">
-                    <img src="https://randomuser.me/api/portraits/men/1.jpg" class="w-10 h-10 rounded-full border-2 border-red-500">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg"
+                        class="w-10 h-10 rounded-full border-2 border-red-500">
                     <div>
                         <p class="text-sm font-bold text-white">Administrator</p>
                         <p class="text-xs text-red-400">Super Admin</p>
@@ -158,14 +199,17 @@
             </div>
         </aside>
 
-        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-40 lg:hidden" style="display: none;"></div>
+        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            style="display: none;"></div>
 
 
         <div class="flex-1 flex flex-col overflow-hidden">
-            
+
             <header class="bg-white border-b border-gray-200 h-20 flex items-center justify-between px-6 lg:px-10">
                 <div class="flex items-center gap-4">
-                    <button @click="sidebarOpen = !sidebarOpen" class="lg:hidden text-gray-500 hover:text-brand-green"><i class="fas fa-bars text-2xl"></i></button>
+                    <button @click="sidebarOpen = !sidebarOpen"
+                        class="lg:hidden text-gray-500 hover:text-brand-green"><i
+                            class="fas fa-bars text-2xl"></i></button>
                     <h1 class="text-xl font-bold text-gray-800">Contact</h1>
                 </div>
                 <div class="flex items-center gap-6">
@@ -177,9 +221,9 @@
             </header>
 
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 lg:p-10">
-                
+
                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                    
+
                     <div class="p-6 border-b border-gray-100 bg-white">
                         <h3 class="font-bold text-lg text-gray-900">Contact Management</h3>
                         <p class="text-xs text-gray-500">More than 400+ new message</p>
@@ -199,20 +243,26 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-50 font-medium">
-                                
+
                                 <tr class="hover:bg-gray-50 transition">
                                     <td class="px-6 py-4 text-gray-400">1</td>
                                     <td class="px-6 py-4 font-bold text-gray-900">Ahmad</td>
                                     <td class="px-6 py-4 font-bold text-gray-900">ahmad@getlisted.directory</td>
-                                    <td class="px-6 py-4 font-bold text-gray-800">forexmology.com is listed in 44 of 241,120 directories</td>
+                                    <td class="px-6 py-4 font-bold text-gray-800">forexmology.com is listed in 44 of
+                                        241,120 directories</td>
                                     <td class="px-6 py-4 text-gray-500 text-xs truncate max-w-xs leading-relaxed">
-                                        Hello, did you know that there are 241,120 internet directories in the world. These websites are what drive traffic...
+                                        Hello, did you know that there are 241,120 internet directories in the world.
+                                        These websites are what drive traffic...
                                     </td>
                                     <td class="px-6 py-4 font-bold text-gray-800">22 Jun, 2022</td>
                                     <td class="px-6 py-4 text-right">
                                         <div class="flex justify-end gap-2">
-                                            <button @click="modalOpen = true" class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center"><i class="fas fa-reply"></i></button>
-                                            <button class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i class="fas fa-trash-alt"></i></button>
+                                            <button @click="modalOpen = true"
+                                                class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center"><i
+                                                    class="fas fa-reply"></i></button>
+                                            <button
+                                                class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i
+                                                    class="fas fa-trash-alt"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -221,15 +271,21 @@
                                     <td class="px-6 py-4 text-gray-400">2</td>
                                     <td class="px-6 py-4 font-bold text-gray-900">HenryDob</td>
                                     <td class="px-6 py-4 font-bold text-gray-900">birger1234@forum.dk</td>
-                                    <td class="px-6 py-4 font-bold text-gray-800">Penghasilan tambahan tersedia untuk semua orang</td>
+                                    <td class="px-6 py-4 font-bold text-gray-800">Penghasilan tambahan tersedia untuk
+                                        semua orang</td>
                                     <td class="px-6 py-4 text-gray-500 text-xs truncate max-w-xs leading-relaxed">
-                                        Robot keuangan adalah kekayaan dan kemandirian masa depan Anda. https://Dob.fannyberlin.se/Dob
+                                        Robot keuangan adalah kekayaan dan kemandirian masa depan Anda.
+                                        https://Dob.fannyberlin.se/Dob
                                     </td>
                                     <td class="px-6 py-4 font-bold text-gray-800">20 Jun, 2022</td>
                                     <td class="px-6 py-4 text-right">
                                         <div class="flex justify-end gap-2">
-                                            <button @click="modalOpen = true" class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center"><i class="fas fa-reply"></i></button>
-                                            <button class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i class="fas fa-trash-alt"></i></button>
+                                            <button @click="modalOpen = true"
+                                                class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center"><i
+                                                    class="fas fa-reply"></i></button>
+                                            <button
+                                                class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i
+                                                    class="fas fa-trash-alt"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -238,15 +294,21 @@
                                     <td class="px-6 py-4 text-gray-400">3</td>
                                     <td class="px-6 py-4 font-bold text-gray-900">HenryDob</td>
                                     <td class="px-6 py-4 font-bold text-gray-900">ludo.cindy@mailme.dk</td>
-                                    <td class="px-6 py-4 font-bold text-gray-800">Membuat uang secara online, tinggal di rumah</td>
+                                    <td class="px-6 py-4 font-bold text-gray-800">Membuat uang secara online, tinggal di
+                                        rumah</td>
                                     <td class="px-6 py-4 text-gray-500 text-xs truncate max-w-xs leading-relaxed">
-                                        Membuat uang secara online, tinggal di rumah musim dingin ini. https://Dob.fannyberlin.se/Dob
+                                        Membuat uang secara online, tinggal di rumah musim dingin ini.
+                                        https://Dob.fannyberlin.se/Dob
                                     </td>
                                     <td class="px-6 py-4 font-bold text-gray-800">19 Jun, 2022</td>
                                     <td class="px-6 py-4 text-right">
                                         <div class="flex justify-end gap-2">
-                                            <button @click="modalOpen = true" class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center"><i class="fas fa-reply"></i></button>
-                                            <button class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i class="fas fa-trash-alt"></i></button>
+                                            <button @click="modalOpen = true"
+                                                class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center"><i
+                                                    class="fas fa-reply"></i></button>
+                                            <button
+                                                class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i
+                                                    class="fas fa-trash-alt"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -264,41 +326,47 @@
         </div>
 
         <div x-show="modalOpen" class="fixed inset-0 z-50 overflow-y-auto" style="display: none;">
-            
+
             <div class="fixed inset-0 bg-black/50 transition-opacity" @click="modalOpen = false"></div>
 
             <div class="flex min-h-full items-center justify-center p-4">
                 <div class="relative w-full max-w-2xl bg-white rounded-lg shadow-xl overflow-hidden">
-                    
+
                     <div class="px-6 py-4 border-b border-gray-100 bg-white">
                         <h3 class="text-lg font-bold text-gray-800">Reply Message</h3>
                     </div>
 
                     <div class="p-6 bg-white overflow-y-auto max-h-[80vh]">
                         <form action="#">
-                            
+
                             <div class="grid grid-cols-2 gap-4 mb-4">
                                 <div>
                                     <label class="block text-sm font-bold text-gray-700 mb-2">To</label>
-                                    <input type="text" class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none" value="ahmad@getlisted.directory" readonly>
+                                    <input type="text"
+                                        class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                                        value="ahmad@getlisted.directory" readonly>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-700 mb-2">Subject</label>
-                                    <input type="text" class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
+                                    <input type="text"
+                                        class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
                                 </div>
                             </div>
 
                             <div class="mb-6">
                                 <label class="block text-sm font-bold text-gray-700 mb-2">Message</label>
-                                <textarea class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none h-40 resize-none"></textarea>
+                                <textarea
+                                    class="w-full px-4 py-3 bg-gray-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none h-40 resize-none"></textarea>
                             </div>
 
                         </form>
                     </div>
 
                     <div class="px-6 py-4 bg-white border-t border-gray-100 flex justify-end gap-3">
-                        <button @click="modalOpen = false" class="px-4 py-2 text-gray-600 bg-gray-200 rounded hover:bg-gray-300 transition text-sm font-bold">Close</button>
-                        <button class="px-6 py-2 bg-[#FF4500] text-white rounded hover:bg-red-600 transition shadow text-sm font-bold">Send</button>
+                        <button @click="modalOpen = false"
+                            class="px-4 py-2 text-gray-600 bg-gray-200 rounded hover:bg-gray-300 transition text-sm font-bold">Close</button>
+                        <button
+                            class="px-6 py-2 bg-[#FF4500] text-white rounded hover:bg-red-600 transition shadow text-sm font-bold">Send</button>
                     </div>
 
                 </div>
@@ -308,4 +376,5 @@
     </div>
 
 </body>
+
 </html>

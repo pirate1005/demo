@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found - Bandarmology</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB',
+                            orange: '#FF4500'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        logo: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-brand-bg text-gray-800 relative font-sans flex flex-col min-h-screen">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition group">
+                    <img src="assets/img/logo.png" alt="Logo Bandarmology" class="h-10 w-auto object-contain">
+                    <span class="text-2xl md:text-3xl font-semibold tracking-tight font-logo text-gray-900" style="letter-spacing: -0.05em;">
+                        Bandar<span class="text-brand-green font-normal">mo</span>logy
+                    </span>
+                </a>
+
+                <div class="hidden md:flex space-x-8 font-medium text-gray-600 text-[15px]">
+                    <a href="index.html" class="hover:text-brand-green transition">Home</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="hidden md:inline-block bg-gray-100 text-gray-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-200 transition text-sm">
+                        Kembali ke Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="flex-1 flex items-center justify-center relative overflow-hidden py-20">
+        
+        <div class="absolute top-10 left-10 w-64 h-64 bg-green-200 rounded-full mix-blend-multiply filter blur-[80px] opacity-30 animate-pulse"></div>
+        <div class="absolute bottom-10 right-10 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-[80px] opacity-30"></div>
+
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+            
+            <div class="mb-6 relative inline-block">
+                <h1 class="text-[150px] leading-none font-extrabold text-gray-200 select-none">404</h1>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <i class="fas fa-chart-broken text-6xl text-brand-dark opacity-80"></i>
+                </div>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                Waduh! Halaman Suspend.
+            </h2>
+            
+            <p class="text-gray-500 text-lg mb-8 max-w-lg mx-auto">
+                Sepertinya Anda salah melakukan <strong>Entry Point</strong>. Halaman yang Anda cari tidak ditemukan, sudah dihapus, atau sedang di-suspend oleh bursa.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html" class="px-8 py-3 bg-brand-green text-white font-bold rounded-full hover:bg-green-700 transition shadow-lg shadow-green-200 hover:-translate-y-1">
+                    <i class="fas fa-home mr-2"></i> Kembali ke Dashboard
+                </a>
+                <a href="contact-us.html" class="px-8 py-3 bg-white border border-gray-300 text-gray-700 font-bold rounded-full hover:bg-gray-50 transition">
+                    <i class="fas fa-envelope mr-2"></i> Lapor Admin
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-100 py-6 text-center">
+        <p class="text-gray-400 text-xs">
+            &copy; 2025 Bandarmology.net - Hak Cipta Dilindungi.
+        </p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 800 });
+    </script>
+
+</body>
+</html>

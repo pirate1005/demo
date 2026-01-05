@@ -28,15 +28,27 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
-        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scroll::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
     </style>
 </head>
 
@@ -44,12 +56,14 @@
 
     <div class="flex h-screen overflow-hidden">
 
-        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
-            
+        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+            class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
+
             <div class="flex items-center justify-center h-20 border-b border-gray-700 bg-brand-dark/50">
                 <a href="index.html" class="flex items-center gap-2 group">
                     <img src="../assets/img/logo.png" alt="Logo" class="h-8 w-auto object-contain brightness-0 invert">
-                    <span class="text-xl font-extralight tracking-tight font-logo text-white" style="letter-spacing: -0.05em;">
+                    <span class="text-xl font-extralight tracking-tight font-logo text-white"
+                        style="letter-spacing: -0.05em;">
                         Bandar<span class="text-brand-green font-normal">Mo</span>logy
                     </span>
                 </a>
@@ -57,48 +71,59 @@
 
             <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto custom-scroll">
                 <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Admin Menu</p>
-                
-                <a href="admin_dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+
+                <a href="admin_dashboard.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-th-large w-5"></i> Dashboard
                 </a>
-                
-                <a href="activity.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+
+                <a href="activity.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-history w-5"></i> Activity Logs
                 </a>
 
-                <a href="promo.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="promo.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-tags w-5"></i> Promo Code
                 </a>
 
-                <a href="members.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="members.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-users w-5"></i> Member Management
                 </a>
 
-                <a href="products.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="products.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-box w-5"></i> Products
                 </a>
 
-                <a href="gallery.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="gallery.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-images w-5"></i> Gallery Management
                 </a>
 
-                
-                <a href="testimonial.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+
+                <a href="testimonial.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-comment-dots w-5"></i> Testimonial
                 </a>
-                <a href="sales.html" class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
+                <a href="sales.html"
+                    class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
                     <i class="fas fa-money-bill-wave w-5"></i> Sales Management
                 </a>
 
-                <a href="withdraw.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="withdraw.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-hand-holding-usd w-5"></i> Withdrawal
                 </a>
 
-                <a href="contact.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="contact.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-envelope w-5"></i> Contact Management
                 </a>
 
-                <a href="download.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="download.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-download w-5"></i> Download Management
                 </a>
 
@@ -107,47 +132,63 @@
                     <i class="fas fa-newspaper w-5"></i> Content Management
                 </a>
 
-                <a href="banner.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="banner.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-image w-5"></i> Banner Management
                 </a>
 
-                <a href="broadcast.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="broadcast.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-bullhorn w-5"></i> Broadcast
                 </a>
 
-                <a href="email.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="email.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-envelope-open-text w-5"></i> Email Management
                 </a>
-                <a href="subscribe.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="subscribe.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-user-clock w-5"></i> Subscribe Management
                 </a>
 
-                <a href="cronjob.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="cronjob.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-clock w-5"></i> Cronjob Management
                 </a>
 
-                <a href="inbox.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="inbox.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <div class="flex items-center gap-3">
                         <i class="fas fa-inbox w-5"></i> Inbox
                     </div>
-                    <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm animate-pulse">3</span>
+                    <span
+                        class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm animate-pulse">3</span>
                 </a>
 
-                <a href="statistic.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="statistic.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-chart-pie w-5"></i> Statistic
                 </a>
+
+                <a href="admin_event.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    <i class="fas fa-calendar-alt w-5"></i> Event Management
+                </a>
                 <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 mt-6">Settings</p>
-                <a href="profile.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                <a href="profile.html"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-user-cog w-5"></i> User Profile
                 </a>
-                <a href="../login.html" class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition">
+                <a href="../login.html"
+                    class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition">
                     <i class="fas fa-sign-out-alt w-5"></i> Logout
                 </a>
             </nav>
 
             <div class="p-4 border-t border-gray-700 bg-brand-dark/50">
                 <div class="flex items-center gap-3">
-                    <img src="https://randomuser.me/api/portraits/men/1.jpg" class="w-10 h-10 rounded-full border-2 border-red-500">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg"
+                        class="w-10 h-10 rounded-full border-2 border-red-500">
                     <div>
                         <p class="text-sm font-bold text-white">Administrator</p>
                         <p class="text-xs text-red-400">Super Admin</p>
@@ -156,14 +197,17 @@
             </div>
         </aside>
 
-        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-40 lg:hidden" style="display: none;"></div>
+        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            style="display: none;"></div>
 
 
         <div class="flex-1 flex flex-col overflow-hidden">
-            
+
             <header class="bg-white border-b border-gray-200 h-20 flex items-center justify-between px-6 lg:px-10">
                 <div class="flex items-center gap-4">
-                    <button @click="sidebarOpen = !sidebarOpen" class="lg:hidden text-gray-500 hover:text-brand-green"><i class="fas fa-bars text-2xl"></i></button>
+                    <button @click="sidebarOpen = !sidebarOpen"
+                        class="lg:hidden text-gray-500 hover:text-brand-green"><i
+                            class="fas fa-bars text-2xl"></i></button>
                     <h1 class="text-xl font-bold text-gray-800">Sales</h1>
                 </div>
                 <div class="flex items-center gap-6">
@@ -175,9 +219,9 @@
             </header>
 
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 lg:p-10">
-                
+
                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                    
+
                     <div class="p-6 border-b border-gray-100 bg-white">
                         <h3 class="font-bold text-lg text-gray-900">Sales Management</h3>
                         <p class="text-xs text-gray-500">More than 400+ new orders</p>
@@ -197,12 +241,13 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-50 font-medium">
-                                
+
                                 <tr class="hover:bg-gray-50 transition">
                                     <td class="px-6 py-4 text-gray-400">1</td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-3">
-                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-lg bg-gray-100">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                                class="w-10 h-10 rounded-lg bg-gray-100">
                                             <div>
                                                 <div class="font-bold text-gray-900">ilham</div>
                                                 <div class="text-xs text-gray-400">gosend292@gmail.com</div>
@@ -214,7 +259,9 @@
                                     <td class="px-6 py-4 text-gray-800">11 Dec, 2025</td>
                                     <td class="px-6 py-4"><span class="text-blue-500 font-bold">Actived</span></td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i class="fas fa-ellipsis-v"></i></button>
+                                        <button
+                                            class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i
+                                                class="fas fa-ellipsis-v"></i></button>
                                     </td>
                                 </tr>
 
@@ -222,7 +269,8 @@
                                     <td class="px-6 py-4 text-gray-400">2</td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-3">
-                                            <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-10 h-10 rounded-lg bg-gray-100">
+                                            <img src="https://randomuser.me/api/portraits/men/45.jpg"
+                                                class="w-10 h-10 rounded-lg bg-gray-100">
                                             <div>
                                                 <div class="font-bold text-gray-900">andes</div>
                                                 <div class="text-xs text-gray-400">andessastrayunaf@gmail.com</div>
@@ -234,7 +282,9 @@
                                     <td class="px-6 py-4 text-gray-800">11 Dec, 2025</td>
                                     <td class="px-6 py-4"><span class="text-blue-500 font-bold">Actived</span></td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i class="fas fa-ellipsis-v"></i></button>
+                                        <button
+                                            class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i
+                                                class="fas fa-ellipsis-v"></i></button>
                                     </td>
                                 </tr>
 
@@ -242,7 +292,8 @@
                                     <td class="px-6 py-4 text-gray-400">3</td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-3">
-                                            <img src="https://randomuser.me/api/portraits/men/22.jpg" class="w-10 h-10 rounded-lg bg-gray-100">
+                                            <img src="https://randomuser.me/api/portraits/men/22.jpg"
+                                                class="w-10 h-10 rounded-lg bg-gray-100">
                                             <div>
                                                 <div class="font-bold text-gray-900">tes</div>
                                                 <div class="text-xs text-gray-400">ujiansistem@gmail.com</div>
@@ -254,7 +305,9 @@
                                     <td class="px-6 py-4 text-gray-800">09 Dec, 2025</td>
                                     <td class="px-6 py-4"><span class="text-blue-500 font-bold">Actived</span></td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i class="fas fa-ellipsis-v"></i></button>
+                                        <button
+                                            class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i
+                                                class="fas fa-ellipsis-v"></i></button>
                                     </td>
                                 </tr>
 
@@ -262,7 +315,8 @@
                                     <td class="px-6 py-4 text-gray-400">4</td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-3">
-                                            <img src="https://randomuser.me/api/portraits/men/55.jpg" class="w-10 h-10 rounded-lg bg-gray-100">
+                                            <img src="https://randomuser.me/api/portraits/men/55.jpg"
+                                                class="w-10 h-10 rounded-lg bg-gray-100">
                                             <div>
                                                 <div class="font-bold text-gray-900">Wahyu</div>
                                                 <div class="text-xs text-gray-400">wahyu@gmail.com</div>
@@ -274,7 +328,9 @@
                                     <td class="px-6 py-4 text-gray-800">09 Dec, 2025</td>
                                     <td class="px-6 py-4"><span class="text-red-500 font-bold">Not Active</span></td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i class="fas fa-ellipsis-v"></i></button>
+                                        <button
+                                            class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i
+                                                class="fas fa-ellipsis-v"></i></button>
                                     </td>
                                 </tr>
 
@@ -282,7 +338,8 @@
                                     <td class="px-6 py-4 text-gray-400">5</td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-3">
-                                            <img src="https://randomuser.me/api/portraits/men/15.jpg" class="w-10 h-10 rounded-lg bg-gray-100">
+                                            <img src="https://randomuser.me/api/portraits/men/15.jpg"
+                                                class="w-10 h-10 rounded-lg bg-gray-100">
                                             <div>
                                                 <div class="font-bold text-gray-900">Oji</div>
                                                 <div class="text-xs text-gray-400">Mhmdwhd013@gmail.com</div>
@@ -294,7 +351,9 @@
                                     <td class="px-6 py-4 text-gray-800">08 Dec, 2025</td>
                                     <td class="px-6 py-4"><span class="text-blue-500 font-bold">Actived</span></td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i class="fas fa-ellipsis-v"></i></button>
+                                        <button
+                                            class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i
+                                                class="fas fa-ellipsis-v"></i></button>
                                     </td>
                                 </tr>
 
@@ -302,7 +361,8 @@
                                     <td class="px-6 py-4 text-gray-400">6</td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-3">
-                                            <img src="https://randomuser.me/api/portraits/men/62.jpg" class="w-10 h-10 rounded-lg bg-gray-100">
+                                            <img src="https://randomuser.me/api/portraits/men/62.jpg"
+                                                class="w-10 h-10 rounded-lg bg-gray-100">
                                             <div>
                                                 <div class="font-bold text-gray-900">Danny</div>
                                                 <div class="text-xs text-gray-400">adrianova@gmail.com</div>
@@ -314,7 +374,9 @@
                                     <td class="px-6 py-4 text-gray-800">05 Dec, 2025</td>
                                     <td class="px-6 py-4"><span class="text-red-500 font-bold">Not Active</span></td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i class="fas fa-ellipsis-v"></i></button>
+                                        <button
+                                            class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center ml-auto"><i
+                                                class="fas fa-ellipsis-v"></i></button>
                                     </td>
                                 </tr>
 
@@ -333,4 +395,5 @@
     </div>
 
 </body>
+
 </html>

@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bandarmology - Home</title>
+    <title>Growth Academy - Bandarmology</title>
     <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
 
-<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -28,61 +28,42 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Agar scroll manual juga halus */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap"
-        rel="stylesheet">
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="bg-white text-gray-800 relative">
+<body class="bg-brand-bg text-gray-800 relative font-sans">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-6 py-4">
             
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between gap-4">
 
-                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition group">
-                    <img src="assets/img/logo.png" alt="Logo Bandarmology" class="h-10 w-auto object-contain">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition group flex-shrink-0">
+                    <img src="assets/img/logo.png" alt="Logo" class="h-10 w-auto object-contain">
                     <span class="text-2xl md:text-3xl font-semibold tracking-tight font-logo text-gray-900" style="letter-spacing: -0.05em;">
-                        Bandar<span class="text-brand-green font-normal">mo</span>logy
+                        Bandar<span class="text-brand-green font-normal">Mo</span>logy
                     </span>
                 </a>
 
-                <div class="hidden md:flex space-x-8 font-medium text-gray-600 text-[15px]">
-                    <a href="growth.html" class="hover:text-brand-green transition">Growth Academy</a>
-                    <a href="price.html" class="hover:text-brand-green transition">Price</a>
-                    <a href="affiliate.html" class="hover:text-brand-green transition">Affiliate</a>
-                    <a href="cek-akurasi.html" class="hover:text-brand-green transition">Cek Akurasi</a>
-                    <a href="stock-pick.html" class="hover:text-brand-green transition">Stock Pick</a>
-                    <a href="trading-championship.html" class="hover:text-brand-green transition">Trading Championship</a>
+                <div class="hidden xl:flex items-center space-x-5 font-medium text-gray-600 text-sm">
+                    <a href="growth.html" class="text-brand-green font-bold transition whitespace-nowrap">Growth Academy</a>
+                    <a href="price.html" class="hover:text-brand-green transition whitespace-nowrap">Price</a>
+                    <a href="affiliate.html" class="hover:text-brand-green transition whitespace-nowrap">Affiliate</a>
+                    <a href="cek-akurasi.html" class="hover:text-brand-green transition whitespace-nowrap">Cek Akurasi</a>
+                    <a href="stock-pick.html" class="hover:text-brand-green transition whitespace-nowrap">Stock Pick</a>
+                    <a href="trading-championship.html" class="hover:text-brand-green transition whitespace-nowrap">Championship</a>
+                    <a href="events.html" class="hover:text-brand-green transition whitespace-nowrap">Events</a>
                 </div>
 
-                <div class="flex items-center gap-4">
-                    <div class="hidden md:flex items-center gap-4">
-                        <a href="login.html" class="font-semibold text-gray-700 hover:text-brand-green transition text-sm md:text-base">Masuk</a>
-                        <a href="order.html" class="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-700 transition shadow-lg hover:shadow-green-200 text-sm md:text-base">Free Trial</a>
+                <div class="flex items-center gap-4 flex-shrink-0">
+                    <div class="hidden xl:flex items-center gap-4">
+                        <a href="login.html" class="font-semibold text-gray-700 hover:text-brand-green transition text-sm">Masuk</a>
+                        <a href="order.html" class="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-700 transition shadow-lg hover:shadow-green-200 text-sm whitespace-nowrap">Free Trial</a>
                     </div>
-
-                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-600 hover:text-brand-green focus:outline-none">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="xl:hidden text-gray-600 hover:text-brand-green focus:outline-none">
                         <i class="fas fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
                         <i class="fas fa-times text-2xl" x-show="mobileMenuOpen" style="display: none;"></i>
                     </button>
@@ -90,25 +71,16 @@
 
             </div>
 
-            <div x-show="mobileMenuOpen" 
-                 x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="opacity-0 -translate-y-2"
-                 x-transition:enter-end="opacity-100 translate-y-0"
-                 x-transition:leave="transition ease-in duration-150"
-                 x-transition:leave-start="opacity-100 translate-y-0"
-                 x-transition:leave-end="opacity-0 -translate-y-2"
-                 class="md:hidden mt-4 pb-4 border-t border-gray-100 flex flex-col space-y-4 pt-4" 
-                 style="display: none;">
-                
-                <a href="growth.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Growth Academy</a>
+            <div x-show="mobileMenuOpen" class="xl:hidden mt-4 pb-4 border-t border-gray-100 flex flex-col space-y-4 pt-4" style="display: none;">
+                <a href="growth.html" class="text-brand-green font-bold px-2">Growth Academy</a>
                 <a href="price.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Price</a>
                 <a href="affiliate.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Affiliate</a>
                 <a href="cek-akurasi.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Cek Akurasi</a>
                 <a href="stock-pick.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Stock Pick</a>
-                <a href="trading-championship.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Trading Championship</a>
-
+                <a href="trading-championship.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Championship</a>
+                <a href="events.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Events</a>
                 <div class="border-t border-gray-100 pt-4 flex flex-col gap-3">
-                    <a href="login.html" class="text-center w-full py-2 text-gray-700 font-bold border border-gray-200 rounded-lg hover:bg-gray-50">Login</a>
+                    <a href="login.html" class="text-center w-full py-2 text-gray-700 font-bold border border-gray-200 rounded-lg hover:bg-gray-50">Masuk</a>
                     <a href="order.html" class="text-center w-full py-2 bg-brand-green text-white font-bold rounded-lg hover:bg-green-700 shadow-md">Free Trial</a>
                 </div>
             </div>
@@ -116,295 +88,115 @@
         </div>
     </nav>
 
+    <section class="bg-brand-dark text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-green/20 text-brand-green font-bold text-xs uppercase tracking-widest mb-6 border border-brand-green/30">
+                Exclusive Mentoring
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Growth <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Academy</span>
+            </h1>
+            <p class="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto font-light">
+                Tempat belajar fundamental dan teknikal saham yang <strong>baik dan benar</strong>. Bukan sekadar teori, tapi strategi yang teruji di pasar.
+            </p>
+        </div>
+    </section>
 
-    <section class="bg-gray-50 py-20 border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
-
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900">
-                    Edukasi & Wawasan Trading.
-                </h2>
-                <p class="text-gray-500 mt-2">Pelajari cara membaca pergerakan pasar dari ahlinya.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-
-                <a href="#"
-                    class="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-64 overflow-hidden">
-                        <img src="assets/img/growth1.jpg" alt="Analisis Teknikal"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+    <section class="py-16 bg-white border-b border-gray-100">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                
+                <div class="bg-green-50 p-8 rounded-3xl border border-green-100" data-aos="fade-right">
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-brand-green text-2xl shadow-sm mb-4">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                    <div class="p-6 relative z-10">
-                        <h3
-                            class="text-xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                            Membedah Pergerakan Bandar</h3>
-                        <p class="text-gray-500 mt-2 group-hover:text-gray-200 transition-colors duration-300">Belajar
-                            cara mendeteksi akumulasi dan distribusi besar-besaran yang tidak terlihat di chart biasa.
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Edukasi Saham yang Benar</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Kami meluruskan mindset trading yang salah. Anda akan belajar cara berpikir seperti Big Player, bukan sekadar ikut-ikutan ritel yang sering terjebak FOMO.
+                    </p>
+                </div>
+
+                <div class="bg-brand-dark p-8 rounded-3xl border border-gray-800 text-white relative overflow-hidden" data-aos="fade-left">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-green rounded-full blur-[60px] opacity-20"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-yellow-400 text-2xl shadow-sm mb-4 backdrop-blur-sm">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Eksklusif & Terbatas</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            Untuk menjaga kualitas mentoring yang intensif, kami membatasi peserta secara ketat.
                         </p>
-                        <div
-                            class="mt-4 flex items-center gap-2 text-brand-green font-bold group-hover:text-white transition-colors duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Baca Selengkapnya</span> <i class="fas fa-arrow-right"></i>
+                        <div class="inline-block bg-red-500/20 text-red-300 px-4 py-2 rounded-lg text-sm font-bold border border-red-500/30 animate-pulse">
+                            <i class="fas fa-exclamation-circle mr-2"></i> Hanya 10 Peserta / Bulan
                         </div>
                     </div>
-                </a>
-
-                <a href="#"
-                    class="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-64 overflow-hidden">
-                        <img src="assets/img/hero2.png" alt="Manajemen Risiko"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                    <div class="p-6 relative z-10">
-                        <h3
-                            class="text-xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                            Psikologi & Manajemen Risiko</h3>
-                        <p class="text-gray-500 mt-2 group-hover:text-gray-200 transition-colors duration-300">Kunci
-                            bertahan di pasar modal bukan hanya profit, tapi bagaimana menjaga modal Anda tetap aman.
-                        </p>
-                        <div
-                            class="mt-4 flex items-center gap-2 text-brand-green font-bold group-hover:text-white transition-colors duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Tonton Video</span> <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#"
-                    class="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-64 overflow-hidden">
-                        <img src="assets/img/growth2.jpg" alt="Strategi Cuan"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                    <div class="p-6 relative z-10">
-                        <h3
-                            class="text-xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                            Strategi Trading Harian (Scalping)</h3>
-                        <p class="text-gray-500 mt-2 group-hover:text-gray-200 transition-colors duration-300">Teknik
-                            mencari cuan cepat di pasar yang sedang volatile dengan memanfaatkan momentum sesaat.</p>
-                        <div
-                            class="mt-4 flex items-center gap-2 text-brand-green font-bold group-hover:text-white transition-colors duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Pelajari Tekniknya</span> <i class="fas fa-chart-bar"></i>
-                        </div>
-                    </div>
-                </a>
+                </div>
 
             </div>
         </div>
     </section>
 
-    <section class="bg-gray-50 py-20 border-t border-gray-100 overflow-hidden">
-        <div class="text-center mb-10 px-6" data-aos="fade-up">
-            <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900">
-                Edukasi & Wawasan Trading.
-            </h2>
-            <p class="text-gray-500 mt-2">Pelajari cara membaca pergerakan pasar dari ahlinya.</p>
-        </div>
+    <section class="py-20 bg-brand-bg">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-900">Materi Pembelajaran</h2>
+                <p class="text-gray-500 mt-2">Kurikulum komprehensif dari Basic hingga Advanced.</p>
+            </div>
 
-        <div class="logo-slider">
-            <div class="logos-slide flex gap-8 pl-8">
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4 hover:border-brand-green transition group">
+                    <span class="text-2xl font-bold text-gray-300 group-hover:text-brand-green transition">01</span>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Mindset & Psikologi Trading</h4>
+                        <p class="text-sm text-gray-600 mt-1">Mengelola emosi, greed, dan fear agar tidak menghancurkan portofolio.</p>
+                    </div>
+                </div>
 
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden">
-                        <img src="assets/img/saham/1.jpeg" alt="Analisis Teknikal"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4 hover:border-brand-green transition group">
+                    <span class="text-2xl font-bold text-gray-300 group-hover:text-brand-green transition">02</span>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Analisa Bandarmology (Flow)</h4>
+                        <p class="text-sm text-gray-600 mt-1">Mendeteksi akumulasi dan distribusi bandar secara real-time di running trade.</p>
                     </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Membedah Bandar</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Deteksi akumulasi dan distribusi besar yang tidak terlihat di chart biasa.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Baca Selengkapnya</span> <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </a>
+                </div>
 
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden">
-                        <img src="assets/img/saham/2.jpeg" alt="Manajemen Risiko"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4 hover:border-brand-green transition group">
+                    <span class="text-2xl font-bold text-gray-300 group-hover:text-brand-green transition">03</span>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Money Management Pro</h4>
+                        <p class="text-sm text-gray-600 mt-1">Teknik sizing posisi, compounding profit, dan risk/reward ratio yang sehat.</p>
                     </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Psikologi Trading</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Kunci bertahan di pasar modal adalah menjaga mental dan money management.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Tonton Video</span> <i class="fas fa-play-circle"></i>
-                        </div>
-                    </div>
-                </a>
+                </div>
 
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden">
-                        <img src="assets/img/saham/3.jpeg" alt="Strategi Cuan"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4 hover:border-brand-green transition group">
+                    <span class="text-2xl font-bold text-gray-300 group-hover:text-brand-green transition">04</span>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">Studi Kasus & Live Analysis</h4>
+                        <p class="text-sm text-gray-600 mt-1">Praktek langsung menganalisa saham yang sedang trending di pasar saat ini.</p>
                     </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Strategi Scalping</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Teknik mencari cuan cepat di pasar volatile dengan momentum.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Pelajari Teknik</span> <i class="fas fa-chart-bar"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden">
-                        <img src="assets/img/saham/4.jpeg" alt="Swing Trading"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Swing Santai</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Metode trading santai untuk pekerja kantoran tanpa pantau monitor.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Baca Panduan</span> <i class="fas fa-book-open"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden"><img src="assets/img/saham/5.jpeg"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Membedah Bandar</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Deteksi akumulasi dan distribusi besar yang tidak terlihat di chart biasa.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Baca Selengkapnya</span> <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden"><img src="assets/img/saham/6.jpeg"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Psikologi Trading</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Kunci bertahan di pasar modal adalah menjaga mental dan money management.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Tonton Video</span> <i class="fas fa-play-circle"></i></div>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden"><img src="assets/img/saham/7.jpeg"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Strategi Scalping</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Teknik mencari cuan cepat di pasar volatile dengan momentum.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Pelajari Teknik</span> <i class="fas fa-chart-bar"></i></div>
-                    </div>
-                </a>
-                <a href="#"
-                    class="group relative w-80 h-[22rem] bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex-shrink-0">
-                    <div class="h-3/5 overflow-hidden"><img src="assets/img/saham/8.jpeg"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0">
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                    </div>
-                    <div class="p-5 relative z-10 h-2/5 flex flex-col justify-between">
-                        <div>
-                            <h3
-                                class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
-                                Swing Santai</h3>
-                            <p
-                                class="text-sm text-gray-500 mt-1 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
-                                Metode trading santai untuk pekerja kantoran tanpa pantau monitor.</p>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-brand-green font-bold text-sm group-hover:text-white transition-colors duration-300 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span>Baca Panduan</span> <i class="fas fa-book-open"></i></div>
-                    </div>
-                </a>
+                </div>
 
             </div>
+
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6 text-center" data-aos="zoom-in">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Siap Bertumbuh Bersama Kami?</h2>
+            <p class="text-gray-500 mb-8">
+                Slot sangat terbatas. Amankan tempat Anda sekarang untuk batch bulan ini.
+            </p>
+            
+            <a href="order.html" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-green text-white font-bold text-lg rounded-full shadow-lg hover:bg-green-700 hover:-translate-y-1 transition transform duration-300 shadow-green-200">
+                <span>Daftar Waiting List Sekarang</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            
+            <p class="text-xs text-gray-400 mt-4">*Pendaftaran akan otomatis ditutup jika kuota 10 orang terpenuhi.</p>
         </div>
     </section>
 
@@ -523,111 +315,10 @@
 
     </div>
 
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Init AOS
         AOS.init({ once: true, duration: 800 });
-
-        // Slideshow Logic
-        const slides = document.querySelectorAll('.hero-slide-image');
-        let currentSlide = 0;
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 4000);
-
-        // ==========================================
-        // BACK TO TOP LOGIC
-        // ==========================================
-        const backToTopBtn = document.getElementById('backToTopBtn');
-
-        window.addEventListener('scroll', () => {
-            // Jika scroll lebih dari 300px, munculkan tombol
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.remove('hidden');
-                backToTopBtn.classList.add('flex');
-            } else {
-                backToTopBtn.classList.add('hidden');
-                backToTopBtn.classList.remove('flex');
-            }
-        });
-
-        // Event Klik untuk Scroll ke Atas
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Efek scroll halus
-            });
-        });
-
-        // ==========================================
-        // LOGIC LIVE COUNTER (Penambah Angka Otomatis)
-        // ==========================================
-
-        // Fungsi untuk memformat angka dengan titik (contoh: 15.000)
-        function formatNumber(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        }
-
-        // Konfigurasi setiap counter
-        const stats = [
-            {
-                id: 'counter-trader',
-                startVal: 15420,
-                minAdd: 1,
-                maxAdd: 3,
-                interval: 3000 // Nambah setiap 3 detik
-            },
-            {
-                id: 'counter-saham',
-                startVal: 8250,
-                minAdd: 5,
-                maxAdd: 12,
-                interval: 2000 // Nambah setiap 2 detik
-            },
-            {
-                id: 'counter-signal',
-                startVal: 124900,
-                minAdd: 10,
-                maxAdd: 50,
-                interval: 1500 // Nambah cepat (1.5 detik)
-            },
-            {
-                id: 'counter-premium',
-                startVal: 2345,
-                minAdd: 0,
-                maxAdd: 1,
-                interval: 8000 // Nambah lambat (kadang nambah, kadang enggak)
-            }
-        ];
-
-        // Menjalankan fungsi interval untuk masing-masing id
-        stats.forEach(stat => {
-            let currentVal = stat.startVal;
-            const element = document.getElementById(stat.id);
-
-            setInterval(() => {
-                // Acak penambahan angka
-                // Jika Math.random() < 0.3 artinya ada kemungkinan 30% angka tidak bertambah (biar natural)
-                if (Math.random() > 0.1) {
-                    const randomAdd = Math.floor(Math.random() * (stat.maxAdd - stat.minAdd + 1)) + stat.minAdd;
-                    currentVal += randomAdd;
-
-                    // Update teks di HTML
-                    if (element) {
-                        element.innerText = formatNumber(currentVal);
-
-                        // Efek kedip sedikit saat angka berubah (opsional)
-                        element.style.opacity = 0.7;
-                        setTimeout(() => element.style.opacity = 1, 200);
-                    }
-                }
-            }, stat.interval);
-        });
     </script>
 
 </body>
-
 </html>

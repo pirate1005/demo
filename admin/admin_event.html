@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promo Management - BandarMology Admin</title>
-    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+    <title>Event Management - Bandarmology Admin</title>
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -17,7 +17,7 @@
                             green: '#27AE60',
                             dark: '#0f0535',
                             bg: '#F9FAFB',
-                            orange: '#FF4500' // Untuk tombol submit di modal
+                            orange: '#FF4500'
                         }
                     },
                     fontFamily: {
@@ -53,7 +53,7 @@
     </style>
 </head>
 
-<body class="bg-gray-50 font-sans text-gray-800" x-data="{ sidebarOpen: false, modalOpen: false }">
+<body class="bg-gray-50 font-sans text-gray-800" x-data="{ sidebarOpen: false, modalOpen: false, editMode: false }">
 
     <div class="flex h-screen overflow-hidden">
 
@@ -61,7 +61,7 @@
             class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
 
             <div class="flex items-center justify-center h-20 border-b border-gray-700 bg-brand-dark/50">
-                <a href="index.html" class="flex items-center gap-2 group">
+                <a href="../index.html" class="flex items-center gap-2 group">
                     <img src="../assets/img/logo.png" alt="Logo" class="h-8 w-auto object-contain brightness-0 invert">
                     <span class="text-xl font-extralight tracking-tight font-logo text-white"
                         style="letter-spacing: -0.05em;">
@@ -78,14 +78,13 @@
                     <i class="fas fa-th-large w-5"></i> Dashboard
                 </a>
 
-
                 <a href="activity.html"
                     class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-history w-5"></i> Activity Logs
                 </a>
 
                 <a href="promo.html"
-                    class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-tags w-5"></i> Promo Code
                 </a>
 
@@ -174,10 +173,10 @@
                 </a>
 
                 <a href="admin_event.html"
-                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
+                    class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
                     <i class="fas fa-calendar-alt w-5"></i> Event Management
                 </a>
-                <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 mt-6">Settings</p>\
+                <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 mt-6">Settings</p>
                 <a href="profile.html"
                     class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
                     <i class="fas fa-user-cog w-5"></i> User Profile
@@ -211,7 +210,7 @@
                     <button @click="sidebarOpen = !sidebarOpen"
                         class="lg:hidden text-gray-500 hover:text-brand-green"><i
                             class="fas fa-bars text-2xl"></i></button>
-                    <h1 class="text-xl font-bold text-gray-800">Promo Code</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Seminar Events</h1>
                 </div>
                 <div class="flex items-center gap-6">
                     <button class="relative text-gray-500 hover:text-brand-green transition">
@@ -227,10 +226,13 @@
 
                     <div
                         class="p-6 border-b border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                        <h3 class="font-bold text-lg text-gray-900">Kode Promo Management</h3>
-                        <button @click="modalOpen = true"
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-900">Jadwal Seminar</h3>
+                            <p class="text-xs text-gray-500">Kelola lokasi dan waktu seminar offline.</p>
+                        </div>
+                        <button @click="modalOpen = true; editMode = false"
                             class="bg-[#3B82F6] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm shadow-sm transition flex items-center gap-2">
-                            <i class="fas fa-plus"></i> Add New Kode Promo
+                            <i class="fas fa-plus"></i> Tambah Jadwal
                         </button>
                     </div>
 
@@ -239,12 +241,12 @@
                             <thead class="text-xs text-gray-400 uppercase bg-white border-b border-gray-100">
                                 <tr>
                                     <th class="px-6 py-4 font-bold tracking-wider w-10">#</th>
-                                    <th class="px-6 py-4 font-bold tracking-wider">KODE</th>
-                                    <th class="px-6 py-4 font-bold tracking-wider">DISCOUNT (%)</th>
-                                    <th class="px-6 py-4 font-bold tracking-wider">TOTAL PROMO</th>
-                                    <th class="px-6 py-4 font-bold tracking-wider">TANGGAL MULAI</th>
-                                    <th class="px-6 py-4 font-bold tracking-wider">TANGGAL AKHIR</th>
-                                    <th class="px-6 py-4 font-bold tracking-wider">STATUS</th>
+                                    <th class="px-6 py-4 font-bold tracking-wider">KOTA</th>
+                                    <th class="px-6 py-4 font-bold tracking-wider w-1/4">LOKASI / HOTEL</th>
+                                    <th class="px-6 py-4 font-bold tracking-wider">TANGGAL</th>
+                                    <th class="px-6 py-4 font-bold tracking-wider">JAM</th>
+                                    <th class="px-6 py-4 font-bold tracking-wider text-center">KUOTA</th>
+                                    <th class="px-6 py-4 font-bold tracking-wider text-center">STATUS</th>
                                     <th class="px-6 py-4 font-bold tracking-wider text-right">ACTIONS</th>
                                 </tr>
                             </thead>
@@ -252,16 +254,18 @@
 
                                 <tr class="hover:bg-gray-50 transition">
                                     <td class="px-6 py-4 text-gray-400">1</td>
-                                    <td class="px-6 py-4 font-bold text-gray-900">KODE 1</td>
-                                    <td class="px-6 py-4">10.00</td>
-                                    <td class="px-6 py-4">3 / 11</td>
-                                    <td class="px-6 py-4">11 Dec 2024</td>
-                                    <td class="px-6 py-4">11 Dec 2024</td>
-                                    <td class="px-6 py-4"><span class="text-red-500 font-bold">Active</span></td>
+                                    <td class="px-6 py-4 font-bold text-gray-900">Jakarta</td>
+                                    <td class="px-6 py-4">Hotel Mulia Senayan</td>
+                                    <td class="px-6 py-4">15 Feb 2026</td>
+                                    <td class="px-6 py-4">09:00 - 16:00</td>
+                                    <td class="px-6 py-4 text-center">50/100</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">Open</span>
+                                    </td>
                                     <td class="px-6 py-4 text-right">
                                         <div class="flex justify-end gap-2">
-                                            <button
-                                                class="w-8 h-8 rounded bg-blue-50 text-blue-500 hover:bg-blue-100 transition flex items-center justify-center"><i
+                                            <button @click="modalOpen = true; editMode = true"
+                                                class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center"><i
                                                     class="fas fa-edit"></i></button>
                                             <button
                                                 class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i
@@ -272,16 +276,18 @@
 
                                 <tr class="hover:bg-gray-50 transition">
                                     <td class="px-6 py-4 text-gray-400">2</td>
-                                    <td class="px-6 py-4 font-bold text-gray-900">DESCUAN</td>
-                                    <td class="px-6 py-4">35.00</td>
-                                    <td class="px-6 py-4">10 / 5</td>
-                                    <td class="px-6 py-4">13 Dec 2024</td>
-                                    <td class="px-6 py-4">31 Dec 2024</td>
-                                    <td class="px-6 py-4"><span class="text-red-400 font-bold">Not Active</span></td>
+                                    <td class="px-6 py-4 font-bold text-gray-900">Surabaya</td>
+                                    <td class="px-6 py-4">JW Marriott Hotel</td>
+                                    <td class="px-6 py-4">22 Feb 2026</td>
+                                    <td class="px-6 py-4">09:00 - 16:00</td>
+                                    <td class="px-6 py-4 text-center">20/80</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">Open</span>
+                                    </td>
                                     <td class="px-6 py-4 text-right">
                                         <div class="flex justify-end gap-2">
-                                            <button
-                                                class="w-8 h-8 rounded bg-blue-50 text-blue-500 hover:bg-blue-100 transition flex items-center justify-center"><i
+                                            <button @click="modalOpen = true; editMode = true"
+                                                class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center"><i
                                                     class="fas fa-edit"></i></button>
                                             <button
                                                 class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i
@@ -292,56 +298,18 @@
 
                                 <tr class="hover:bg-gray-50 transition">
                                     <td class="px-6 py-4 text-gray-400">3</td>
-                                    <td class="px-6 py-4 font-bold text-gray-900">KITACUAN</td>
-                                    <td class="px-6 py-4">20.00</td>
-                                    <td class="px-6 py-4">0 / 10</td>
-                                    <td class="px-6 py-4">01 Jan 2025</td>
-                                    <td class="px-6 py-4">10 Jan 2025</td>
-                                    <td class="px-6 py-4"><span class="text-red-500 font-bold">Active</span></td>
-                                    <td class="px-6 py-4 text-right">
-                                        <div class="flex justify-end gap-2">
-                                            <button
-                                                class="w-8 h-8 rounded bg-blue-50 text-blue-500 hover:bg-blue-100 transition flex items-center justify-center"><i
-                                                    class="fas fa-edit"></i></button>
-                                            <button
-                                                class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i
-                                                    class="fas fa-trash-alt"></i></button>
-                                        </div>
+                                    <td class="px-6 py-4 font-bold text-gray-900">Medan</td>
+                                    <td class="px-6 py-4">Aryaduta Medan</td>
+                                    <td class="px-6 py-4">01 Mar 2026</td>
+                                    <td class="px-6 py-4">09:00 - 16:00</td>
+                                    <td class="px-6 py-4 text-center">0/50</td>
+                                    <td class="px-6 py-4 text-center"><span
+                                            class="bg-gray-100 text-gray-500 px-2 py-1 rounded text-xs font-bold">Closed</span>
                                     </td>
-                                </tr>
-
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 text-gray-400">4</td>
-                                    <td class="px-6 py-4 font-bold text-gray-900">SMART50</td>
-                                    <td class="px-6 py-4">50.00</td>
-                                    <td class="px-6 py-4">16 / 20</td>
-                                    <td class="px-6 py-4">24 Oct 2025</td>
-                                    <td class="px-6 py-4">12 Nov 2025</td>
-                                    <td class="px-6 py-4"><span class="text-red-500 font-bold">Active</span></td>
                                     <td class="px-6 py-4 text-right">
                                         <div class="flex justify-end gap-2">
-                                            <button
-                                                class="w-8 h-8 rounded bg-blue-50 text-blue-500 hover:bg-blue-100 transition flex items-center justify-center"><i
-                                                    class="fas fa-edit"></i></button>
-                                            <button
-                                                class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i
-                                                    class="fas fa-trash-alt"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 text-gray-400">5</td>
-                                    <td class="px-6 py-4 font-bold text-gray-900">10%OFF</td>
-                                    <td class="px-6 py-4">10.00</td>
-                                    <td class="px-6 py-4">1 / 10</td>
-                                    <td class="px-6 py-4">20 Sep 2025</td>
-                                    <td class="px-6 py-4">30 Sep 2025</td>
-                                    <td class="px-6 py-4"><span class="text-red-500 font-bold">Active</span></td>
-                                    <td class="px-6 py-4 text-right">
-                                        <div class="flex justify-end gap-2">
-                                            <button
-                                                class="w-8 h-8 rounded bg-blue-50 text-blue-500 hover:bg-blue-100 transition flex items-center justify-center"><i
+                                            <button @click="modalOpen = true; editMode = true"
+                                                class="w-8 h-8 rounded bg-gray-100 text-gray-500 hover:bg-gray-200 transition flex items-center justify-center"><i
                                                     class="fas fa-edit"></i></button>
                                             <button
                                                 class="w-8 h-8 rounded bg-red-50 text-red-500 hover:bg-red-100 transition flex items-center justify-center"><i
@@ -356,10 +324,6 @@
 
                 </div>
 
-                <div class="mt-8 text-center text-gray-400 text-xs pb-4">
-                    &copy; 2025 BandarMology.net - Admin Panel
-                </div>
-
             </main>
         </div>
 
@@ -368,63 +332,74 @@
             <div class="fixed inset-0 bg-black/50 transition-opacity" @click="modalOpen = false"></div>
 
             <div class="flex min-h-full items-center justify-center p-4">
-                <div
-                    class="relative w-full max-w-2xl bg-white rounded-lg shadow-xl transform transition-all overflow-hidden flex flex-col">
+                <div class="relative w-full max-w-lg bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
 
                     <div class="px-6 py-4 border-b border-gray-100 bg-white">
-                        <h3 class="text-lg font-bold text-gray-800">Add New Promo</h3>
+                        <h3 class="text-lg font-bold text-gray-800"
+                            x-text="editMode ? 'Edit Jadwal Seminar' : 'Tambah Jadwal Baru'"></h3>
                     </div>
 
-                    <div class="p-6 bg-white overflow-y-auto max-h-[80vh]">
+                    <div class="p-6 bg-white overflow-y-auto">
                         <form action="#">
 
                             <div class="mb-4">
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Kode</label>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Kota</label>
                                 <input type="text"
-                                    class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
+                                    class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                                    placeholder="Contoh: Jakarta">
                             </div>
 
                             <div class="mb-4">
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Discount</label>
-                                <input type="number"
-                                    class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Lokasi / Nama Hotel</label>
+                                <input type="text"
+                                    class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                                    placeholder="Contoh: Hotel Mulia Senayan">
                             </div>
 
-                            <div class="mb-4">
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Total Kode Promo</label>
-                                <input type="number"
-                                    class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Tanggal Mulai</label>
-                                <div class="relative">
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">Tanggal</label>
                                     <input type="date"
                                         class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
                                 </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Tanggal Akhir</label>
-                                <div class="relative">
-                                    <input type="date"
-                                        class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">Jam</label>
+                                    <input type="text"
+                                        class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                                        placeholder="09:00 - 16:00">
                                 </div>
                             </div>
 
-                            <div class="mb-6">
-                                <label class="block text-sm font-bold text-gray-700 mb-2">Status</label>
-                                <div class="relative">
-                                    <select
-                                        class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none appearance-none">
-                                        <option>Active</option>
-                                        <option>Not Active</option>
-                                    </select>
-                                    <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-500">
-                                        <i class="fas fa-chevron-down text-xs"></i>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">Kuota Peserta</label>
+                                    <input type="number"
+                                        class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                                        placeholder="100">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">Status Pendaftaran</label>
+                                    <div class="relative">
+                                        <select
+                                            class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none appearance-none">
+                                            <option>Open</option>
+                                            <option>Closed</option>
+                                            <option>Full Booked</option>
+                                        </select>
+                                        <div
+                                            class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-500">
+                                            <i class="fas fa-chevron-down text-xs"></i>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Link Google Maps
+                                    (Opsional)</label>
+                                <input type="text"
+                                    class="w-full px-4 py-3 bg-blue-50 border border-transparent rounded-lg text-gray-700 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none"
+                                    placeholder="https://maps.google.com/...">
                             </div>
 
                         </form>
@@ -433,11 +408,11 @@
                     <div class="px-6 py-4 bg-white border-t border-gray-100 flex justify-end gap-3">
                         <button @click="modalOpen = false"
                             class="px-4 py-2 text-gray-600 bg-gray-200 rounded hover:bg-gray-300 transition text-sm font-bold">
-                            Close
+                            Batal
                         </button>
                         <button
                             class="px-6 py-2 bg-[#FF4500] text-white rounded hover:bg-red-600 transition shadow text-sm font-bold">
-                            Submit
+                            Simpan Data
                         </button>
                     </div>
 
