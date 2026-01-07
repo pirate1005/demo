@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Membership - BandarMology</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> </head>
+
+<body class="bg-brand-bg text-gray-800 font-sans" 
+      x-data="{ 
+          paymentMethod: 'bca',
+          isLoading: false,
+          processPayment() {
+              this.isLoading = true;
+              
+              // Simulasi Loading Pembayaran (2 Detik)
+              setTimeout(() => {
+                  this.isLoading = false;
+                  
+                  // Tampilkan Popup Sukses
+                  Swal.fire({
+                      title: 'Pembayaran Berhasil!',
+                      text: 'Akun Anda telah aktif kembali. Mengalihkan ke Dashboard...',
+                      icon: 'success',
+                      timer: 3000,
+                      timerProgressBar: true,
+                      showConfirmButton: false,
+                      background: '#fff',
+                      color: '#333'
+                  }).then(() => {
+                      // REDIRECT KE DASHBOARD NORMAL
+                      window.location.href = 'dashboard.html';
+                  });
+                  
+              }, 2000);
+          }
+      }">
+
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="upgrade_plan.html" class="flex items-center gap-2 text-gray-500 hover:text-brand-green transition">
+                <i class="fas fa-arrow-left"></i>
+                <span class="font-medium">Ganti Paket</span>
+            </a>
+            <div class="flex items-center gap-2">
+                <img src="assets/img/logo.png" alt="Logo" class="h-8 w-auto">
+                <span class="font-bold text-xl text-brand-green">Bandarmology</span>
+            </div>
+            <div class="text-sm text-green-600 bg-green-50 px-3 py-1 rounded-full font-bold flex items-center gap-1">
+                <i class="fas fa-shield-alt"></i> Secure Payment
+            </div>
+        </div>
+    </nav>
+
+    <section class="max-w-6xl mx-auto px-6 py-10">
+        
+        <div class="grid lg:grid-cols-3 gap-8">
+
+            <div class="lg:col-span-2 space-y-6">
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Informasi Akun</h3>
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full border-2 border-brand-green">
+                        <div>
+                            <p class="font-bold text-gray-900">Budi Santoso</p>
+                            <p class="text-sm text-gray-500">ujiansistem@gmail.com</p>
+                        </div>
+                        <span class="ml-auto bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded">Member</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Pilih Metode Pembayaran</h3>
+                    
+                    <div class="grid gap-3">
+                        
+                        <label class="flex items-center justify-between p-4 border rounded-xl cursor-pointer transition-all hover:border-brand-green"
+                            :class="paymentMethod === 'bca' ? 'border-brand-green bg-green-50 ring-1 ring-brand-green' : 'border-gray-200'">
+                            <div class="flex items-center gap-4">
+                                <input type="radio" name="payment" value="bca" x-model="paymentMethod" class="hidden">
+                                <div class="w-12 h-12 bg-white rounded-lg border border-gray-100 flex items-center justify-center p-1">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1200px-Bank_Central_Asia.svg.png" class="max-h-full max-w-full">
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800">BCA Virtual Account</p>
+                                    <p class="text-xs text-gray-500">Cek otomatis</p>
+                                </div>
+                            </div>
+                            <div class="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center"
+                                :class="paymentMethod === 'bca' ? 'border-brand-green bg-white' : ''">
+                                <div class="w-3 h-3 rounded-full bg-brand-green" x-show="paymentMethod === 'bca'"></div>
+                            </div>
+                        </label>
+
+                        <label class="flex items-center justify-between p-4 border rounded-xl cursor-pointer transition-all hover:border-brand-green"
+                            :class="paymentMethod === 'mandiri' ? 'border-brand-green bg-green-50 ring-1 ring-brand-green' : 'border-gray-200'">
+                            <div class="flex items-center gap-4">
+                                <input type="radio" name="payment" value="mandiri" x-model="paymentMethod" class="hidden">
+                                <div class="w-12 h-12 bg-white rounded-lg border border-gray-100 flex items-center justify-center p-1">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/1200px-Bank_Mandiri_logo_2016.svg.png" class="max-h-full max-w-full">
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800">Mandiri Virtual Account</p>
+                                    <p class="text-xs text-gray-500">Cek otomatis</p>
+                                </div>
+                            </div>
+                            <div class="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center"
+                                :class="paymentMethod === 'mandiri' ? 'border-brand-green bg-white' : ''">
+                                <div class="w-3 h-3 rounded-full bg-brand-green" x-show="paymentMethod === 'mandiri'"></div>
+                            </div>
+                        </label>
+
+                        <label class="flex items-center justify-between p-4 border rounded-xl cursor-pointer transition-all hover:border-brand-green"
+                            :class="paymentMethod === 'qris' ? 'border-brand-green bg-green-50 ring-1 ring-brand-green' : 'border-gray-200'">
+                            <div class="flex items-center gap-4">
+                                <input type="radio" name="payment" value="qris" x-model="paymentMethod" class="hidden">
+                                <div class="w-12 h-12 bg-white rounded-lg border border-gray-100 flex items-center justify-center p-1">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_QRIS.svg/1200px-Logo_QRIS.svg.png" class="max-h-full max-w-full">
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800">QRIS (Gopay/OVO/Dana)</p>
+                                    <p class="text-xs text-gray-500">Scan & Langsung Aktif</p>
+                                </div>
+                            </div>
+                            <div class="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center"
+                                :class="paymentMethod === 'qris' ? 'border-brand-green bg-white' : ''">
+                                <div class="w-3 h-3 rounded-full bg-brand-green" x-show="paymentMethod === 'qris'"></div>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sticky top-24">
+                    
+                    <h3 class="text-lg font-bold text-gray-900 mb-6">Ringkasan Pesanan</h3>
+
+                    <div class="bg-brand-dark rounded-xl p-4 text-white mb-6 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-brand-green rounded-full blur-2xl opacity-30 -mr-5 -mt-5"></div>
+                        <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Paket Dipilih</p>
+                        <h4 class="text-2xl font-bold mb-1">PRO Membership</h4>
+                        <p class="text-sm text-gray-300">Durasi: <span class="font-bold text-white">12 Bulan</span></p>
+                    </div>
+
+                    <div class="space-y-3 mb-6 pb-6 border-b border-gray-100">
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>Harga Paket</span>
+                            <span class="font-medium">Rp 2.500.000</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>Biaya Admin</span>
+                            <span class="font-medium">Rp 0</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-green-600">
+                            <span>Kode Unik</span>
+                            <span class="font-medium">- Rp 123</span>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="font-bold text-gray-700">Total Bayar</span>
+                        <span class="text-2xl font-extrabold text-brand-green">Rp 2.499.877</span>
+                    </div>
+
+                    <button @click="processPayment()" 
+                            :disabled="isLoading"
+                            class="w-full py-4 rounded-xl font-bold text-center text-white transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2"
+                            :class="isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-brand-green hover:bg-green-700'">
+                        
+                        <span x-show="!isLoading">Bayar Sekarang</span>
+                        <i x-show="!isLoading" class="fas fa-arrow-right"></i>
+                        
+                        <svg x-show="isLoading" class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span x-show="isLoading">Memproses...</span>
+                    </button>
+
+                    <p class="text-xs text-center text-gray-400 mt-4">
+                        Dengan menekan tombol di atas, transaksi akan diproses secara otomatis.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+</html>

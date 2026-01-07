@@ -29,14 +29,45 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;1,200&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
+
     <style>
-        .custom-scroll::-webkit-scrollbar { height: 5px; width: 5px; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
-        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        /* Custom Scrollbar */
+        .custom-scroll::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        /* Animasi Fade In Up */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
     </style>
 </head>
 
@@ -67,7 +98,7 @@
                     </div>
                 </div>
 
-                <a href="price.html" class="flex items-center justify-center gap-2 w-full py-3 bg-brand-green text-white font-bold rounded-xl shadow-lg hover:bg-green-600 transition mb-6 animate-pulse">
+                <a href="upgrade_plan.html" class="flex items-center justify-center gap-2 w-full py-3 bg-brand-green text-white font-bold rounded-xl shadow-lg hover:bg-green-600 transition mb-6 animate-pulse">
                     <i class="fas fa-crown text-yellow-300"></i> Upgrade Plan
                 </a>
 
@@ -167,79 +198,215 @@
                 </div>
             </header>
 
-            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 lg:p-10 flex flex-col items-center justify-center">
-                
-                <div class="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
-                    
-                    <div class="bg-brand-dark p-8 text-center relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-red-500 rounded-full blur-[60px] opacity-20"></div>
-                        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-green rounded-full blur-[60px] opacity-20"></div>
-
-                        <div class="relative z-10">
-                            <div class="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-full backdrop-blur-md mb-6 border border-white/20 shadow-lg">
-                                <i class="fas fa-clock text-4xl text-red-400"></i>
-                            </div>
-                            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-2">Masa Trial Anda Telah Berakhir</h2>
-                            <p class="text-gray-300 max-w-lg mx-auto text-lg">Jangan biarkan momentum trading Anda hilang. Perpanjang akses sekarang untuk terus mendapatkan sinyal bandarmology yang akurat.</p>
-                        </div>
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 lg:p-10">
+                <!-- Top Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-red-50 border border-red-300 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+                        <div class="mb-2 text-gray-400 text-2xl"><i class="fas fa-envelope"></i></div>
+                        <h3 class="text-xl font-bold text-gray-800">ujiansistem@gmail.com</h3>
+                        <p class="text-xs text-gray-500 font-bold mb-4">Email</p>
+                        <p class="text-sm text-gray-700">Your Purchase Order is : <span class="font-bold">Trial</span>
+                        </p>
+                        <p class="text-sm text-gray-700 mt-1">Expire Date: <span class="font-bold">0</span> days
+                            remaining</p>
                     </div>
-
-                    <div class="p-8 md:p-12">
-                        
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                            
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-4">Kenapa Harus Upgrade?</h3>
-                                <ul class="space-y-4">
-                                    <li class="flex items-start gap-3">
-                                        <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-brand-green mt-0.5"><i class="fas fa-check text-xs"></i></div>
-                                        <span class="text-gray-600 text-sm">Akses penuh ke <strong>Bandar Detector</strong> & <strong>Foreign Flow</strong>.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-brand-green mt-0.5"><i class="fas fa-check text-xs"></i></div>
-                                        <span class="text-gray-600 text-sm">Dapatkan <strong>Stock Pick Harian</strong> dengan Win Rate tinggi.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-brand-green mt-0.5"><i class="fas fa-check text-xs"></i></div>
-                                        <span class="text-gray-600 text-sm">Masuk ke <strong>Grup Diskusi Eksklusif</strong> sesama trader pro.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-brand-green mt-0.5"><i class="fas fa-check text-xs"></i></div>
-                                        <span class="text-gray-600 text-sm">Support prioritas dari tim analis kami.</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-gray-50 rounded-2xl p-6 border-2 border-brand-green relative transform hover:-translate-y-1 transition shadow-lg">
-                                <div class="absolute top-0 right-0 bg-brand-green text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-lg uppercase tracking-wide">
-                                    Rekomendasi
-                                </div>
-                                <h4 class="text-lg font-bold text-gray-800">Paket Profesional</h4>
-                                <div class="my-3">
-                                    <span class="text-3xl font-extrabold text-brand-green">Rp 1.500.000</span>
-                                    <span class="text-gray-500 text-sm">/ 6 Bulan</span>
-                                </div>
-                                <p class="text-xs text-gray-500 mb-6">Investasi terbaik untuk memulai karir trading profesional Anda.</p>
-                                
-                                <a href="price.html" class="block w-full py-3 bg-brand-green text-white font-bold text-center rounded-xl hover:bg-green-700 transition shadow-lg shadow-green-200">
-                                    Upgrade Sekarang <i class="fas fa-arrow-right ml-2"></i>
-                                </a>
-                                <div class="mt-4 text-center">
-                                    <a href="price.html" class="text-xs text-gray-500 hover:text-brand-green underline">Lihat paket lainnya</a>
-                                </div>
-                            </div>
-
-                        </div>
-
+                    <div class="bg-red-50 border border-red-300 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+                        <div class="mb-2 text-gray-400 text-2xl"><i class="fas fa-money-bill-wave"></i></div>
+                        <h3 class="text-3xl font-extrabold text-gray-800">Rp. 0</h3>
+                        <p class="text-xs text-gray-500 font-bold mt-1">Commission</p>
                     </div>
-
-                    <div class="bg-gray-50 px-8 py-4 border-t border-gray-100 text-center">
-                        <p class="text-xs text-gray-500">Butuh bantuan? <a href="#" class="text-brand-green font-bold hover:underline">Hubungi Admin WhatsApp</a></p>
+                    <div class="bg-red-50 border border-red-300 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+                        <div class="mb-2 text-gray-400 text-2xl"><i class="fas fa-credit-card"></i></div>
+                        <h3 class="text-3xl font-extrabold text-gray-800">Rp. 0</h3>
+                        <p class="text-xs text-gray-500 font-bold mt-1">Total Withdrawal</p>
                     </div>
-
                 </div>
 
+                <!-- Dashboard Content -->
+                <div x-show="currentTab === 'dashboard'" class="animate-fade-in-up">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <!-- IHSG Widget -->
+                        <div
+                            class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
+                            <div>
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wide">IHSG (Composite)</p>
+                                <h3 class="text-2xl font-extrabold text-gray-900 mt-1">7,245.32</h3>
+                                <p class="text-sm text-green-500 font-bold mt-1"><i class="fas fa-arrow-up"></i> +0.45%
+                                </p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-xl">
+                                <i class="fas fa-chart-area"></i>
+                            </div>
+                        </div>
+                        <!-- Net Buy Asing Widget -->
+                        <div
+                            class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
+                            <div>
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wide">Net Buy Asing</p>
+                                <h3 class="text-2xl font-extrabold text-gray-900 mt-1">IDR 450 M</h3>
+                                <p class="text-sm text-green-500 font-bold mt-1">Big Accumulation</p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 text-xl">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                        </div>
+                        <!-- Top Pick Widget -->
+                        <div
+                            class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-gray-800 flex items-center justify-between text-white relative overflow-hidden">
+                            <img src="../assets/img/logo.png" alt="Logo"
+                                class="h-8 w-auto object-contain brightness-0 invert">
+                            <div
+                                class="absolute right-0 top-0 w-24 h-24 bg-brand-green/20 rounded-full blur-2xl -mr-6 -mt-6">
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wide">Top Pick Hari Ini</p>
+                                <h3 class="text-2xl font-extrabold mt-1 text-brand-green">BBRI</h3>
+                                <p class="text-sm text-gray-300 mt-1">Target: <span class="font-bold">5.600</span></p>
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-brand-green text-xl backdrop-blur-sm">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chart and Data -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- IHSG Live Chart -->
+                        <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-4 h-[500px]">
+                            <div class="flex items-center justify-between mb-4 px-2">
+                                <h3 class="font-bold text-gray-800">Chart IHSG Live</h3>
+                                <button
+                                    class="text-xs bg-gray-100 px-3 py-1 rounded hover:bg-gray-200">Fullscreen</button>
+                            </div>
+                            <div class="tradingview-widget-container" style="height:90%;width:100%">
+                                <div class="tradingview-widget-container__widget"
+                                    style="height:calc(100% - 32px);width:100%"></div>
+                                <script type="text/javascript"
+                                    src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
+                                    async>
+                                        {
+                                            "autosize": true,
+                                                "symbol": "IDX:COMPOSITE",
+                                                    "interval": "D",
+                                                        "timezone": "Asia/Jakarta",
+                                                            "theme": "light",
+                                                                "style": "1",
+                                                                    "locale": "id",
+                                                                        "enable_publishing": false,
+                                                                            "hide_top_toolbar": false,
+                                                                                "allow_symbol_change": true,
+                                                                                    "save_image": false,
+                                                                                        "calendar": false,
+                                                                                            "hide_volume": true,
+                                                                                                "support_host": "https://www.tradingview.com"
+                                        }
+                                    </script>
+                            </div>
+                        </div>
+                        <!-- Stock Details -->
+                        <div class="lg:col-span-1 space-y-6">
+                            <!-- Stock Detail Box -->
+                            <div
+                                class="bg-brand-dark rounded-2xl p-6 shadow-xl relative overflow-hidden text-white border border-gray-800">
+                                <div
+                                    class="absolute right-0 top-0 w-32 h-32 bg-brand-green/20 rounded-full blur-3xl -mr-10 -mt-10">
+                                </div>
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <h2 class="text-4xl font-extrabold text-brand-green tracking-tight">BBRI</h2>
+                                        <p class="text-sm text-gray-400">Bank Rakyat Indonesia Tbk.</p>
+                                    </div>
+                                    <div class="bg-white/10 backdrop-blur-sm p-3 rounded-xl text-center min-w-[80px]">
+                                        <span class="block text-xs text-gray-300">Action</span>
+                                        <span class="block text-lg font-bold text-green-400">BUY</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex justify-between items-center border-b border-gray-700 pb-3">
+                                        <span class="text-gray-400 text-sm">Entry Price</span>
+                                        <span class="font-bold text-xl">5.200 - 5.250</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-gray-700 pb-3">
+                                        <span class="text-gray-400 text-sm">Target Price</span>
+                                        <span class="font-bold text-xl text-green-400">5.600 <i
+                                                class="fas fa-arrow-up text-xs"></i></span>
+                                    </div>
+                                    <div class="flex justify-between items-center pb-2">
+                                        <span class="text-gray-400 text-sm">Stop Loss</span>
+                                        <span class="font-bold text-xl text-red-400">&lt; 5.050</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Data Bandar -->
+                            <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
+                                <h3 class="font-bold text-gray-900 mb-4 border-b border-gray-100 pb-2">Data Bandar</h3>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-500">Status</span>
+                                        <span
+                                            class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold">Big
+                                            Accumulation</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-500">Net Buy (Lot)</span>
+                                        <span class="font-bold text-gray-800">+125.000</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-500">Bandar AVG</span>
+                                        <span class="font-bold text-gray-800">5.175</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-500">Foreign Flow</span>
+                                        <span class="font-bold text-green-600">Net Buy 45M</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Top Buyer Table -->
+                            <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
+                                <h3 class="font-bold text-gray-900 mb-4 border-b border-gray-100 pb-2">Top Buyer</h3>
+                                <table class="w-full text-xs text-left">
+                                    <thead>
+                                        <tr class="text-gray-400 border-b border-gray-100">
+                                            <th class="pb-2">Broker</th>
+                                            <th class="pb-2 text-right">Avg</th>
+                                            <th class="pb-2 text-right">Vol</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-gray-700">
+                                        <tr>
+                                            <td class="py-2 font-bold"><span
+                                                    class="bg-yellow-100 text-yellow-700 px-1 rounded">ZP</span> Maybank
+                                            </td>
+                                            <td class="py-2 text-right">5.180</td>
+                                            <td class="py-2 text-right font-bold">450K</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 font-bold"><span
+                                                    class="bg-blue-100 text-blue-700 px-1 rounded">RX</span> Macquarie
+                                            </td>
+                                            <td class="py-2 text-right">5.170</td>
+                                            <td class="py-2 text-right font-bold">320K</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 font-bold"><span
+                                                    class="bg-red-100 text-red-700 px-1 rounded">CC</span> Mandiri</td>
+                                            <td class="py-2 text-right">5.195</td>
+                                            <td class="py-2 text-right font-bold">150K</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="mt-6 text-center text-xs text-gray-400">
+                    &copy; Bandarmology.net - Semua Pasti Cuan
+                </div>
             </main>
 
         </div>
