@@ -21,17 +21,29 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        logo: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
                     }
                 }
             }
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
-        /* Hilangkan spinner di input number */
+        /* Hapus spinner di input number */
         input[type=number]::-webkit-inner-spin-button,
         input[type=number]::-webkit-outer-spin-button {
             -webkit-appearance: none;
@@ -40,179 +52,171 @@
     </style>
 </head>
 
-<body class="bg-gray-50 font-sans text-gray-800 flex items-center justify-center min-h-screen px-4">
+<body class="bg-white font-sans" x-data="{ 
+    isLoading: false,
+    otp: ['', '', '', '', '', ''],
+    timeLeft: 59,
+    
+    init() {
+        this.startTimer();
+    },
 
-    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden relative">
+    startTimer() {
+        this.timeLeft = 59;
+        const timer = setInterval(() => {
+            if (this.timeLeft <= 0) clearInterval(timer);
+            else this.timeLeft--;
+        }, 1000);
+    },
 
-        <a href="login.html" class="absolute top-4 left-4 text-gray-400 hover:text-brand-green transition">
-            <i class="fas fa-arrow-left"></i>
-        </a>
+    handleInput(e, index) {
+        const val = e.target.value;
+        if (!/^\d*$/.test(val)) {
+            this.otp[index] = '';
+            return;
+        }
+        
+        if (val.length > 1) {
+            this.otp[index] = val.slice(0, 1);
+        } else {
+            this.otp[index] = val;
+        }
 
-        <div class="p-8 text-center">
+        if (val && index < 5) {
+            this.$refs[`input${index + 1}`].focus();
+        }
+    },
 
-            <div
-                class="w-16 h-16 bg-green-100 text-brand-green rounded-full flex items-center justify-center mx-auto mb-6 text-2xl shadow-sm">
-                <i class="fas fa-shield-alt"></i>
+    handleBackspace(e, index) {
+        if (e.key === 'Backspace' && !this.otp[index] && index > 0) {
+            this.$refs[`input${index - 1}`].focus();
+        }
+    },
+
+    handlePaste(e) {
+        e.preventDefault();
+        const pasteData = e.clipboardData.getData('text').slice(0, 6).split('');
+        pasteData.forEach((char, i) => {
+            if (i < 6) this.otp[i] = char;
+        });
+        if (pasteData.length > 0) {
+            const focusIndex = Math.min(pasteData.length, 5);
+            this.$refs[`input${focusIndex}`].focus();
+        }
+    },
+
+    submitOtp() {
+        const code = this.otp.join('');
+        if (code.length < 6) {
+            Swal.fire({ icon: 'warning', text: 'Mohon lengkapi kode OTP!', confirmButtonColor: '#27AE60' });
+            return;
+        }
+
+        this.isLoading = true;
+        setTimeout(() => {
+            this.isLoading = false;
+            Swal.fire({
+                icon: 'success',
+                title: 'Verifikasi Berhasil!',
+                text: 'Akun Anda telah aktif. Mengalihkan...',
+                timer: 1500,
+                showConfirmButton: false
+            }).then(() => {
+                // Redirect ke Dashboard Member (folder member/dashboard.html)
+                // Sesuaikan path ini dengan struktur folder Anda
+                window.location.href = 'member/dashboard.html'; 
+            });
+        }, 1500);
+    }
+}">
+
+    <div class="min-h-screen flex w-full">
+
+        <div class="hidden lg:flex w-1/2 bg-brand-dark relative items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
+            
+            <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-brand-green rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-pulse"></div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-pulse" style="animation-delay: 2s"></div>
+
+            <div class="relative z-10 text-center px-12">
+                <div class="w-32 h-32 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-8 border border-white/20 animate-float shadow-2xl">
+                    <i class="fas fa-shield-alt text-5xl text-brand-green"></i>
+                </div>
+                <h2 class="text-4xl font-extrabold text-white mb-4 tracking-tight">Verifikasi Keamanan</h2>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    Lindungi akun Anda dengan autentikasi dua faktor. Kode OTP dikirimkan untuk memastikan ini benar-benar Anda.
+                </p>
+                
+                <div class="mt-12 flex justify-center gap-6 text-gray-400 text-sm font-medium">
+                    <span class="flex items-center gap-2"><i class="fas fa-lock text-brand-green"></i> Enkripsi End-to-End</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-user-check text-brand-green"></i> Autentikasi Aman</span>
+                </div>
             </div>
+        </div>
 
-            <h2 class="text-2xl font-extrabold text-gray-900 mb-2">Verifikasi Akun</h2>
-            <p class="text-gray-500 text-sm mb-8">
-                Masukkan 4 digit kode yang telah kami kirimkan ke WhatsApp/Email Anda <br>
-                <span class="font-bold text-gray-800">0812-3456-****</span>
-            </p>
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-6 relative bg-brand-bg">
+            
+            <div class="absolute top-0 left-0 w-64 h-64 bg-green-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 right-0 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
-            <form id="otpForm">
-                <div class="flex justify-center gap-3 mb-8">
-                    <input type="number"
-                        class="otp-input w-14 h-14 border-2 border-gray-200 rounded-xl text-center text-2xl font-bold focus:border-brand-green focus:ring-2 focus:ring-green-100 outline-none transition"
-                        maxlength="1" required>
-                    <input type="number"
-                        class="otp-input w-14 h-14 border-2 border-gray-200 rounded-xl text-center text-2xl font-bold focus:border-brand-green focus:ring-2 focus:ring-green-100 outline-none transition"
-                        maxlength="1" required disabled>
-                    <input type="number"
-                        class="otp-input w-14 h-14 border-2 border-gray-200 rounded-xl text-center text-2xl font-bold focus:border-brand-green focus:ring-2 focus:ring-green-100 outline-none transition"
-                        maxlength="1" required disabled>
-                    <input type="number"
-                        class="otp-input w-14 h-14 border-2 border-gray-200 rounded-xl text-center text-2xl font-bold focus:border-brand-green focus:ring-2 focus:ring-green-100 outline-none transition"
-                        maxlength="1" required disabled>
-                        <input type="number"
-                        class="otp-input w-14 h-14 border-2 border-gray-200 rounded-xl text-center text-2xl font-bold focus:border-brand-green focus:ring-2 focus:ring-green-100 outline-none transition"
-                        maxlength="1" required disabled>
-                        <input type="number"
-                        class="otp-input w-14 h-14 border-2 border-gray-200 rounded-xl text-center text-2xl font-bold focus:border-brand-green focus:ring-2 focus:ring-green-100 outline-none transition"
-                        maxlength="1" required disabled>
+            <div class="w-full max-w-md bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-gray-100 relative z-10">
+                
+                <div class="text-center mb-10">
+                    <a href="index.html" class="inline-block mb-6 hover:opacity-80 transition transform hover:scale-105 duration-300">
+                        <img src="assets/img/logo-new.png" alt="Logo" class="h-16 w-auto mx-auto object-contain drop-shadow-sm">
+                    </a>
+                    <h1 class="text-2xl font-extrabold text-gray-900">Masukkan Kode OTP</h1>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Kode 6 digit telah dikirim ke WhatsApp/Email Anda <br>
+                        <span class="font-bold text-gray-800">0812-3456-****</span>
+                    </p>
                 </div>
 
-                <button type="submit" id="btnSubmit"
-                    class="w-full bg-brand-green text-white font-bold py-3 rounded-xl hover:bg-green-700 shadow-lg shadow-green-200 transition-all duration-300 transform hover:-translate-y-1 mb-6">
-                    Verifikasi Kode
-                </button>
-            </form>
+                <form @submit.prevent="submitOtp">
+                    
+                    <div class="flex justify-center gap-2 sm:gap-3 mb-8" @paste="handlePaste">
+                        <template x-for="(digit, index) in otp" :key="index">
+                            <input type="number" 
+                                   x-model="otp[index]"
+                                   :x-ref="'input' + index"
+                                   @input="handleInput($event, index)"
+                                   @keydown="handleBackspace($event, index)"
+                                   class="w-10 h-10 sm:w-12 sm:h-12 border-2 border-gray-200 rounded-lg text-center text-xl sm:text-2xl font-bold focus:border-brand-green focus:ring-2 focus:ring-green-100 outline-none transition-all bg-gray-50 focus:bg-white text-gray-800"
+                                   maxlength="1" required>
+                        </template>
+                    </div>
 
-            <p class="text-sm text-gray-500">
-                Tidak menerima kode?
-                <span id="timerWrapper">
-                    Kirim ulang dalam <span id="timer" class="font-bold text-gray-800">00:59</span>
-                </span>
-                <a href="#" id="resendLink" class="font-bold text-brand-green hover:underline hidden"
-                    onclick="resetTimer()">Kirim Ulang</a>
-            </p>
+                    <button type="submit" :disabled="isLoading"
+                            class="w-full bg-brand-green text-white font-bold py-4 rounded-xl hover:bg-green-700 transition-all shadow-lg hover:shadow-green-200 hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                        <span x-show="!isLoading">Verifikasi</span>
+                        <i x-show="!isLoading" class="fas fa-check-circle"></i>
+                        
+                        <svg x-show="isLoading" class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </button>
 
+                </form>
+
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-gray-500">
+                        Tidak menerima kode? 
+                        <span x-show="timeLeft > 0" class="font-bold text-gray-800" x-text="`00:${timeLeft.toString().padStart(2, '0')}`"></span>
+                        <a href="#" @click.prevent="startTimer()" x-show="timeLeft <= 0" class="text-brand-green font-bold hover:underline">Kirim Ulang</a>
+                    </p>
+                    
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <a href="login.html" class="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-brand-green transition">
+                            <i class="fas fa-arrow-left"></i> Ganti Nomor / Email
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <div class="h-1 w-full bg-gray-100">
-            <div class="h-full bg-brand-green w-2/3 rounded-r-full"></div>
-        </div>
     </div>
 
-    <script>
-        // 1. Logic Pindah Fokus Input Otomatis
-        const inputs = document.querySelectorAll('.otp-input');
-        const form = document.getElementById('otpForm');
-
-        inputs[0].focus(); // Fokus ke kotak pertama saat load
-
-        inputs.forEach((input, index) => {
-            // Saat mengetik angka
-            input.addEventListener('input', (e) => {
-                if (e.target.value.length > 1) {
-                    e.target.value = e.target.value.slice(0, 1); // Batasi 1 digit
-                }
-
-                if (e.target.value.length === 1) {
-                    if (index < inputs.length - 1) {
-                        inputs[index + 1].removeAttribute('disabled');
-                        inputs[index + 1].focus();
-                    }
-                }
-            });
-
-            // Saat tekan Backspace (Hapus)
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Backspace' && e.target.value === '') {
-                    if (index > 0) {
-                        inputs[index - 1].focus();
-                    }
-                }
-            });
-
-            // Handle Paste (Copy-Paste kode langsung)
-            input.addEventListener('paste', (e) => {
-                e.preventDefault();
-                const data = e.clipboardData.getData('text');
-                const splitData = data.split('');
-
-                if (splitData.length === inputs.length) {
-                    inputs.forEach((inp, idx) => {
-                        inp.value = splitData[idx];
-                        inp.removeAttribute('disabled');
-                    });
-                    inputs[inputs.length - 1].focus(); // Fokus ke terakhir
-                }
-            });
-        });
-
-        // 2. Logic Countdown Timer
-        let timeLeft = 59;
-        const timerElem = document.getElementById('timer');
-        const timerWrapper = document.getElementById('timerWrapper');
-        const resendLink = document.getElementById('resendLink');
-        let countdown;
-
-        function startTimer() {
-            resendLink.classList.add('hidden');
-            timerWrapper.classList.remove('hidden');
-
-            countdown = setInterval(() => {
-                if (timeLeft <= 0) {
-                    clearInterval(countdown);
-                    timerWrapper.classList.add('hidden');
-                    resendLink.classList.remove('hidden');
-                } else {
-                    const minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
-                    const seconds = (timeLeft % 60).toString().padStart(2, '0');
-                    timerElem.innerText = `${minutes}:${seconds}`;
-                    timeLeft--;
-                }
-            }, 1000);
-        }
-
-        function resetTimer() {
-            timeLeft = 59;
-            startTimer();
-            // Di sini bisa tambahkan logika AJAX untuk kirim ulang kode sebenarnya
-            alert('Kode baru telah dikirim!');
-        }
-
-        // Jalankan timer saat halaman dimuat
-        startTimer();
-        const otpForm = document.getElementById('otpForm');
-        const btnSubmit = document.getElementById('btnSubmit');
-
-        otpForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // Mencegah reload halaman bawaan browser
-
-            // 1. Ambil semua value input (Opsional, buat simulasi aja)
-            let otpCode = '';
-            document.querySelectorAll('.otp-input').forEach(input => {
-                otpCode += input.value;
-            });
-
-            // 2. Simulasi Loading (UX biar kelihatan canggih)
-            const originalText = btnSubmit.innerText;
-            btnSubmit.innerText = 'Memproses...';
-            btnSubmit.classList.add('opacity-75', 'cursor-not-allowed');
-
-            // 3. Delay 1 detik seolah-olah sedang cek ke server
-            setTimeout(() => {
-                // 4. Arahkan ke Dashboard
-                // PASTIKAN file dashboard.html ada di folder yang sama dengan otp.html
-                // Jika dashboard ada di dalam folder 'dashboard', gunakan: 'dashboard/dashboard.html'
-                window.location.href = 'dashboard.html';
-            }, 1000);
-        });
-    </script>
-
 </body>
-
 </html>
