@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Kit Lengkap - Affiliate Bandarmology.net</title>
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        logo: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-800" x-data="{ sidebarOpen: false }">
+
+    <div class="flex h-screen overflow-hidden">
+
+        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
+            <div class="flex items-center justify-center h-20 border-b border-gray-700 bg-brand-dark/50 flex-shrink-0">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <img src="../assets/img/logo.png" alt="Logo" class="h-8 w-auto object-contain brightness-0 invert">
+                    <span class="text-xl font-bold font-logo text-white">Bandar<span class="text-brand-green">mo</span>logy.net</span>
+                </a>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <div class="bg-brand-green/10 rounded-xl p-4 mb-6 border border-brand-green/20">
+                    <p class="text-xs text-brand-green font-bold uppercase tracking-wider mb-1">Status Partner</p>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 bg-brand-green rounded-full animate-pulse"></span>
+                        <span class="text-white font-bold text-sm">Active Affiliate</span>
+                    </div>
+                </div>
+                <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Main Menu</p>
+                <a href="affiliate_dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl transition"><i class="fas fa-th-large w-5"></i> Dashboard</a>
+                <a href="affiliate_network.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl transition"><i class="fas fa-network-wired w-5"></i> Network / Downline</a>
+                <a href="affiliate_withdraw.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl transition"><i class="fas fa-wallet w-5"></i> Withdrawal Komisi</a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-brand-green text-white rounded-xl font-medium shadow-lg shadow-green-900/20"><i class="fas fa-bullhorn w-5"></i> Marketing Kit</a>
+                
+                <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 mt-6">Settings</p>
+                <a href="affiliate_profile.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl transition"><i class="fas fa-user-circle w-5"></i> Profil & Rekening</a>
+                <div class="pt-4 mt-4 border-t border-gray-700">
+                    <a href="login.html" class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition"><i class="fas fa-sign-out-alt w-5"></i> Logout</a>
+                </div>
+            </nav>
+            <div class="p-4 border-t border-gray-700 bg-brand-dark/50 flex-shrink-0">
+                <div class="flex items-center gap-3">
+                    <img src="https://randomuser.me/api/portraits/men/85.jpg" class="w-10 h-10 rounded-full border-2 border-brand-green">
+                    <div><p class="text-sm font-bold text-white">Reza Mahendra</p><p class="text-xs text-gray-400">ID: AFF-8821</p></div>
+                </div>
+            </div>
+        </aside>
+
+        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-40 lg:hidden" style="display: none;"></div>
+
+        <div class="flex-1 flex flex-col overflow-hidden relative">
+            <header class="bg-white border-b border-gray-200 h-20 flex items-center justify-between px-6 lg:px-10">
+                <div class="flex items-center gap-4">
+                    <button @click="sidebarOpen = !sidebarOpen" class="lg:hidden text-gray-500 hover:text-brand-green"><i class="fas fa-bars text-2xl"></i></button>
+                    <h1 class="text-xl font-bold text-gray-800">Marketing Kit Lengkap</h1>
+                </div>
+                <div class="hidden md:flex items-center gap-2 text-sm text-gray-500">
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">New Assets Added!</span>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 lg:p-10">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 lg:col-span-3">
+                        <h3 class="font-bold text-gray-900 text-lg mb-2"> <i class="fas fa-link text-brand-green mr-2"></i> Custom Link Generator</h3>
+                        <p class="text-sm text-gray-500 mb-6">Arahkan calon member ke halaman spesifik (misal: halaman checkout langsung atau artikel edukasi).</p>
+
+                        <div class="flex flex-col md:flex-row gap-4" x-data="{ 
+                            targetUrl: 'https://bandarmology.net', 
+                            refCode: 'reza88',
+                            generatedLink() { return this.targetUrl + '?ref=' + this.refCode },
+                            copyLink() {
+                                navigator.clipboard.writeText(this.generatedLink());
+                                Swal.fire({ icon: 'success', title: 'Link berhasil disalin!', toast: true, position: 'top-end', showConfirmButton: false, timer: 1500 });
+                            }
+                        }">
+                            <div class="flex-1">
+                                <label class="text-xs font-bold text-gray-500 mb-1 block">Halaman Tujuan (URL)</label>
+                                <input type="text" x-model="targetUrl" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:border-brand-green outline-none" placeholder="https://bandarmology.net/...">
+                            </div>
+                            <div class="flex-1">
+                                <label class="text-xs font-bold text-gray-500 mb-1 block">Link Affiliate Anda</label>
+                                <div class="relative">
+                                    <input type="text" :value="generatedLink()" readonly class="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-sm text-gray-600 outline-none font-medium">
+                                    <button @click="copyLink()" class="absolute right-2 top-2 bg-white border border-gray-200 p-1.5 rounded-lg text-gray-500 hover:text-brand-green hover:border-brand-green transition shadow-sm">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 lg:col-span-3">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-bold text-gray-900 text-lg"> <i class="fas fa-images text-brand-green mr-2"></i> Banner Social Media</h3>
+                            <button class="text-xs bg-gray-100 px-3 py-1 rounded-lg font-bold text-gray-500 hover:bg-gray-200">Download Semua (.zip)</button>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                            <div class="group relative rounded-xl overflow-hidden shadow-sm border border-gray-100 aspect-square">
+                                <img src="https://via.placeholder.com/600x600/0f0535/ffffff?text=Promo+Feed" class="w-full h-full object-cover transition transform group-hover:scale-105">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center gap-2">
+                                    <span class="text-white font-bold text-xs">Feed (1:1)</span>
+                                    <a href="#" class="bg-brand-green text-white px-3 py-1 rounded-full text-[10px] font-bold hover:bg-green-600 transition"><i class="fas fa-download"></i></a>
+                                </div>
+                            </div>
+                            <div class="group relative rounded-xl overflow-hidden shadow-sm border border-gray-100 aspect-[9/16]">
+                                <img src="https://via.placeholder.com/600x1067/27AE60/ffffff?text=IG+Story" class="w-full h-full object-cover transition transform group-hover:scale-105">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center gap-2">
+                                    <span class="text-white font-bold text-xs">Story (9:16)</span>
+                                    <a href="#" class="bg-brand-green text-white px-3 py-1 rounded-full text-[10px] font-bold hover:bg-green-600 transition"><i class="fas fa-download"></i></a>
+                                </div>
+                            </div>
+                            <div class="group relative rounded-xl overflow-hidden shadow-sm border border-gray-100 aspect-video col-span-2 md:col-span-2">
+                                <img src="https://via.placeholder.com/1200x628/ffffff/0f0535?text=Facebook+Ads+%26+Youtube+Thumbnail" class="w-full h-full object-cover transition transform group-hover:scale-105">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center gap-2">
+                                    <span class="text-white font-bold text-xs">Landscape (16:9)</span>
+                                    <a href="#" class="bg-brand-green text-white px-3 py-1 rounded-full text-[10px] font-bold hover:bg-green-600 transition"><i class="fas fa-download"></i></a>
+                                </div>
+                            </div>
+                            <div class="group relative rounded-xl overflow-hidden shadow-sm border border-gray-100 aspect-[9/16]">
+                                <img src="https://via.placeholder.com/600x1067/FFD700/000000?text=Flash+Sale" class="w-full h-full object-cover transition transform group-hover:scale-105">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center gap-2">
+                                    <span class="text-white font-bold text-xs">WA Status</span>
+                                    <a href="#" class="bg-brand-green text-white px-3 py-1 rounded-full text-[10px] font-bold hover:bg-green-600 transition"><i class="fas fa-download"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 lg:col-span-3">
+                        <h3 class="font-bold text-gray-900 text-lg mb-6"> <i class="fas fa-ad text-brand-green mr-2"></i> Website / Blog Banners</h3>
+                        <p class="text-sm text-gray-500 mb-4">Pasang banner ini di sidebar atau header blog Anda.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
+                                <p class="text-xs font-bold text-gray-500 mb-2">Leaderboard (728x90)</p>
+                                <div class="h-[90px] w-full bg-gray-200 flex items-center justify-center text-gray-400 mb-3 rounded overflow-hidden">
+                                    <img src="https://via.placeholder.com/728x90/000000/ffffff?text=Bandarmology+Ads" class="w-full h-full object-cover">
+                                </div>
+                                <button class="w-full py-2 border border-gray-300 rounded text-xs font-bold hover:bg-gray-100 text-gray-600"> <i class="fas fa-code"></i> Ambil Kode HTML</button>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-xl p-4 bg-gray-50 flex gap-4">
+                                <div class="w-[300px] h-[250px] bg-gray-200 flex-shrink-0 rounded overflow-hidden">
+                                    <img src="https://via.placeholder.com/300x250/27AE60/ffffff?text=Sidebar+Ads" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1 flex flex-col justify-center">
+                                    <p class="text-xs font-bold text-gray-500 mb-2">Medium Rectangle (300x250)</p>
+                                    <p class="text-[10px] text-gray-400 mb-4">Cocok untuk sidebar artikel.</p>
+                                    <button class="w-full py-2 border border-gray-300 rounded text-xs font-bold hover:bg-gray-100 text-gray-600"> <i class="fas fa-code"></i> Ambil Kode</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 lg:col-span-3">
+                        <h3 class="font-bold text-gray-900 text-lg mb-6"> <i class="fas fa-envelope-open-text text-brand-green mr-2"></i> Email Marketing Series</h3>
+                        
+                        <div class="space-y-4" x-data="{ openTab: 1 }">
+                            <div class="flex gap-2 border-b border-gray-100 pb-1">
+                                <button @click="openTab = 1" :class="openTab === 1 ? 'text-brand-green border-b-2 border-brand-green' : 'text-gray-500 hover:text-gray-700'" class="px-4 py-2 text-sm font-bold transition">Email 1 (Intro)</button>
+                                <button @click="openTab = 2" :class="openTab === 2 ? 'text-brand-green border-b-2 border-brand-green' : 'text-gray-500 hover:text-gray-700'" class="px-4 py-2 text-sm font-bold transition">Email 2 (Edukasi)</button>
+                                <button @click="openTab = 3" :class="openTab === 3 ? 'text-brand-green border-b-2 border-brand-green' : 'text-gray-500 hover:text-gray-700'" class="px-4 py-2 text-sm font-bold transition">Email 3 (Closing)</button>
+                            </div>
+
+                            <div x-show="openTab === 1" class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                                <p class="text-xs font-bold text-gray-500 mb-1">Subject: Jangan beli saham sebelum baca ini...</p>
+                                <textarea readonly class="w-full p-3 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 h-40 resize-none focus:outline-none custom-scroll">Hai [Nama],
+
+Pasar saham itu kejam kalau kita tidak punya 'peta'. 
+
+Banyak trader pemula rugi karena cuma ikut-ikutan (FOMO) tanpa tahu siapa yang sebenarnya menggerakkan harga.
+
+Perkenalkan, Bandarmology. Tools yang membantu kamu melihat 'Jejak Bandar' di balik pergerakan saham.
+
+Cek selengkapnya disini: [LINK AFFILIATE]
+
+Salam Cuan!</textarea>
+                            </div>
+
+                            <div x-show="openTab === 2" class="bg-gray-50 p-4 rounded-xl border border-gray-200" style="display: none;">
+                                <p class="text-xs font-bold text-gray-500 mb-1">Subject: Rahasia dibalik kode broker</p>
+                                <textarea readonly class="w-full p-3 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 h-40 resize-none focus:outline-none custom-scroll">Hai [Nama],
+
+Pernah lihat kode broker ZP, YP, atau PD?
+
+Mereka bukan sekadar kode. Mereka adalah identitas pemain pasar. Dengan fitur 'Broker Summary' di Bandarmology, kamu bisa tahu broker mana yang sedang akumulasi barang.
+
+Jangan trading buta lagi. Pakai data.
+
+Coba gratis disini: [LINK AFFILIATE]</textarea>
+                            </div>
+
+                            <div x-show="openTab === 3" class="bg-gray-50 p-4 rounded-xl border border-gray-200" style="display: none;">
+                                <p class="text-xs font-bold text-gray-500 mb-1">Subject: Diskon membership berakhir sebentar lagi!</p>
+                                <textarea readonly class="w-full p-3 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 h-40 resize-none focus:outline-none custom-scroll">Hai [Nama],
+
+Ini kesempatan terakhir untuk mengamankan harga terbaik membership Bandarmology Platinum.
+
+Apa yang kamu dapatkan?
+✅ Sinyal Realtime
+✅ Screener Saham
+✅ Grup Diskusi VIP
+
+Klik disini sebelum harga naik: [LINK AFFILIATE]</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 lg:col-span-2">
+                        <h3 class="font-bold text-gray-900 text-lg mb-4"> <i class="fas fa-comments text-brand-green mr-2"></i> Script Balas Chat (Cheat Sheet)</h3>
+                        <div class="space-y-3">
+                            <details class="group bg-gray-50 rounded-xl border border-gray-200">
+                                <summary class="flex justify-between items-center p-3 cursor-pointer font-bold text-sm text-gray-700">
+                                    "Harganya kemahalan gan..."
+                                    <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+                                </summary>
+                                <div class="p-3 text-sm text-gray-600 border-t border-gray-200 bg-white rounded-b-xl">
+                                    "Coba bandingkan dengan loss yang mungkin terjadi kalau kita asal tebak saham gan. Investasi 'leher ke atas' (ilmu & tools) itu jauh lebih murah daripada 'biaya belajar' dari kerugian di market. Plus, kalau profit sekali aja dari sinyalnya, udah balik modal kok langganannya."
+                                </div>
+                            </details>
+                            <details class="group bg-gray-50 rounded-xl border border-gray-200">
+                                <summary class="flex justify-between items-center p-3 cursor-pointer font-bold text-sm text-gray-700">
+                                    "Apa bedanya sama aplikasi sekuritas?"
+                                    <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+                                </summary>
+                                <div class="p-3 text-sm text-gray-600 border-t border-gray-200 bg-white rounded-b-xl">
+                                    "Aplikasi sekuritas cuma buat jual/beli. Bandarmology itu alat analisanya. Kita kasih data siapa yang beli (Broker Summary), aliran dana asing (Foreign Flow), dan deteksi akumulasi bandar yang gak kelihatan di aplikasi biasa."
+                                </div>
+                            </details>
+                            <details class="group bg-gray-50 rounded-xl border border-gray-200">
+                                <summary class="flex justify-between items-center p-3 cursor-pointer font-bold text-sm text-gray-700">
+                                    "Saya masih pemula banget, bisa pake?"
+                                    <i class="fas fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+                                </summary>
+                                <div class="p-3 text-sm text-gray-600 border-t border-gray-200 bg-white rounded-b-xl">
+                                    "Justru tools ini dibuat supaya pemula gak tersesat gan. Tampilan visualnya gampang dibaca (ada indikator hijau/merah). Plus, kita ada grup edukasi khusus member buat belajar cara bacanya dari nol."
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 lg:col-span-1">
+                        <h3 class="font-bold text-gray-900 text-lg mb-4"> <i class="fas fa-qrcode text-brand-green mr-2"></i> QR Code</h3>
+                        <div class="text-center">
+                            <div class="bg-white p-4 border border-gray-200 inline-block rounded-xl mb-4 shadow-sm">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bandarmology.net/?ref=reza88" class="w-32 h-32">
+                            </div>
+                            <p class="text-xs text-gray-500 mb-4">Scan untuk langsung ke link affiliate Anda.</p>
+                            <button class="w-full bg-gray-800 text-white py-2 rounded-lg text-sm font-bold hover:bg-gray-900 transition">
+                                <i class="fas fa-download mr-1"></i> Download PNG
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 lg:col-span-3">
+                        <h3 class="font-bold text-gray-900 text-lg mb-6"> <i class="fas fa-video text-brand-green mr-2"></i> Video Pendek (Reels / TikTok)</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center gap-4">
+                                <div class="w-12 h-16 bg-black rounded-lg flex-shrink-0 flex items-center justify-center">
+                                    <i class="fab fa-tiktok text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-gray-800">Review Fitur Screener</h4>
+                                    <p class="text-xs text-gray-500 mb-2">Durasi: 30 Detik</p>
+                                    <a href="#" class="text-xs text-brand-green font-bold hover:underline"><i class="fas fa-download mr-1"></i> Download MP4</a>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center gap-4">
+                                <div class="w-12 h-16 bg-black rounded-lg flex-shrink-0 flex items-center justify-center">
+                                    <i class="fab fa-instagram text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-gray-800">Testimoni Profit Member</h4>
+                                    <p class="text-xs text-gray-500 mb-2">Durasi: 45 Detik</p>
+                                    <a href="#" class="text-xs text-brand-green font-bold hover:underline"><i class="fas fa-download mr-1"></i> Download MP4</a>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center gap-4">
+                                <div class="w-12 h-16 bg-black rounded-lg flex-shrink-0 flex items-center justify-center">
+                                    <i class="fas fa-play text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-gray-800">Tutorial Cara Daftar</h4>
+                                    <p class="text-xs text-gray-500 mb-2">Durasi: 60 Detik</p>
+                                    <a href="#" class="text-xs text-brand-green font-bold hover:underline"><i class="fas fa-download mr-1"></i> Download MP4</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 lg:col-span-3">
+                        <h3 class="font-bold text-gray-900 text-lg mb-6"> <i class="fas fa-pen-nib text-brand-green mr-2"></i> Template Copywriting Dasar</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" x-data="{
+                            copyText(id) {
+                                const text = document.getElementById(id).value;
+                                navigator.clipboard.writeText(text);
+                                Swal.fire({ icon: 'success', title: 'Teks disalin!', toast: true, position: 'top-end', showConfirmButton: false, timer: 1500 });
+                            }
+                        }">
+                            
+                            <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-xs font-bold text-gray-500 uppercase">1. Soft Selling (WA/Story)</label>
+                                    <button @click="copyText('copy-1')" class="text-xs text-brand-green font-bold hover:underline"><i class="fas fa-copy"></i> Salin</button>
+                                </div>
+                                <textarea id="copy-1" readonly class="w-full p-3 bg-white border border-gray-200 rounded-lg text-xs text-gray-600 h-40 resize-none focus:outline-none custom-scroll">Pernah gak sih beli saham pas harganya dipucuk, giliran dijual eh malah naik? 😅
+
+Ternyata itu karena kita gak tau kemana arah 'Big Money' bergerak.
+
+Untungnya sekarang aku pake tools dari Bandarmology. Bisa ngintip akumulasi bandar secara real-time. Trading jadi lebih tenang dan terukur.
+
+Buat yang mau cobain fiturnya, lagi ada Free Trial nih. Cek link di bio ya! 👇
+https://bandarmology.net/?ref=reza88</textarea>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-xs font-bold text-gray-500 uppercase">2. Hard Selling (Promo)</label>
+                                    <button @click="copyText('copy-2')" class="text-xs text-brand-green font-bold hover:underline"><i class="fas fa-copy"></i> Salin</button>
+                                </div>
+                                <textarea id="copy-2" readonly class="w-full p-3 bg-white border border-gray-200 rounded-lg text-xs text-gray-600 h-40 resize-none focus:outline-none custom-scroll">🚨 PROMO ALERT: DISKON MEMBERSHIP! 🚨
+
+Ingin akses data Foreign Flow & Bandar Detector dengan harga hemat?
+
+Khusus minggu ini, dapatkan potongan harga spesial untuk paket PRO dan Platinum. Investasi leher ke atas terbaik untuk portofolio Anda.
+
+✅ Full Akses Screener
+✅ Grup Edukasi VIP
+✅ Sinyal Buy/Sell Realtime
+
+Amankan slot diskonnya sekarang:
+👉 https://bandarmology.net/?ref=reza88</textarea>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-xs font-bold text-gray-500 uppercase">3. Edukasi (Telegram)</label>
+                                    <button @click="copyText('copy-3')" class="text-xs text-brand-green font-bold hover:underline"><i class="fas fa-copy"></i> Salin</button>
+                                </div>
+                                <textarea id="copy-3" readonly class="w-full p-3 bg-white border border-gray-200 rounded-lg text-xs text-gray-600 h-40 resize-none focus:outline-none custom-scroll">📈 TIPS: Cara Membaca Akumulasi Bandar
+
+1. Perhatikan volume transaksi yang meledak tiba-tiba di harga support.
+2. Cek broker summary (broksum), apakah ada 1-2 broker yang memborong barang secara masif?
+3. Lihat Foreign Flow, apakah asing masuk terus menerus?
+
+Jika 3 hal di atas terpenuhi, potensi harga naik sangat besar!
+
+Mau tools yang bisa deteksi ini otomatis?
+Gunakan Bandarmology: https://bandarmology.net/?ref=reza88</textarea>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

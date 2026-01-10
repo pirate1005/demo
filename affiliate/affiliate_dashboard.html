@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Dashboard - Bandarmology.net</title>
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        logo: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> </head>
+
+<body class="bg-gray-50 font-sans text-gray-800" x-data="{ sidebarOpen: false }">
+
+    <div class="flex h-screen overflow-hidden">
+
+        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
+            
+            <div class="flex items-center justify-center h-20 border-b border-gray-700 bg-brand-dark/50 flex-shrink-0">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <img src="../assets/img/logo.png" alt="Logo" class="h-8 w-auto object-contain brightness-0 invert">
+                    <span class="text-xl font-bold font-logo text-white">Bandar<span class="text-brand-green">mo</span>logy.net</span>
+                </a>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <div class="bg-brand-green/10 rounded-xl p-4 mb-6 border border-brand-green/20">
+                    <p class="text-xs text-brand-green font-bold uppercase tracking-wider mb-1">Status Partner</p>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 bg-brand-green rounded-full animate-pulse"></span>
+                        <span class="text-white font-bold text-sm">Active Affiliate</span>
+                    </div>
+                </div>
+
+                <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Main Menu</p>
+                
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-brand-green text-white rounded-xl font-medium shadow-lg shadow-green-900/20">
+                    <i class="fas fa-th-large w-5"></i> Dashboard
+                </a>
+
+                <a href="affiliate_network.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl transition">
+                    <i class="fas fa-network-wired w-5"></i> Network / Downline
+                </a>
+
+                <a href="affiliate_withdraw.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl transition">
+                    <i class="fas fa-wallet w-5"></i> Withdrawal Komisi
+                </a>
+
+                <a href="affiliate_marketing.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl transition">
+                    <i class="fas fa-bullhorn w-5"></i> Marketing Kit
+                </a>
+
+                <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 mt-6">Settings</p>
+                
+                <a href="affiliate_profile.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl transition">
+                    <i class="fas fa-user-circle w-5"></i> Profil & Rekening
+                </a>
+
+                <div class="pt-4 mt-4 border-t border-gray-700">
+                    <a href="login.html" class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition">
+                        <i class="fas fa-sign-out-alt w-5"></i> Logout
+                    </a>
+                </div>
+            </nav>
+
+            <div class="p-4 border-t border-gray-700 bg-brand-dark/50 flex-shrink-0">
+                <div class="flex items-center gap-3">
+                    <img src="https://randomuser.me/api/portraits/men/85.jpg" class="w-10 h-10 rounded-full border-2 border-brand-green">
+                    <div>
+                        <p class="text-sm font-bold text-white">Reza Mahendra</p>
+                        <p class="text-xs text-gray-400">ID: AFF-8821</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-40 lg:hidden" style="display: none;"></div>
+
+        <div class="flex-1 flex flex-col overflow-hidden relative">
+            
+            <header class="bg-white border-b border-gray-200 h-20 flex items-center justify-between px-6 lg:px-10">
+                <div class="flex items-center gap-4">
+                    <button @click="sidebarOpen = !sidebarOpen" class="lg:hidden text-gray-500 hover:text-brand-green">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <h1 class="text-xl font-bold text-gray-800">Affiliate Dashboard</h1>
+                </div>
+                
+                <div class="hidden md:flex items-center bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 gap-3" x-data="{ copied: false }">
+                    <span class="text-xs text-gray-500 font-medium">Link Referral:</span>
+                    <code class="text-sm font-bold text-brand-green">bandarmology.net/?ref=reza88</code>
+                    <button @click="navigator.clipboard.writeText('https://bandarmology.net/?ref=reza88'); copied=true; setTimeout(()=>copied=false, 2000)" 
+                            class="text-gray-400 hover:text-brand-green transition" 
+                            :class="copied ? 'text-green-500' : ''">
+                        <i class="fas" :class="copied ? 'fa-check' : 'fa-copy'"></i>
+                    </button>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 lg:p-10">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden group hover:border-brand-green transition-all">
+                        <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                            <i class="fas fa-wallet text-6xl text-brand-green"></i>
+                        </div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wide">Total Komisi (Unpaid)</p>
+                        <h3 class="text-2xl font-extrabold text-gray-900 mt-1">Rp 1.250.000</h3>
+                        <p class="text-xs text-green-500 font-bold mt-2 flex items-center gap-1">
+                            <i class="fas fa-arrow-up"></i> +15% bulan ini
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden group hover:border-blue-500 transition-all">
+                        <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                            <i class="fas fa-shopping-cart text-6xl text-blue-500"></i>
+                        </div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wide">Total Penjualan</p>
+                        <h3 class="text-2xl font-extrabold text-gray-900 mt-1">Rp 12.500.000</h3>
+                        <p class="text-xs text-blue-500 font-bold mt-2">5 Transaksi Sukses</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden group hover:border-purple-500 transition-all">
+                        <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                            <i class="fas fa-users text-6xl text-purple-500"></i>
+                        </div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wide">Total Network</p>
+                        <h3 class="text-2xl font-extrabold text-gray-900 mt-1">128 User</h3>
+                        <p class="text-xs text-gray-500 mt-2">Total yang daftar via link</p>
+                    </div>
+
+                    <div class="bg-brand-dark p-6 rounded-2xl shadow-lg border border-gray-800 text-white relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 w-24 h-24 bg-yellow-400 rounded-full blur-3xl opacity-20"></div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wide">Reward Poin</p>
+                        <h3 class="text-3xl font-extrabold text-yellow-400 mt-1">850 Pts</h3>
+                        <div class="mt-3">
+                            <div class="w-full bg-gray-700 rounded-full h-1.5 mb-1">
+                                <div class="bg-yellow-400 h-1.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <p class="text-[10px] text-gray-400">150 Poin lagi untuk Redeem Emas</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-bold text-gray-900">Statistik Klik & Konversi</h3>
+                            <select class="text-xs border border-gray-200 rounded-lg px-2 py-1 bg-gray-50 outline-none">
+                                <option>7 Hari Terakhir</option>
+                                <option>30 Hari Terakhir</option>
+                            </select>
+                        </div>
+                        <div class="h-64">
+                            <canvas id="affiliateChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-bold text-gray-900">Network Terbaru</h3>
+                            <a href="affiliate_network.html" class="text-xs text-brand-green font-bold hover:underline">Lihat Semua</a>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3 pb-3 border-b border-gray-50">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm">BS</div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-bold text-gray-900">Budi Santoso</p>
+                                    <p class="text-xs text-gray-500">Free Member</p>
+                                </div>
+                                <span class="text-[10px] text-gray-400">2 jam lalu</span>
+                            </div>
+
+                            <div class="flex items-center gap-3 pb-3 border-b border-gray-50">
+                                <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold text-sm">DA</div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-bold text-gray-900">Dina Ayu</p>
+                                    <p class="text-xs text-brand-green font-bold">PRO Member</p>
+                                </div>
+                                <span class="text-[10px] text-gray-400">1 hari lalu</span>
+                            </div>
+
+                            <div class="flex items-center gap-3 pb-3 border-b border-gray-50">
+                                <div class="w-10 h-10 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center font-bold text-sm">R</div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-bold text-gray-900">Rahmat</p>
+                                    <p class="text-xs text-gray-500">Free Member</p>
+                                </div>
+                                <span class="text-[10px] text-gray-400">2 hari lalu</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm">S</div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-bold text-gray-900">Sintya</p>
+                                    <p class="text-xs text-brand-green font-bold">Platinum</p>
+                                </div>
+                                <span class="text-[10px] text-gray-400">3 hari lalu</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <script>
+        const ctx = document.getElementById('affiliateChart').getContext('2d');
+        const affiliateChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'],
+                datasets: [
+                    {
+                        label: 'Klik Link',
+                        data: [120, 190, 150, 220, 180, 250, 310],
+                        borderColor: '#3B82F6', // Biru
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: 'Sales (Konversi)',
+                        data: [5, 12, 8, 15, 10, 20, 25],
+                        borderColor: '#27AE60', // Hijau Brand
+                        backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#f3f4f6'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

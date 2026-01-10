@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Affiliate - Bandarmology.net</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        logo: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="bg-white font-sans text-gray-800">
+
+    <div class="min-h-screen flex flex-col lg:flex-row">
+
+        <div class="hidden lg:flex w-5/12 bg-brand-dark relative flex-col justify-between overflow-hidden p-12 text-white">
+            
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            <div class="absolute top-[-10%] left-[-10%] w-80 h-80 bg-blue-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-pulse"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-80 h-80 bg-brand-green rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-pulse" style="animation-delay: 2s"></div>
+
+            <div class="relative z-10 flex flex-col h-full justify-center">
+                
+                <a href="index.html" class="absolute top-0 left-0 flex items-center gap-3 opacity-80 hover:opacity-100 transition">
+                    <img src="assets/img/logo.png" class="h-10 w-auto brightness-0 invert">
+                    <span class="text-2xl font-bold font-logo">Bandar<span class="text-brand-green">mo</span>logy.net</span>
+                </a>
+
+                <div class="mt-12">
+                    <div class="inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 mb-8 shadow-xl transform rotate-2 hover:rotate-0 transition duration-500">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-300 uppercase tracking-widest">Total Komisi Dibayarkan</p>
+                                <h3 class="text-2xl font-bold">Rp 1.250.000.000+</h3>
+                            </div>
+                        </div>
+                        <div class="h-1 w-full bg-white/20 rounded-full overflow-hidden">
+                            <div class="h-full bg-green-400 w-3/4"></div>
+                        </div>
+                        <p class="text-[10px] text-green-300 mt-2 text-right">Updated today</p>
+                    </div>
+
+                    <h2 class="text-4xl font-extrabold mb-4 leading-tight">
+                        Selamat Datang Kembali, Partner!
+                    </h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Pantau performa trafik, konversi penjualan, dan tarik komisi Anda di dashboard khusus affiliate.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="relative z-10 text-xs text-gray-500 text-center">
+                <a href="#" class="hover:text-white transition">Kebijakan Privasi</a> &bull; <a href="#" class="hover:text-white transition">Syarat Ketentuan</a>
+            </div>
+        </div>
+
+        <div class="w-full lg:w-7/12 bg-white flex flex-col justify-center relative overflow-y-auto">
+            
+            <div class="lg:hidden p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="assets/img/logo.png" class="h-8 w-auto">
+                    <span class="text-xl font-bold font-logo text-gray-900">Bandar<span class="text-brand-green">Mo</span>logy</span>
+                </a>
+                <a href="register_affiliate.html" class="text-sm font-bold text-brand-green">Daftar</a>
+            </div>
+
+            <div class="max-w-md w-full mx-auto px-6 py-12">
+                
+                <div class="text-center mb-10">
+                    <span class="bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-6 inline-block border border-blue-100">
+                        <i class="fas fa-handshake mr-1"></i> Affiliate Portal
+                    </span>
+                    
+                    <a href="index.html" class="block mb-6 hover:opacity-80 transition transform hover:scale-105 duration-300">
+                        <img src="assets/img/logo-new.png" alt="Logo" class="h-24 w-auto mx-auto object-contain drop-shadow-sm">
+                    </a>
+
+                    <h1 class="text-2xl font-extrabold text-gray-900 mb-2">Login Dashboard</h1>
+                    <p class="text-gray-500 text-sm">Masuk untuk mengelola link & komisi Anda.</p>
+                </div>
+
+                <form x-data="{ 
+                    isLoading: false, 
+                    showPass: false,
+                    submitLogin() {
+                        this.isLoading = true;
+                        // Simulasi Login
+                        setTimeout(() => {
+                            this.isLoading = false;
+                            
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true
+                            });
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Login Berhasil'
+                            }).then(() => {
+                                // Redirect ke Dashboard Affiliate
+                                window.location.href = 'affiliate/affiliate_dashboard.html'; 
+                            });
+                        }, 1500);
+                    }
+                }" @submit.prevent="submitLogin" class="space-y-5">
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Email Affiliate</label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400 group-focus-within:text-brand-green transition-colors"></i>
+                            </div>
+                            <input type="email" class="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition font-medium" placeholder="nama@email.com" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Password</label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400 group-focus-within:text-brand-green transition-colors"></i>
+                            </div>
+                            <input :type="showPass ? 'text' : 'password'" class="w-full pl-11 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition font-medium" placeholder="••••••••" required>
+                            
+                            <div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer text-gray-400 hover:text-gray-600" @click="showPass = !showPass">
+                                <i class="fas" :class="showPass ? 'fa-eye-slash' : 'fa-eye'"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center cursor-pointer select-none">
+                            <input type="checkbox" class="w-4 h-4 text-brand-green border-gray-300 rounded focus:ring-brand-green">
+                            <span class="ml-2 text-sm text-gray-600">Ingat Saya</span>
+                        </label>
+                        <a href="forgot-password.html" class="text-sm font-bold text-brand-green hover:text-green-700 transition hover:underline">Lupa Password?</a>
+                    </div>
+
+                    <button type="submit" :disabled="isLoading"
+                            class="w-full bg-brand-green text-white font-bold text-lg py-3.5 rounded-xl hover:bg-green-700 shadow-lg shadow-green-200 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                        <span x-show="!isLoading">Masuk Dashboard</span>
+                        <i x-show="!isLoading" class="fas fa-sign-in-alt"></i>
+                        
+                        <svg x-show="isLoading" class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </button>
+
+                </form>
+
+                <div class="mt-8 text-center text-sm text-gray-600">
+                    Belum jadi partner? 
+                    <a href="register_affiliate.html" class="font-bold text-brand-green hover:underline">Daftar Affiliate Sekarang</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

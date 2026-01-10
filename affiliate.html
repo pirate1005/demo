@@ -259,13 +259,163 @@
 
             <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="200">
                 <p class="text-gray-500 mb-6 italic">Jadilah Affiliator Kami, Dapatkan Penghasilan Tanpa Batas.</p>
-                <a href="#" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-brand-green rounded-full hover:bg-green-700 hover:shadow-lg hover:-translate-y-1 shadow-green-200">
+                <a href="register_affiliate.html" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-brand-green rounded-full hover:bg-green-700 hover:shadow-lg hover:-translate-y-1 shadow-green-200">
                     <i class="fas fa-user-plus mr-2"></i> Daftar Gratis
                 </a>
             </div>
 
         </div>
     </section>
+
+    <section class="bg-white py-24 relative overflow-hidden border-t border-gray-100" 
+         x-data="{ 
+            activeSlide: 0,
+            // DAFTAR SLIDE FITUR AFFILIATE
+            slides: [
+                {
+                    badge: 'Dashboard Utama',
+                    title: 'Pantau Performa Real-time',
+                    desc: 'Lihat statistik klik, jumlah pendaftar, hingga total komisi yang belum dibayarkan dalam satu tampilan ringkas. Grafik performa harian membantu Anda menganalisa trafik dengan cepat.',
+                    image: 'assets/img/affiliate/1.png'
+                },
+                {
+                    badge: 'Network & Downline',
+                    title: 'Transparansi Data Downline',
+                    desc: 'Cek siapa saja yang mendaftar lewat link Anda. Filter berdasarkan status keanggotaan (Free/Premium) dan lihat potensi komisi recurring yang Anda dapatkan dari setiap member.',
+                    image: 'assets/img/affiliate/2.png'
+                },
+                {
+                    badge: 'Withdrawal Komisi',
+                    title: 'Pencairan Dana Mudah',
+                    desc: 'Tarik komisi Anda kapan saja dengan minimal saldo rendah. Pantau status pembayaran (Pending/Success) dan riwayat transaksi penarikan secara transparan dan akurat.',
+                    image: 'assets/img/affiliate/3.png'
+                },
+                {
+                    badge: 'Link Generator',
+                    title: 'Custom Link Afiliasi',
+                    desc: 'Buat link affiliate unik yang mengarah ke halaman spesifik (misal: Halaman Checkout, Artikel Edukasi, atau Event Webinar). Lacak efektivitas setiap link yang Anda sebar.',
+                    image: 'assets/img/affiliate/4.png'
+                },
+                {
+                    badge: 'Creative Assets',
+                    title: 'Banner Promosi Siap Pakai',
+                    desc: 'Tidak perlu jago desain. Kami sediakan ratusan banner profesional untuk Instagram Feed, Story, WhatsApp Status, dan Facebook Ads. Tinggal download dan posting.',
+                    image: 'assets/img/affiliate/5.png'
+                },
+                {
+                    badge: 'Video Content',
+                    title: 'Video Viral Reels & TikTok',
+                    desc: 'Gunakan konten video pendek yang engaging untuk menarik trafik organik. Video siap upload tanpa watermark, sudah dioptimasi untuk konversi tinggi.',
+                    image: 'assets/img/affiliate/6.png'
+                },
+                {
+                    badge: 'Copywriting',
+                    title: 'Naskah Promosi \'Mematikan\'',
+                    desc: 'Bingung mau nulis caption apa? Tinggal copy-paste script yang sudah teruji (Soft selling, Hard selling, Edukasi) untuk Broadcast WA, Email, dan Caption Sosmed.',
+                    image: 'assets/img/affiliate/7.png'
+                },
+                {
+                    badge: 'Profil & Rekening',
+                    title: 'Kelola Profil & Rekening',
+                    desc: 'Atur data diri dan nomor rekening bank untuk tujuan pencairan komisi. Keamanan akun terjamin dengan fitur ganti password dan verifikasi data.',
+                    image: 'assets/img/affiliate/8.png'
+                }
+            ],
+            nextSlide() {
+                this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+            },
+            prevSlide() {
+                this.activeSlide = (this.activeSlide === 0) ? this.slides.length - 1 : this.activeSlide - 1;
+            },
+            autoPlay() {
+                setInterval(() => { this.nextSlide() }, 5000); // Ganti slide tiap 5 detik
+            }
+         }" 
+         x-init="autoPlay()"
+         data-aos="fade-up">
+
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex flex-col lg:flex-row items-center gap-16 min-h-[600px]">
+            
+            <div class="lg:w-1/2 relative z-10">
+                
+                <template x-for="(slide, index) in slides" :key="index">
+                    <div x-show="activeSlide === index" 
+                         x-transition:enter="transition ease-out duration-500"
+                         x-transition:enter-start="opacity-0 translate-x-[-20px]"
+                         x-transition:enter-end="opacity-100 translate-x-0"
+                         x-transition:leave="transition ease-in duration-300 absolute top-0 left-0 w-full"
+                         x-transition:leave-start="opacity-100 translate-x-0"
+                         x-transition:leave-end="opacity-0 translate-x-[20px]">
+                        
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-green-50 rounded-full border border-green-100 w-fit mb-6">
+                            <i class="fas fa-check-circle text-brand-green text-sm"></i>
+                            <span class="text-gray-700 text-sm font-bold tracking-wide" x-text="slide.badge"></span>
+                        </div>
+
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-[1.15] mb-6" x-text="slide.title"></h2>
+                        
+                        <p class="text-lg text-gray-500 leading-relaxed mb-8" x-text="slide.desc"></p>
+
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                            <a href="register_affiliate.html" class="inline-block bg-brand-green hover:bg-green-700 text-white font-bold text-lg px-8 py-3 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-1">
+                                Gabung Affiliate
+                            </a>
+                            
+                            <div class="flex gap-2">
+                                <button @click="prevSlide()" class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-brand-green hover:text-brand-green hover:bg-green-50 transition">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button @click="nextSlide()" class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-brand-green hover:text-brand-green hover:bg-green-50 transition">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 text-sm text-gray-400 font-mono">
+                            Fitur <span x-text="index + 1"></span> dari <span x-text="slides.length"></span>
+                        </div>
+
+                    </div>
+                </template>
+
+            </div>
+
+            <div class="lg:w-1/2 relative w-full flex justify-center items-center">
+                
+                <div class="absolute inset-0 bg-green-100/50 blur-3xl opacity-60 rounded-full transform scale-90 translate-y-10 z-0"></div>
+
+                <div class="relative z-10 w-full aspect-[16/10] bg-white rounded-xl shadow-2xl border border-gray-200 p-2 transform rotate-1 hover:rotate-0 transition duration-500">
+                    <template x-for="(slide, index) in slides" :key="index">
+                        <img :src="slide.image" 
+                             x-show="activeSlide === index"
+                             x-transition:enter="transition ease-out duration-700 delay-100"
+                             x-transition:enter-start="opacity-0 translate-y-10 scale-95"
+                             x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                             x-transition:leave="transition ease-in duration-300 absolute inset-0"
+                             x-transition:leave-start="opacity-100 scale-100"
+                             x-transition:leave-end="opacity-0 scale-95"
+                             class="w-full h-full object-cover object-top rounded-lg border border-gray-100 bg-gray-50"
+                             alt="Screenshot Fitur">
+                    </template>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="flex justify-center gap-2 mt-12 flex-wrap">
+            <template x-for="(slide, index) in slides" :key="index">
+                <button @click="activeSlide = index" 
+                        class="h-2 rounded-full transition-all duration-300"
+                        :class="activeSlide === index ? 'w-8 bg-brand-green' : 'w-2 bg-gray-300 hover:bg-gray-400'">
+                </button>
+            </template>
+        </div>
+
+    </div>
+</section>
 
     <footer class="bg-brand-dark text-white pt-20 pb-10 font-sans border-t-4 border-green-800">
         <div class="max-w-7xl mx-auto px-6">
