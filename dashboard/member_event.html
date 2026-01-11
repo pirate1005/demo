@@ -34,14 +34,15 @@
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
         .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
         .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
         .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
-        
-        .leaflet-control-zoom { display: none; } /* Sembunyikan kontrol zoom agar rapi */
+        .leaflet-control-zoom { display: none; }
     </style>
 </head>
 
@@ -51,7 +52,6 @@
 
         <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
             class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-dark text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl">
-            
             <div class="flex items-center justify-center h-20 border-b border-gray-700 bg-brand-dark/50">
                 <a href="index.html" class="flex items-center gap-2 group">
                     <img src="../assets/img/logo.png" alt="Logo" class="h-8 w-auto object-contain brightness-0 invert">
@@ -60,69 +60,27 @@
                     </span>
                 </a>
             </div>
-
             <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto custom-scroll">
                 <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Main Menu</p>
-
-                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-th-large w-5"></i> Dashboard
-                </a>
-
-                <a href="affiliate.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-users w-5"></i> Affiliate Area
-                </a>
-
-                <a href="withdraw.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-wallet w-5"></i> Withdrawal
-                </a>
-
-                <a href="member_event.html" class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20">
-                    <i class="fas fa-ticket-alt w-5"></i> Tiket & Event
-                </a>
-
-                <a href="analysis.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-chart-line w-5"></i> Analysis Tools
-                </a>
-
-                <a href="purchase.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-shopping-cart w-5"></i> Purchase Order
-                </a>
-
-                <a href="testimonial.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-comment-dots w-5"></i> Testimonial
-                </a>
-
-                <a href="download.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-download w-5"></i> Download Area
-                </a>
-
-                <a href="statistic.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-chart-pie w-5"></i> Statistic
-                </a>
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-th-large w-5"></i> Dashboard</a>
+                <a href="affiliate.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-users w-5"></i> Affiliate Area</a>
+                <a href="withdraw.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-wallet w-5"></i> Withdrawal</a>
                 
-                <a href="content.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-newspaper w-5"></i> Content
-                </a>
+                <a href="member_event.html" class="flex items-center gap-3 px-4 py-3 bg-brand-green rounded-xl text-white font-medium shadow-lg shadow-green-900/20"><i class="fas fa-ticket-alt w-5"></i> Tiket & Event</a>
 
-                <a href="broadcast.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-bullhorn w-5"></i> Broadcast
-                </a>
+                <a href="analysis.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-chart-line w-5"></i> Analysis Tools</a>
+                <a href="purchase.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-shopping-cart w-5"></i> Purchase Order</a>
+                <a href="testimonial.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-comment-dots w-5"></i> Testimonial</a>
+                <a href="download.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-download w-5"></i> Download Area</a>
+                <a href="statistic.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-chart-pie w-5"></i> Statistic</a>
+                <a href="content.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-newspaper w-5"></i> Content</a>
+                <a href="broadcast.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-bullhorn w-5"></i> Broadcast</a>
                 
                 <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 mt-6">Akun</p>
-
-                <a href="bank.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-university w-5"></i> Bank Account
-                </a>
-
-                <a href="settings.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition">
-                    <i class="fas fa-user-cog w-5"></i> Pengaturan
-                </a>
-                
-                <a href="../login.html" class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition">
-                    <i class="fas fa-sign-out-alt w-5"></i> Logout
-                </a>
+                <a href="bank.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-university w-5"></i> Bank Account</a>
+                <a href="settings.html" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white rounded-xl transition"><i class="fas fa-user-cog w-5"></i> Pengaturan</a>
+                <a href="../login.html" class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition"><i class="fas fa-sign-out-alt w-5"></i> Logout</a>
             </nav>
-            
             <div class="p-4 border-t border-gray-700 bg-brand-dark/50">
                 <div class="flex items-center gap-3">
                     <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-brand-green">
@@ -154,7 +112,6 @@
 
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 lg:p-10 space-y-10"
                   x-data="{
-                      // Data Tiket Saya (Dummy)
                       myTickets: [
                           {
                               id: 'BM-2026-JKT-001',
@@ -163,28 +120,48 @@
                               date: 'Minggu, 15 Feb 2026',
                               time: '09:00 - 16:00 WIB',
                               status: 'paid',
-                              lat: -6.2146, // Koordinat Hotel Mulia
+                              lat: -6.2146,
                               lng: 106.8451
                           }
                       ],
+                      upcomingEvents: [
+                          { id: 2, title: 'Workshop Smart Money', location: 'Surabaya - JW Marriott', date: '22 Feb 2026', price: 'Rp 150.000', status: 'open' },
+                          { id: 3, title: 'BandarMology 101', location: 'Medan - Aryaduta', date: '01 Mar 2026', price: 'Rp 150.000', status: 'sold_out' }
+                      ],
+                      
                       // Fungsi Init Map
                       initTicketMap(id, lat, lng) {
                           setTimeout(() => {
                               const mapId = 'ticket-map-' + id;
-                              const map = L.map(mapId, {
-                                  zoomControl: false,
-                                  dragging: false,
-                                  scrollWheelZoom: false,
-                                  doubleClickZoom: false,
-                                  touchZoom: false
-                              }).setView([lat, lng], 15);
+                              if (document.getElementById(mapId)) { // Cek elemen ada
+                                  const map = L.map(mapId, {
+                                      zoomControl: false,
+                                      dragging: false,
+                                      scrollWheelZoom: false,
+                                      doubleClickZoom: false,
+                                      touchZoom: false
+                                  }).setView([lat, lng], 15);
+                                  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '' }).addTo(map);
+                                  L.marker([lat, lng]).addTo(map);
+                              }
+                          }, 500);
+                      },
 
-                              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '' }).addTo(map);
-                              
-                              // Marker Merah
-                              const marker = L.marker([lat, lng]).addTo(map);
-                              marker.bindPopup('<b>Lokasi Event</b><br>Klik tombol Arah untuk navigasi.').openPopup();
-                          }, 300);
+                      // Fungsi Download Tiket PDF
+                      downloadTicket(ticketId) {
+                          const element = document.getElementById('ticket-card-' + ticketId);
+                          
+                          // Opsi PDF (agar rapi dan tidak terpotong)
+                          const opt = {
+                              margin:       10,
+                              filename:     'Tiket-Event-' + ticketId + '.pdf',
+                              image:        { type: 'jpeg', quality: 0.98 },
+                              html2canvas:  { scale: 2, useCORS: true }, // scale 2 agar HD
+                              jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' }
+                          };
+
+                          // Jalankan Download
+                          html2pdf().set(opt).from(element).save();
                       }
                   }"
                   x-init="$nextTick(() => { myTickets.forEach(t => initTicketMap(t.id, t.lat, t.lng)) })"
@@ -204,27 +181,23 @@
                     <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
                         
                         <template x-for="ticket in myTickets" :key="ticket.id">
-                            <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden flex flex-col md:flex-row">
+                            <div :id="'ticket-card-' + ticket.id" class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden flex flex-col md:flex-row">
                                 
                                 <div class="flex-1 flex flex-col relative">
-                                    
                                     <div class="p-6 md:p-8 flex-1">
                                         <div class="flex justify-between items-start mb-4">
-                                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Lunas / Paid</span>
+                                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-green-200">Lunas / Paid</span>
                                             <p class="text-xs text-gray-400 font-mono">ID: <span class="text-gray-800 font-bold" x-text="ticket.id"></span></p>
                                         </div>
-                                        
                                         <h3 class="text-2xl font-bold text-gray-900 mb-2" x-text="ticket.title"></h3>
-                                        
                                         <div class="space-y-2 text-sm text-gray-600 mb-6">
                                             <p class="flex items-center gap-2"><i class="far fa-calendar-alt text-brand-green w-5"></i> <span x-text="ticket.date"></span></p>
                                             <p class="flex items-center gap-2"><i class="far fa-clock text-brand-green w-5"></i> <span x-text="ticket.time"></span></p>
                                             <p class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-brand-green w-5"></i> <span x-text="ticket.location"></span></p>
                                         </div>
-
-                                        <div class="rounded-xl overflow-hidden border border-gray-200 relative h-40 group">
+                                        
+                                        <div class="rounded-xl overflow-hidden border border-gray-200 relative h-40 group" data-html2canvas-ignore="true">
                                             <div :id="'ticket-map-' + ticket.id" class="h-full w-full z-0"></div>
-                                            
                                             <div class="absolute bottom-3 right-3 z-10">
                                                 <a :href="'https://www.google.com/maps/dir/?api=1&destination=' + ticket.lat + ',' + ticket.lng" 
                                                    target="_blank"
@@ -235,11 +208,9 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="w-full md:w-48 bg-gray-50 p-6 flex flex-col items-center justify-center text-center border-t md:border-t-0 md:border-l border-dashed border-gray-300 relative">
-                                    
                                     <div class="absolute left-[-10px] top-[-10px] w-5 h-5 bg-white rounded-full hidden md:block border-b border-r border-gray-200"></div>
                                     <div class="absolute left-[-10px] bottom-[-10px] w-5 h-5 bg-white rounded-full hidden md:block border-t border-r border-gray-200"></div>
 
@@ -248,8 +219,9 @@
                                     </div>
                                     <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-4">Scan Check-In</p>
                                     
-                                    <button class="text-xs bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded-lg w-full transition flex items-center justify-center gap-2">
-                                        <i class="fas fa-file-pdf text-red-500"></i> Download
+                                    <button @click="downloadTicket(ticket.id)" 
+                                            class="text-xs bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded-lg w-full transition flex items-center justify-center gap-2"
+                                            data-html2canvas-ignore="true"> <i class="fas fa-file-pdf text-red-500"></i> Download
                                     </button>
                                 </div>
 
@@ -281,38 +253,16 @@
                         </a>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" x-data="{
-                        upcomingEvents: [
-                            {
-                                id: 2,
-                                title: 'Workshop Smart Money',
-                                location: 'Surabaya - JW Marriott',
-                                date: '22 Feb 2026',
-                                price: 'Rp 150.000',
-                                status: 'open'
-                            },
-                            {
-                                id: 3,
-                                title: 'BandarMology 101',
-                                location: 'Medan - Aryaduta',
-                                date: '01 Mar 2026',
-                                price: 'Rp 150.000',
-                                status: 'sold_out'
-                            }
-                        ]
-                    }">
-                        
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <template x-for="event in upcomingEvents">
                             <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition group flex flex-col h-full">
                                 <div class="h-32 bg-gray-800 relative overflow-hidden">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
                                     <img src="https://via.placeholder.com/400x200/0f0535/ffffff?text=Event+Banner" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-60">
-                                    
                                     <div class="absolute bottom-3 left-4 right-4 z-20 text-white">
                                         <h4 class="font-bold text-lg leading-tight" x-text="event.title"></h4>
                                         <p class="text-xs text-gray-300 mt-1"><i class="fas fa-map-marker-alt mr-1"></i> <span x-text="event.location"></span></p>
                                     </div>
-
                                     <div x-show="event.status === 'sold_out'" class="absolute inset-0 bg-black/60 z-30 flex items-center justify-center">
                                         <span class="text-white font-bold border-2 border-white px-3 py-1 rounded -rotate-12 uppercase text-sm">Sold Out</span>
                                     </div>
@@ -326,7 +276,6 @@
                                         </div>
                                         <span class="font-bold text-gray-900" x-text="event.price"></span>
                                     </div>
-
                                     <div class="mt-auto">
                                         <a href="../checkout-event.html" 
                                            target="_blank"
@@ -340,7 +289,6 @@
                                 </div>
                             </div>
                         </template>
-
                     </div>
                 </div>
 
