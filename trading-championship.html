@@ -241,67 +241,181 @@
         <div class="max-w-3xl mx-auto px-6">
             
             <div class="text-center mb-10" data-aos="fade-up">
-                <h2 class="text-3xl font-extrabold text-gray-900">Formulir Pendaftaran</h2>
-                <p class="text-gray-500 mt-2">Pastikan Username Stockbit Anda benar untuk proses verifikasi.</p>
+                <h2 class="text-3xl font-extrabold text-gray-900">Area Peserta</h2>
+                <p class="text-gray-500 mt-2">Daftar baru atau update progress mingguan Anda di sini.</p>
             </div>
 
-            <div class="bg-white rounded-[2rem] shadow-xl border border-gray-100 p-8 md:p-12" data-aos="fade-up" data-aos-delay="100">
-                <form action="#" method="POST" class="space-y-6">
+            <div class="bg-white rounded-[2rem] shadow-xl border border-gray-100 p-8 md:p-12 overflow-hidden" 
+                 data-aos="fade-up" 
+                 data-aos-delay="100"
+                 x-data="{ 
+                     mode: 'register', // 'register' atau 'report'
+                     stockbitID: '',
+                     isChecking: false,
+                     userFound: null, // null, true, atau false
+                     
+                     // Simulasi Cek ID di Database
+                     checkID() {
+                         if(this.stockbitID.length < 3) return;
+                         this.isChecking = true;
+                         this.userFound = null;
+                         
+                         // Simulasi delay server
+                         setTimeout(() => {
+                             this.isChecking = false;
+                             // Anggap ID 'traderpro' sudah terdaftar
+                             if(this.stockbitID.toLowerCase() === 'traderpro') {
+                                 this.userFound = true; // User Ditemukan
+                             } else {
+                                 this.userFound = false; // User Baru
+                             }
+                         }, 1000);
+                     },
+                     
+                     previewImage: null,
+                     handleFileUpload(event) {
+                         const file = event.target.files[0];
+                         if (file) {
+                             this.previewImage = URL.createObjectURL(file);
+                         }
+                     }
+                 }">
+
+                <div class="flex p-1 bg-gray-100 rounded-xl mb-8">
+                    <button @click="mode = 'register'; userFound = null; stockbitID = ''" 
+                            class="flex-1 py-3 rounded-lg text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2"
+                            :class="mode === 'register' ? 'bg-white text-brand-green shadow-sm' : 'text-gray-500 hover:text-gray-700'">
+                        <i class="fas fa-user-plus"></i> Daftar Baru
+                    </button>
+                    <button @click="mode = 'report'; userFound = null; stockbitID = ''" 
+                            class="flex-1 py-3 rounded-lg text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2"
+                            :class="mode === 'report' ? 'bg-white text-brand-green shadow-sm' : 'text-gray-500 hover:text-gray-700'">
+                        <i class="fas fa-chart-line"></i> Lapor Progress
+                    </button>
+                </div>
+
+                <form x-show="mode === 'register'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" class="space-y-6">
                     
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 flex gap-3 items-start mb-6">
+                        <i class="fas fa-info-circle text-blue-500 mt-1"></i>
+                        <p class="text-sm text-blue-700">Gunakan form ini jika Anda <strong>belum pernah</strong> mendaftar sebelumnya.</p>
+                    </div>
+
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-2">Nama Lengkap</label>
                         <div class="relative">
                             <i class="fas fa-user absolute left-4 top-4 text-gray-400"></i>
-                            <input type="text" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="Masukkan nama sesuai KTP" required>
+                            <input type="text" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" placeholder="Sesuai KTP" required>
                         </div>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Alamat Email</label>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Email</label>
                             <div class="relative">
                                 <i class="fas fa-envelope absolute left-4 top-4 text-gray-400"></i>
-                                <input type="email" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="email@anda.com" required>
+                                <input type="email" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green outline-none" placeholder="email@anda.com" required>
                             </div>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Nomor WhatsApp</label>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">WhatsApp</label>
                             <div class="relative">
                                 <i class="fab fa-whatsapp absolute left-4 top-4 text-gray-400"></i>
-                                <input type="number" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="08123xxx" required>
+                                <input type="number" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green outline-none" placeholder="0812xxx" required>
                             </div>
                         </div>
                     </div>
 
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Kota Domisili</label>
-                        <div class="relative">
-                            <i class="fas fa-map-marker-alt absolute left-4 top-4 text-gray-400"></i>
-                            <input type="text" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition" placeholder="Contoh: Jakarta Selatan" required>
-                        </div>
-                    </div>
-
-                    <div class="bg-yellow-50 p-6 rounded-xl border border-yellow-200">
-                        <label class="block text-sm font-bold text-gray-800 mb-2">Username Stockbit</label>
-                        <p class="text-xs text-gray-500 mb-3">Pastikan akun sudah diset ke Virtual Trading 100 Juta.</p>
+                    <div class="bg-yellow-50 p-6 rounded-xl border border-yellow-200 relative">
+                        <label class="block text-sm font-bold text-gray-800 mb-2">Username Stockbit (ID Unik)</label>
                         <div class="relative">
                             <i class="fas fa-at absolute left-4 top-4 text-yellow-600"></i>
-                            <input type="text" class="w-full pl-12 pr-4 py-3 bg-white border border-yellow-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition" placeholder="username_stockbit_anda" required>
+                            <input type="text" class="w-full pl-12 pr-4 py-3 bg-white border border-yellow-300 rounded-xl focus:ring-2 focus:ring-yellow-500 outline-none font-bold" placeholder="username_stockbit" required>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">*Username ini akan menjadi ID unik Anda selama kompetisi.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Upload Bukti Saldo Awal (Rp 100 Juta)</label>
+                        <input type="file" class="w-full p-3 border border-gray-200 rounded-xl text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-green file:text-white hover:file:bg-green-700 transition" required>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-green text-white font-bold text-lg py-4 rounded-xl hover:bg-green-700 hover:shadow-lg transition-all shadow-green-200 flex items-center justify-center gap-2">
+                        <span>Daftar Sekarang</span> <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <form x-show="mode === 'report'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-x-10" x-transition:enter-end="opacity-100 transform translate-x-0" class="space-y-6" style="display: none;">
+                    
+                    <div class="bg-purple-50 p-4 rounded-xl border border-purple-100 flex gap-3 items-start mb-6">
+                        <i class="fas fa-sync-alt text-purple-500 mt-1"></i>
+                        <p class="text-sm text-purple-700">Masukkan Username Stockbit untuk melaporkan progress mingguan.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Username Stockbit Anda</label>
+                        <div class="relative">
+                            <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
+                            <input type="text" x-model="stockbitID" @keyup.debounce.500ms="checkID()" class="w-full pl-12 pr-4 py-3 bg-white border-2 rounded-xl outline-none font-bold text-lg transition"
+                                   :class="userFound === true ? 'border-green-500 ring-2 ring-green-100 text-green-700' : (userFound === false ? 'border-red-300 text-red-600' : 'border-gray-200 focus:border-purple-500')"
+                                   placeholder="Ketik username...">
+                            
+                            <div x-show="isChecking" class="absolute right-4 top-3.5">
+                                <i class="fas fa-spinner fa-spin text-gray-400"></i>
+                            </div>
+                        </div>
+
+                        <div x-show="userFound === true" class="mt-2 text-sm text-green-600 font-bold flex items-center gap-2 animate-pulse">
+                            <i class="fas fa-check-circle"></i> Data Ditemukan: Budi Santoso (Rank #45)
+                        </div>
+                        
+                        <div x-show="userFound === false" class="mt-2 text-sm text-red-500 font-medium flex items-center gap-2">
+                            <i class="fas fa-times-circle"></i> Username tidak terdaftar. Silakan daftar baru.
                         </div>
                     </div>
 
-                    <div class="flex items-start gap-3 mt-4">
-                        <input type="checkbox" id="agree" class="mt-1 w-4 h-4 text-brand-green border-gray-300 rounded focus:ring-brand-green cursor-pointer" required>
-                        <label for="agree" class="text-sm text-gray-600 cursor-pointer select-none">
-                            Saya setuju untuk mengikuti aturan kompetisi yang berlaku dan data yang saya berikan adalah benar.
-                        </label>
+                    <div x-show="userFound === true" x-transition:enter="transition ease-out duration-500" class="space-y-6 pt-4 border-t border-gray-100">
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Laporan Minggu Ke-</label>
+                                <select class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none">
+                                    <option>Minggu 1</option>
+                                    <option>Minggu 2</option>
+                                    <option>Minggu 3</option>
+                                    <option>Final</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Total Equity Saat Ini</label>
+                                <div class="relative">
+                                    <span class="absolute left-4 top-3.5 text-gray-500 font-bold">Rp</span>
+                                    <input type="number" class="w-full pl-12 pr-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none font-bold text-gray-800" placeholder="Contoh: 125000000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Upload Screenshot Portofolio</label>
+                            <div class="relative w-full h-40 border-2 border-dashed border-purple-300 rounded-xl flex flex-col items-center justify-center bg-purple-50 cursor-pointer hover:bg-purple-100 transition group overflow-hidden">
+                                <input type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-20" @change="handleFileUpload">
+                                
+                                <div class="text-center" x-show="!previewImage">
+                                    <i class="fas fa-cloud-upload-alt text-3xl text-purple-400 group-hover:scale-110 transition mb-2"></i>
+                                    <p class="text-xs text-purple-600 font-bold">Klik untuk upload bukti terbaru</p>
+                                    <p class="text-[10px] text-gray-400 mt-1">JPG/PNG Max 2MB</p>
+                                </div>
+                                <img :src="previewImage" x-show="previewImage" class="absolute inset-0 w-full h-full object-cover z-10" style="display: none;">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-purple-600 text-white font-bold text-lg py-4 rounded-xl hover:bg-purple-700 hover:shadow-lg transition-all shadow-purple-200 flex items-center justify-center gap-2">
+                            <i class="fas fa-save"></i> <span>Update Progress Saya</span>
+                        </button>
                     </div>
 
-                    <button type="submit" class="w-full bg-brand-green text-white font-bold text-lg py-4 rounded-xl hover:bg-green-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 shadow-green-200 flex items-center justify-center gap-2 mt-6">
-                        <span>Submit Pendaftaran</span> <i class="fas fa-paper-plane"></i>
-                    </button>
-
                 </form>
+
             </div>
 
         </div>
