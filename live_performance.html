@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Performance - Bandarmology</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#27AE60',
+                            dark: '#0f0535',
+                            bg: '#F9FAFB',
+                            orange: '#FF4500',
+                            red: '#E74C3C',
+                            purple: '#9B59B6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        logo: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-brand-bg text-gray-800 relative font-sans" x-data="publicPerformanceApp">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-100" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between gap-4">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition group flex-shrink-0">
+                    <img src="assets/img/logo.png" alt="Logo" class="h-10 w-auto object-contain">
+                    <span class="text-2xl md:text-3xl font-semibold tracking-tight font-logo text-gray-900" style="letter-spacing: -0.05em;">
+                        Bandar<span class="text-brand-green font-normal">mo</span>logy.net
+                    </span>
+                </a>
+
+                <div class="hidden xl:flex items-center space-x-5 font-medium text-gray-600 text-sm">
+                    <a href="growth.html" class="hover:text-brand-green transition whitespace-nowrap">Growth Academy</a>
+                    <a href="price.html" class="hover:text-brand-green transition whitespace-nowrap">Price</a>
+                    <a href="affiliate.html" class="hover:text-brand-green transition whitespace-nowrap">Affiliate</a>
+                    <a href="cek-akurasi.html" class="hover:text-brand-green transition whitespace-nowrap">Cek Akurasi</a>
+                    <a href="stock-pick.html" class="hover:text-brand-green transition whitespace-nowrap">Stock Pick</a>
+                    <a href="trading-championship.html" class="hover:text-brand-green transition whitespace-nowrap">Championship</a>
+                    <a href="events.html" class="hover:text-brand-green transition whitespace-nowrap">Events</a>
+                    <a href="live_performance.html" class="text-brand-green font-bold transition whitespace-nowrap">Live Performance</a>
+                </div>
+
+                <div class="flex items-center gap-4 flex-shrink-0">
+                    <div class="hidden xl:flex items-center gap-4">
+                        <a href="login.html" class="font-semibold text-gray-700 hover:text-brand-green transition text-sm">Masuk</a>
+                        <a href="order_free.html" class="bg-brand-green text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-700 transition shadow-lg hover:shadow-green-200 text-sm whitespace-nowrap">Free Trial</a>
+                    </div>
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="xl:hidden text-gray-600 hover:text-brand-green focus:outline-none">
+                        <i class="fas fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
+                        <i class="fas fa-times text-2xl" x-show="mobileMenuOpen" style="display: none;"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div x-show="mobileMenuOpen" class="xl:hidden mt-4 pb-4 border-t border-gray-100 flex flex-col space-y-4 pt-4" style="display: none;">
+                <a href="growth.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Growth Academy</a>
+                <a href="price.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Price</a>
+                <a href="affiliate.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Affiliate</a>
+                <a href="cek-akurasi.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Cek Akurasi</a>
+                <a href="stock-pick.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Stock Pick</a>
+                <a href="trading-championship.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Championship</a>
+                <a href="events.html" class="text-gray-600 font-medium hover:text-brand-green px-2">Events</a>
+                <a href="live_performance.html" class="text-brand-green font-bold px-2">Live Performance</a>
+                <div class="border-t border-gray-100 pt-4 flex flex-col gap-3">
+                    <a href="login.html" class="text-center w-full py-2 text-gray-700 font-bold border border-gray-200 rounded-lg hover:bg-gray-50">Masuk</a>
+                    <a href="order_free.html" class="text-center w-full py-2 bg-brand-green text-white font-bold rounded-lg hover:bg-green-700 shadow-md">Free Trial</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-brand-dark text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-green rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-pulse"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10 text-center" data-aos="fade-up">
+            <span class="text-brand-green font-bold tracking-wider uppercase text-sm mb-3 block">Transparansi Data</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                Live Performance <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Swing Signal</span>
+            </h1>
+            <p class="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                Rekam jejak strategi Swing Trading kami selama 3 bulan terakhir (Completed Months). Transparan, Akurat, Realtime.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16 -mt-10 relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12" data-aos="fade-up">
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 text-center hover:transform hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-brand-purple text-3xl mx-auto mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <p class="text-gray-500 font-bold uppercase text-xs tracking-wider">Total Signal</p>
+                    <h3 class="text-4xl font-extrabold text-gray-900 mt-2" x-text="totalSignals">0</h3>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 text-center hover:transform hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center text-brand-green text-3xl mx-auto mb-4">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <p class="text-gray-500 font-bold uppercase text-xs tracking-wider">Win Rate</p>
+                    <h3 class="text-4xl font-extrabold text-brand-green mt-2">78.5%</h3>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 text-center hover:transform hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center text-yellow-600 text-3xl mx-auto mb-4">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <p class="text-gray-500 font-bold uppercase text-xs tracking-wider">Avg Cuan / Swing</p>
+                    <h3 class="text-4xl font-extrabold text-gray-900 mt-2">+12.5%</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 lg:col-span-2">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">Performa Bulanan (Win vs Loss)</h3>
+                    <div class="h-72 w-full">
+                        <canvas id="monthlyChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">Rasio Kemenangan</h3>
+                    <div class="h-64 flex justify-center">
+                        <canvas id="winRateChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                
+                <div class="flex overflow-x-auto bg-gray-50/50 border-b border-gray-100">
+                    <template x-for="(month, index) in monthsList" :key="index">
+                        <button @click="activeMonth = month.key; filterData()"
+                                class="px-8 py-5 text-sm font-bold transition whitespace-nowrap border-b-2 flex-1 text-center"
+                                :class="activeMonth === month.key ? 'border-brand-green text-brand-green bg-white shadow-sm' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-100'">
+                            <span x-text="month.label" class="uppercase tracking-wide"></span>
+                        </button>
+                    </template>
+                </div>
+
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h3 class="font-bold text-xl text-gray-900">History Signal (Swing Only)</h3>
+                            <p class="text-sm text-gray-500 mt-1">Menampilkan 3 bulan terakhir yang sudah selesai (Completed).</p>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-xl border border-gray-200">
+                        <table class="w-full text-left text-sm border-collapse">
+                            <thead class="bg-gray-50 text-gray-500 font-bold text-xs uppercase">
+                                <tr>
+                                    <th class="px-6 py-4 border-b border-gray-200">Saham</th>
+                                    <th class="px-6 py-4 border-b border-gray-200">Type</th>
+                                    <th class="px-6 py-4 border-b border-gray-200">Tgl Entry</th>
+                                    <th class="px-6 py-4 border-b border-gray-200 text-right">Avg Price</th>
+                                    <th class="px-6 py-4 border-b border-gray-200 text-right">Last Price</th>
+                                    <th class="px-6 py-4 border-b border-gray-200">Last Date</th>
+                                    <th class="px-6 py-4 border-b border-gray-200 text-center">Potensi Cuan</th>
+                                    <th class="px-6 py-4 border-b border-gray-200 text-center w-32">WIN/LOSS</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 bg-white">
+                                <template x-for="signal in filteredSignals" :key="signal.id">
+                                    <tr class="hover:bg-gray-50 transition duration-150">
+                                        <td class="px-6 py-4 border-r border-gray-100 font-bold text-gray-900 text-base" x-text="signal.code"></td>
+                                        
+                                        <td class="px-6 py-4 border-r border-gray-100">
+                                            <span class="text-[10px] font-bold px-2 py-0.5 rounded w-fit mt-1 bg-purple-100 text-purple-700"
+                                                  x-text="signal.type">
+                                            </span>
+                                        </td>
+                                        
+                                        <td class="px-6 py-4 text-gray-600 border-r border-gray-100" x-text="signal.entryDate"></td>
+                                        <td class="px-6 py-4 text-right font-mono text-gray-600 border-r border-gray-100" x-text="signal.avgPrice"></td>
+                                        <td class="px-6 py-4 text-right font-bold font-mono text-gray-900 border-r border-gray-100" x-text="signal.lastPrice"></td>
+                                        <td class="px-6 py-4 text-gray-600 border-r border-gray-100" x-text="signal.lastDate"></td>
+                                        
+                                        <td class="px-6 py-4 text-center border-r border-gray-100">
+                                            <span class="font-bold text-base block"
+                                                  :class="signal.pnl > 0 ? 'text-brand-green' : 'text-brand-red'"
+                                                  x-text="(signal.pnl > 0 ? '+' : '') + signal.pnl + '%'">
+                                            </span>
+                                        </td>
+                                        
+                                        <td class="px-6 py-4 text-center">
+                                            <div x-show="signal.status === 'WIN'" class="bg-green-100 text-green-700 px-3 py-1.5 rounded-lg font-bold text-xs inline-flex items-center gap-1">
+                                                <i class="fas fa-check"></i> WIN
+                                            </div>
+                                            <div x-show="signal.status === 'LOSS'" class="bg-red-100 text-red-700 px-3 py-1.5 rounded-lg font-bold text-xs inline-flex items-center gap-1">
+                                                <i class="fas fa-times"></i> LOSS
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </template>
+                                
+                                <tr x-show="filteredSignals.length === 0">
+                                    <td colspan="8" class="px-6 py-12 text-center text-gray-400 bg-gray-50">
+                                        <div class="flex flex-col items-center justify-center">
+                                            <i class="far fa-folder-open text-4xl mb-3 text-gray-300"></i>
+                                            <p>Belum ada data signal untuk periode ini.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            
+                            <tfoot class="bg-gray-50 font-bold border-t border-gray-200 text-gray-700">
+                                <tr>
+                                    <td colspan="6" class="px-6 py-4 text-right uppercase tracking-wider text-xs">Total Accumulation</td>
+                                    <td class="px-6 py-4 text-center text-brand-green text-lg" x-text="filteredSignals.reduce((acc, curr) => acc + curr.pnl, 0).toFixed(2) + '%'"></td>
+                                    <td class="px-6 py-4 text-center text-xs">
+                                        <span class="text-brand-green" x-text="filteredSignals.filter(s => s.status === 'WIN').length + ' WIN'"></span> / 
+                                        <span class="text-brand-red" x-text="filteredSignals.filter(s => s.status === 'LOSS').length + ' LOSS'"></span>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white pt-20 pb-10 font-sans border-t-4 border-green-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16">
+                <div class="md:col-span-4 pr-10">
+                    <a href="#" class="text-3xl font-bold flex items-center gap-1 mb-4 text-white hover:text-green-400 transition">
+                        <span class="text-4xl"><img src="assets/img/logo.png" alt="Logo Bandarology" class="h-10 w-auto object-contain"></span> Bandarmology.net
+                    </a>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Perumahan Saqinah Jl Pendidikan <br> Paya Bujok Seulemak <br> Kota Langsa - Aceh <br> Kontak Wa : 0853-7050-5430</p>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Perusahaan</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="about.html" class="hover:text-brand-green transition">Tentang Kami</a></li>
+                        <li><a href="career.html" class="hover:text-brand-green transition">Karir</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Komunitas</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="https://stockbit.com/PRIMA15?source=" target="_blank" class="hover:text-brand-green transition">Komunitas</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Legal</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="privacy.html" class="hover:text-brand-green transition">Privasi</a></li>
+                        <li><a href="terms.html" class="hover:text-brand-green transition">Syarat</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="font-bold text-white mb-6 text-base tracking-wide">Bantuan</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="faq.html" class="hover:text-brand-green transition">FAQ</a></li>
+                        <li><a href="contact-us.html" class="hover:text-brand-green transition">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-gray-700/50 pt-10 gap-6">
+                <div class="flex gap-4">
+                    <a href="#" class="bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-green transition transform hover:rotate-12"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-green transition transform hover:rotate-12"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand-green transition transform hover:rotate-12"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="mt-12 text-center text-gray-500 text-xs flex flex-col items-center gap-4">
+                <p>&copy; 2025 Bandarmoogy.net - Hak Cipta Dilindungi.</p>
+                <div class="flex flex-wrap justify-center gap-3 opacity-90">
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1200px-Bank_Central_Asia.svg.png" class="h-full w-auto object-contain"></div>
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/1200px-Bank_Mandiri_logo_2016.svg.png" class="h-full w-auto object-contain"></div>
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/BANK_BRI_logo.svg/1200px-BANK_BRI_logo.svg.png" class="h-full w-auto object-contain"></div>
+                    <div class="bg-white px-3 py-1 rounded-md h-8 flex items-center shadow-sm border border-gray-200"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_QRIS.svg/1200px-Logo_QRIS.svg.png" class="h-full w-auto object-contain"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-center group">
+        <a href="https://wa.me/6285370505430" target="_blank" class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+        <button id="backToTopBtn" class="hidden w-12 h-12 bg-brand-green rounded-full items-center justify-center text-white shadow-lg border-2 border-white hover:bg-green-800 hover:-translate-y-1 transition-all duration-300 animate-bounce-slow">
+            <i class="fas fa-arrow-up text-lg"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('publicPerformanceApp', () => ({
+                currentDate: new Date(), // Contoh: Jika ini dijalankan Jan 2026
+                monthsList: [],
+                activeMonth: '',
+                allSignals: [],
+                filteredSignals: [],
+                totalSignals: 0,
+                
+                init() {
+                    this.generateMonths();
+                    this.generateDummyData();
+                    
+                    // Default tab: Bulan ke-3 (Bulan Terlama, yaitu Oktober dalam kasus Jan 2026)
+                    // Atau bulan ke-0 (Bulan Terbaru, yaitu Desember)?
+                    // User request: "Okt NOV Des". Jadi kita urutkan dari kiri ke kanan (Okt, Nov, Des).
+                    // Tab aktif pertama adalah Des (Bulan terbaru yang Completed).
+                    if (this.monthsList.length > 0) {
+                        this.activeMonth = this.monthsList[2].key; // Bulan paling kanan (Desember)
+                    }
+                    
+                    this.filterData();
+                    
+                    this.$nextTick(() => {
+                        this.renderCharts();
+                        setTimeout(() => {
+                            AOS.init({ once: true, duration: 800 });
+                        }, 100);
+                    });
+                },
+
+                generateMonths() {
+                    // Logic: Mundur 3 bulan ke belakang dari bulan lalu.
+                    // Jika skrg Jan 2026 -> Start Month = Des 2025.
+                    // Loop: Okt, Nov, Des.
+                    
+                    let tempMonths = [];
+                    let baseDate = new Date(this.currentDate);
+                    baseDate.setMonth(baseDate.getMonth() - 1); // Mundur 1 bulan dari sekarang (Completed Month)
+
+                    // Kita butuh urutan Okt (index 2 mundur), Nov (1 mundur), Des (0 mundur)
+                    for (let i = 2; i >= 0; i--) {
+                        let d = new Date(baseDate);
+                        d.setMonth(d.getMonth() - i);
+                        
+                        let monthName = d.toLocaleDateString('id-ID', { month: 'long' });
+                        let year = d.getFullYear();
+                        let key = `${d.getMonth()}-${year}`; 
+                        
+                        tempMonths.push({ key: key, label: `${monthName} ${year}` });
+                    }
+                    // Hasil tempMonths = [Okt 2025, Nov 2025, Des 2025]
+                    this.monthsList = tempMonths;
+                },
+
+                generateDummyData() {
+                    let data = [];
+                    const tickers = ['BBCA', 'TLKM', 'ADRO', 'PTBA', 'BMRI', 'ASII', 'GOTO', 'UNTR', 'MDKA', 'ANTM'];
+                    
+                    this.monthsList.forEach(m => {
+                        let [mIndex, mYear] = m.key.split('-');
+                        let count = Math.floor(Math.random() * 5) + 10;
+                        
+                        for(let i=1; i<=count; i++) {
+                            let day = Math.floor(Math.random() * 25) + 1;
+                            let isWin = Math.random() > 0.3; 
+                            let pnl = isWin ? (Math.random() * 15 + 5).toFixed(2) : (Math.random() * -8 - 2).toFixed(2);
+                            
+                            data.push({
+                                id: Math.random().toString(36).substr(2, 6),
+                                monthKey: m.key,
+                                code: tickers[Math.floor(Math.random() * tickers.length)],
+                                type: 'Swing', // SEMUA SWING
+                                entryDate: `${day}/${parseInt(mIndex)+1}/${mYear}`,
+                                avgPrice: (Math.random() * 4000 + 500).toFixed(0),
+                                lastPrice: (Math.random() * 4000 + 500).toFixed(0),
+                                lastDate: `${day+Math.floor(Math.random()*10)+2}/${parseInt(mIndex)+1}/${mYear}`,
+                                pnl: parseFloat(pnl),
+                                status: isWin ? 'WIN' : 'LOSS'
+                            });
+                        }
+                    });
+                    this.allSignals = data;
+                    this.totalSignals = data.length;
+                },
+
+                filterData() {
+                    this.filteredSignals = this.allSignals.filter(s => s.monthKey === this.activeMonth);
+                },
+
+                renderCharts() {
+                    const chartMonth = document.getElementById('monthlyChart');
+                    const chartPie = document.getElementById('winRateChart');
+
+                    if(chartMonth) {
+                        new Chart(chartMonth.getContext('2d'), {
+                            type: 'bar',
+                            data: {
+                                labels: this.monthsList.map(m => m.label), // [Okt, Nov, Des]
+                                datasets: [
+                                    { label: 'Win', data: [15, 18, 20], backgroundColor: '#27AE60', borderRadius: 5 },
+                                    { label: 'Loss', data: [5, 4, 3], backgroundColor: '#E74C3C', borderRadius: 5 }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: { legend: { position: 'bottom' } },
+                                scales: { y: { beginAtZero: true, grid: { borderDash: [2, 2] } }, x: { grid: { display: false } } }
+                            }
+                        });
+                    }
+
+                    if(chartPie) {
+                        new Chart(chartPie.getContext('2d'), {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['Win', 'Loss'],
+                                datasets: [{
+                                    data: [78.5, 21.5],
+                                    backgroundColor: ['#27AE60', '#E74C3C'],
+                                    borderWidth: 0
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                cutout: '75%',
+                                plugins: { legend: { position: 'bottom' } }
+                            }
+                        });
+                    }
+                }
+            }))
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('hidden');
+                backToTopBtn.classList.add('flex');
+            } else {
+                backToTopBtn.classList.add('hidden');
+                backToTopBtn.classList.remove('flex');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+</body>
+</html>
